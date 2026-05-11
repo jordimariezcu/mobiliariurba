@@ -1,0 +1,84 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const productes = await reader.collections.productes.all();
+
+const categories = [...new Set(productes.map(p => p.entry.categoria))].sort();
+---
+
+<Layout title="Productes" description="Catàleg complet de mobiliari urbà: bancs, papereres, jardineres, aparcabicicletes i molt més.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Productes</h1>
+      <p>Catàleg complet de mobiliari urbà per a espais públics</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      {categories.length > 0 && (
+        <div class="filter-bar">
+          <a href="/productes" class="filter-btn active">Tots</a>
+          {categories.map(cat => (
+            <a href={`/productes?cat=${cat}`} class="filter-btn">{cat}</a>
+          ))}
+        </div>
+      )}
+
+      {productes.length > 0 ? (
+        <div class="grid-4">
+          {productes.map(p => (
+            <a href={`/productes/${p.slug}`} class="card">
+              {p.entry.imatge ? (
+                <div class="card-img">
+                  <img src={p.entry.imatge} alt={p.entry.nom} loading="lazy" />
+                </div>
+              ) : (
+                <div class="card-img"><div class="placeholder-img"></div></div>
+              )}
+              <div class="card-body">
+                <span class="badge">{p.entry.categoria}</span>
+                <h3>{p.entry.nom}</h3>
+                {p.entry.material && <p class="text-muted">{p.entry.material}</p>}
+                {p.entry.referencia && <p class="ref">Ref: {p.entry.referencia}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>Aviat trobareu aquí el nostre catàleg complet de productes.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header { background: var(--color-bg-alt); padding: 2.5rem 0; border-bottom: 1px solid var(--color-border); }
+  .page-header h1 { font-size: 2rem; font-weight: 700; }
+  .page-header p { color: var(--color-muted); margin-top: 0.375rem; }
+  .section { padding: 3rem 0; }
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .filter-btn {
+    padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.875rem; font-weight: 500;
+    border: 1px solid var(--color-border); transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+  .card { background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); transition: box-shadow 0.2s, transform 0.2s; }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-2px); }
+  .card-img { aspect-ratio: 4/3; overflow: hidden; background: var(--color-bg-alt); }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .placeholder-img { width: 100%; height: 100%; background: linear-gradient(135deg, #e5e7eb, #d1d5db); }
+  .card-body { padding: 1rem; }
+  .card-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; background: #dcfce7; color: var(--color-primary-dark); font-size: 0.7rem; font-weight: 600; text-transform: capitalize; margin-bottom: 0.375rem; }
+  .text-muted { color: var(--color-muted); font-size: 0.8rem; }
+  .ref { color: var(--color-muted); font-size: 0.75rem; margin-top: 0.25rem; }
+  .empty-state { text-align: center; padding: 4rem; color: var(--color-muted); font-size: 1.1rem; }
+</style>

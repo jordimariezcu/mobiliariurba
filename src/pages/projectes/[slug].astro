@@ -1,0 +1,75 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+export async function getStaticPaths() {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const slugs = await reader.collections.projectes.list();
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const { slug } = Astro.params;
+const projecte = await reader.collections.projectes.read(slug!);
+
+if (!projecte) return Astro.redirect('/projectes');
+
+const { default: Content } = await projecte.descripcio();
+---
+
+<Layout title={projecte.titol}>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inici</a> / <a href="/projectes">Projectes</a> / <span>{projecte.titol}</span>
+    </nav>
+
+    <div class="projecte-header">
+      <h1>{projecte.titol}</h1>
+      <div class="meta-row">
+        {projecte.client && <span class="meta-item"><strong>Client:</strong> {projecte.client}</span>}
+        {projecte.ubicacio && <span class="meta-item"><strong>Ubicació:</strong> {projecte.ubicacio}</span>}
+        {projecte.any && <span class="meta-item"><strong>Any:</strong> {projecte.any}</span>}
+      </div>
+    </div>
+
+    {projecte.imatge && (
+      <img src={projecte.imatge} alt={projecte.titol} class="main-img" />
+    )}
+
+    {Content && (
+      <div class="descripcio prose">
+        <Content />
+      </div>
+    )}
+
+    {projecte.galeria && projecte.galeria.length > 0 && (
+      <div class="galeria">
+        <h2>Galeria</h2>
+        <div class="galeria-grid">
+          {projecte.galeria.map((img: string) => (
+            <img src={img} alt={projecte.titol} loading="lazy" />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .breadcrumb { font-size: 0.875rem; color: var(--color-muted); margin-bottom: 2rem; }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .breadcrumb a, .breadcrumb span { margin: 0 0.25rem; }
+  .projecte-header { margin-bottom: 2rem; }
+  h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--color-muted); font-size: 0.9rem; }
+  .meta-item strong { color: var(--color-text); }
+  .main-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius); margin-bottom: 2rem; }
+  .descripcio { margin-bottom: 2.5rem; }
+  .prose p { margin-bottom: 1rem; line-height: 1.7; }
+  .galeria h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .galeria-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); }
+</style>

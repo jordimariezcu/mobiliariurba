@@ -1,0 +1,118 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+export async function getStaticPaths() {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const slugs = await reader.collections.productes.list();
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const { slug } = Astro.params;
+const producte = await reader.collections.productes.read(slug!);
+
+if (!producte) return Astro.redirect('/productes');
+
+const { default: Content } = await producte.descripcio();
+---
+
+<Layout title={producte.nom} description={`${producte.nom} - ${producte.categoria}`}>
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inici</a> / <a href="/productes">Productes</a> / <span>{producte.nom}</span>
+    </nav>
+
+    <div class="producte-grid">
+      <div class="producte-gallery">
+        {producte.imatge ? (
+          <img src={producte.imatge} alt={producte.nom} class="main-img" />
+        ) : (
+          <div class="main-img placeholder-img"></div>
+        )}
+        {producte.galeria && producte.galeria.length > 0 && (
+          <div class="thumbnails">
+            {producte.galeria.map((img: string) => (
+              <img src={img} alt={producte.nom} loading="lazy" />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div class="producte-info">
+        <span class="badge">{producte.categoria}</span>
+        <h1>{producte.nom}</h1>
+        {producte.referencia && <p class="ref">Ref: {producte.referencia}</p>}
+
+        <dl class="specs">
+          {producte.material && (
+            <>
+              <dt>Material</dt>
+              <dd>{producte.material}</dd>
+            </>
+          )}
+          {producte.dimensions && (
+            <>
+              <dt>Dimensions</dt>
+              <dd>{producte.dimensions}</dd>
+            </>
+          )}
+          {producte.colors && (
+            <>
+              <dt>Colors</dt>
+              <dd>{producte.colors}</dd>
+            </>
+          )}
+        </dl>
+
+        <a href="/contacte" class="btn-contact">Sol·licitar informació</a>
+      </div>
+    </div>
+
+    {Content && (
+      <div class="descripcio prose">
+        <h2>Descripció</h2>
+        <Content />
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .breadcrumb { font-size: 0.875rem; color: var(--color-muted); margin-bottom: 2rem; }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .breadcrumb a, .breadcrumb span { margin: 0 0.25rem; }
+
+  .producte-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .main-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius); }
+  .placeholder-img { background: linear-gradient(135deg, #e5e7eb, #d1d5db); border-radius: var(--radius); }
+  .thumbnails { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .thumbnails img { width: 80px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid transparent; }
+  .thumbnails img:hover { border-color: var(--color-primary); }
+
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 99px; background: #dcfce7; color: var(--color-primary-dark); font-size: 0.8rem; font-weight: 600; text-transform: capitalize; margin-bottom: 0.75rem; }
+  h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .ref { color: var(--color-muted); font-size: 0.875rem; margin-bottom: 1.5rem; }
+
+  .specs { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1rem; margin-bottom: 2rem; }
+  dt { font-weight: 600; color: var(--color-muted); font-size: 0.875rem; }
+  dd { font-size: 0.875rem; }
+
+  .btn-contact {
+    display: inline-block; background: var(--color-primary); color: white;
+    padding: 0.875rem 2rem; border-radius: var(--radius); font-weight: 600; transition: background 0.2s;
+  }
+  .btn-contact:hover { background: var(--color-primary-dark); }
+
+  .descripcio { border-top: 1px solid var(--color-border); padding-top: 2rem; }
+  .descripcio h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .prose p { margin-bottom: 1rem; line-height: 1.7; }
+  .prose ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+
+  @media (max-width: 768px) {
+    .producte-grid { grid-template-columns: 1fr; }
+  }
+</style>
