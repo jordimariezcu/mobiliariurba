@@ -74,6 +74,8 @@ export default config({
             { label: 'Accessibilitat', value: 'accessibilitat' },
             { label: 'Subvencions', value: 'subvencions' },
             { label: 'Manteniment', value: 'manteniment' },
+            { label: 'Guia Tècnica', value: 'guia-tecnica' },
+            { label: 'Gent Gran', value: 'gent-gran' },
           ],
           defaultValue: 'normativa',
         }),

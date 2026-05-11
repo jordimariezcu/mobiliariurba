@@ -26,6 +26,7 @@ const pages = [
   { url: `${BASE}/blog/fusta-robinia-parcs-infantils`,                 priority: '0.8', changefreq: 'monthly' },
   { url: `${BASE}/blog/subvencions-parc-infantil-catalunya`,           priority: '0.8', changefreq: 'monthly' },
   { url: `${BASE}/blog/inspeccio-anual-en1176-7-guia`,                 priority: '0.7', changefreq: 'monthly' },
+  { url: `${BASE}/blog/circuits-biosaludables-gent-gran-municipis`,    priority: '0.8', changefreq: 'monthly' },
   { url: `${BASE}/productes`,                                          priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/projectes`,                                          priority: '0.6', changefreq: 'monthly' },
   { url: `${BASE}/contacte`,                                           priority: '0.6', changefreq: 'yearly' },
