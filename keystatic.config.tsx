@@ -3,7 +3,7 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 export default config({
   storage: {
     kind: 'github',
-    repo: 'mobiliariurba/web',
+    repo: 'jordimariezcu/mobiliariurba',
   },
 
   ui: {
