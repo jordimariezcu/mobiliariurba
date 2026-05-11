@@ -17,7 +17,7 @@ const pages = [
   { url: `${BASE}/productes/bancs`,                                    priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/productes/papereres`,                                priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/productes/fonts-i-bebedors`,                         priority: '0.7', changefreq: 'monthly' },
-  { url: `${BASE}/productes/meses-de-picnic`,                          priority: '0.7', changefreq: 'monthly' },
+  { url: `${BASE}/productes/taules-de-picnic`,                         priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/productes/pilones-i-bolards`,                        priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/productes/alcorques`,                                priority: '0.7', changefreq: 'monthly' },
   { url: `${BASE}/guia/parcs-infantils`,                               priority: '0.9', changefreq: 'monthly' },

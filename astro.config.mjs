@@ -10,4 +10,7 @@ export default defineConfig({
   adapter: vercel(),
   output: 'server',
   site: 'https://mobiliariurba.cat',
+  redirects: {
+    '/productes/meses-de-picnic': { status: 301, destination: '/productes/taules-de-picnic' },
+  },
 });
