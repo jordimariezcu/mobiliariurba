@@ -1,0 +1,184 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Zones de Gossos', item: 'https://mobiliariurba.cat/productes/zones-de-gossos' },
+    { '@type': 'ListItem', position: 4, name: 'Tanques i Tancaments', item: 'https://mobiliariurba.cat/productes/zones-de-gossos/tanques-i-tancaments' },
+  ],
+});
+---
+
+<Layout
+  title="Tanques i Tancaments per a Zones de Gossos"
+  description="Tanques perimetrals, sistemes de doble porta i accessos per a zones de gossos municipals. Alçades, materials i sistemes d'ancoratge per a espais d'esbarjo canins."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <a href="/productes/zones-de-gossos">Zones de Gossos</a><span>/</span>
+        <span>Tanques i Tancaments</span>
+      </nav>
+      <h1>Tanques i Tancaments per a Zones de Gossos</h1>
+      <p>El tancament perimetral és l'element de seguretat fonamental de qualsevol zona d'esbarjo canina. Sense una tanca adequada, la zona no compleix la seva funció bàsica: permetre que els gossos correixin lliures sense risc d'escapada.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Criteris de selecció de la tanca</h2>
+        <p>La selecció del sistema de tancament ha de tenir en compte la mida dels gossos que freqüentaran la zona, l'entorn paisatgístic i el pressupost disponible. Els criteris tècnics principals:</p>
+        <ul class="criteria-list">
+          <li><strong>Alçada mínima 1,2 m</strong> — suficient per a la majoria de races. Per a zones amb races de talla gran o amb tendència a saltar (Border Collie, Malinois, Labrador), es recomana 1,5 m.</li>
+          <li><strong>Malla sense forats > 5 cm</strong> — evita que gossos petits o cadells puguin passar a través. Les malles de 5×10 cm o 5×5 cm són les més habituals.</li>
+          <li><strong>Aresta inferior a ras de terra o enterrada</strong> — impedeix que els gossos excavadors puguin sortir per sota. En sòls tous, es recomana enterrar 20–30 cm de malla.</li>
+          <li><strong>Materials resistents a la corrosió</strong> — galvanitzat en calent + plastificat per a entorns estàndard; acer inoxidable per a entorns costaners o de molt alta corrosió.</li>
+          <li><strong>Acabat sense arestes tallants</strong> — els extrems superiors han d'estar doblats o protegits per evitar talls als gossos que saltin.</li>
+        </ul>
+      </div>
+      <aside class="info-box">
+        <h3>Alçades recomanades per raça</h3>
+        <ul>
+          <li><strong>Races petites</strong> (&lt; 10 kg): 0,8–1,0 m</li>
+          <li><strong>Races mitjanes</strong> (10–30 kg): 1,2 m</li>
+          <li><strong>Races grans</strong> (&gt; 30 kg): 1,5 m</li>
+          <li><strong>Zona mixta</strong> (recomanada): 1,5 m</li>
+        </ul>
+        <hr style="border-color:var(--color-border); margin:0.75rem 0;" />
+        <p style="font-size:0.82rem; color:var(--color-muted);">Si la zona es divideix en sector gran/petit, el sector de races petites pot tenir tanca de 0,8–1,0 m; el de grans, 1,5 m.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Tipologies de tanca</h2>
+      <div class="tanques-grid">
+        {[
+          {
+            nom: 'Malla galvanitzada plastificada',
+            desc: 'La solució estàndard i més econòmica. Malla metàl·lica galvanitzada en calent i plastificada en verd o antracita. Fàcil d\'instal·lar i reparar. Vida útil de 15–20 anys amb manteniment.',
+            pros: ['Econòmica (40–80 €/m lineal instal·lada)', 'Fàcil reparació de trams', 'Bona visibilitat des de l\'exterior'],
+            contras: ['Aspecte industrial', 'Menys integrable en entorns de qualitat'],
+            usos: 'Zones estàndard, parcs de barri',
+          },
+          {
+            nom: 'Tanca de barres verticals',
+            desc: 'Barres metàl·liques verticals soldades a bastidors, galvanitzades i pintades. Aspecte més estètic que la malla. Adequada per a entorns on la imatge del parc és prioritària.',
+            pros: ['Aspecte estètic superior', 'Molt duradora (25–30 anys)', 'Disponible en colors personalitzats'],
+            contras: ['Cost superior (80–150 €/m lineal)', 'Separació entre barres ha de ser ≤ 5 cm per a gossos petits'],
+            usos: 'Parcs centrals, entorns de qualitat',
+          },
+          {
+            nom: 'Tanca de fusta tractada',
+            desc: 'Tancament de fusta tractada en autoclau amb malla interior. Integració natural en entorns de parc. Requereix manteniment periòdic de la fusta (tractament cada 3–5 anys).',
+            pros: ['Molt bona integració paisatgística', 'Aspecte natural', 'Apreciat en parcs forestals'],
+            contras: ['Manteniment de la fusta obligatori', 'Vida útil inferior (12–18 anys)'],
+            usos: 'Parcs forestals, entorns naturals',
+          },
+        ].map(t => (
+          <div class="tanca-card">
+            <h3>{t.nom}</h3>
+            <p>{t.desc}</p>
+            <div class="pros-cons">
+              <div>
+                <strong class="label-pro">Avantatges</strong>
+                <ul>{t.pros.map(p => <li>{p}</li>)}</ul>
+              </div>
+              <div>
+                <strong class="label-con">Inconvenients</strong>
+                <ul>{t.contras.map(c => <li>{c}</li>)}</ul>
+              </div>
+            </div>
+            <p class="tanca-usos"><strong>Recomanada per a:</strong> {t.usos}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>El sistema de doble porta (esclusa): per què és imprescindible</h2>
+      <p>La doble porta és l'element de seguretat activa més important d'una zona de gossos. Consisteix en dos portals en seqüència amb un espai intermedi (esclusa) d'entre 1,5 i 3 metres. El propietari entra al primer portal, el tanca, i llavors obre el segon. D'aquesta manera, si el gos intenta escapar en el moment d'entrada o sortida, el primer portal ja està tancat.</p>
+
+      <div class="esclusa-grid">
+        <div class="esclusa-item">
+          <h3>Dimensions de l'esclusa</h3>
+          <ul>
+            <li>Longitud mínima: <strong>1,5 m</strong> (permet tancar el primer portal abans d'obrir el segon)</li>
+            <li>Longitud recomanada: <strong>2,0–2,5 m</strong> (còmoda per a propietaris amb cotxet o bicicleta)</li>
+            <li>Amplada mínima: <strong>1,2 m</strong> (accessibilitat per a cadira de rodes)</li>
+            <li>Amplada recomanada: <strong>1,5 m</strong></li>
+          </ul>
+        </div>
+        <div class="esclusa-item">
+          <h3>Tipus de porta</h3>
+          <ul>
+            <li><strong>Porta batent simple</strong> — la més habitual. Ressort de retorn automàtic al tancament. Econòmica i fiable.</li>
+            <li><strong>Porta corredissa</strong> — adequada per a accessos estrets. Requereix manteniment dels rails.</li>
+            <li><strong>Porta sense maneta (push-pull)</strong> — accessible per a persones amb les mans ocupades (portant el gos amb corretja).</li>
+          </ul>
+        </div>
+        <div class="esclusa-item">
+          <h3>Accessibilitat</h3>
+          <ul>
+            <li>Paviment de l'esclusa: dur, anivellat, sense graons</li>
+            <li>Amplada lliure de pas: ≥ 90 cm (cadira de rodes)</li>
+            <li>Maneta: a alçada 85–105 cm, maneta de palanca (no de pom)</li>
+            <li>Ressort: tensió suficient per tancar però no excessiva per a persones amb força reduïda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Necessiteu pressupost per al tancament de la vostra zona?</h2>
+      <p>Us connectem amb fabricants especialitzats en tancaments per a zones de gossos i us orientem sobre la millor solució per al vostre espai.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a href="/contacte" class="btn btn-primary">Sol·licitar pressupost</a>
+        <a href="/productes/zones-de-gossos" class="btn btn-outline">← Tornar a Zones de Gossos</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.35rem 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border); }
+  .info-box li:last-child { border-bottom: none; }
+  .criteria-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  .criteria-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .tanques-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .tanca-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .tanca-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .tanca-card > p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .label-pro { display: block; font-size: 0.75rem; font-weight: 700; color: #166534; margin-bottom: 0.25rem; }
+  .label-con { display: block; font-size: 0.75rem; font-weight: 700; color: #9a3412; margin-bottom: 0.25rem; }
+  .pros-cons ul { list-style: disc; padding-left: 1rem; font-size: 0.8rem; color: var(--color-muted); line-height: 1.6; }
+  .tanca-usos { font-size: 0.82rem; color: var(--color-muted); padding-top: 0.5rem; border-top: 1px solid var(--color-border); }
+  .esclusa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+  .esclusa-item { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.25rem; }
+  .esclusa-item h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--color-primary-dark); }
+  .esclusa-item ul { list-style: disc; padding-left: 1.1rem; font-size: 0.875rem; color: var(--color-muted); line-height: 1.7; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } .pros-cons { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,157 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Zones de Gossos', item: 'https://mobiliariurba.cat/productes/zones-de-gossos' },
+    { '@type': 'ListItem', position: 4, name: 'Equipament de Joc', item: 'https://mobiliariurba.cat/productes/zones-de-gossos/equipament-de-joc' },
+  ],
+});
+---
+
+<Layout
+  title="Equipament de Joc per a Zones de Gossos — Obstacles i Agility"
+  description="Obstacles, túnels, passarel·les, rampes i seesaws per a zones de gossos municipals. Equipament d'agility per a espais públics: materials, seguretat i dimensionament."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <a href="/productes/zones-de-gossos">Zones de Gossos</a><span>/</span>
+        <span>Equipament de Joc</span>
+      </nav>
+      <h1>Equipament de Joc per a Zones de Gossos</h1>
+      <p>Obstacles, agility i estructures de joc dissenyades per a l'estimulació física i mental dels gossos en espais públics. Materials duradors, segurs i fàcils de mantenir.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Per què instal·lar equipament de joc?</h2>
+        <p>Una zona de gossos amb equipament de joc és molt més que un simple espai tancat. L'estimulació física i mental és fonamental per al benestar dels gossos, especialment els que viuen en pisos i no disposen de jardí propi. Els beneficis de l'equipament de joc:</p>
+        <ul class="beneficis-list">
+          <li><strong>Estimulació cognitiva</strong> — els obstacles i les superfícies variables estimulen la concentració i la resolució de problemes, especialment en races de treball.</li>
+          <li><strong>Exercici físic complet</strong> — les rampes, els túnels i els saltadors treballen grups musculars diferents a la simple carrera en pla.</li>
+          <li><strong>Vincle gos-propietari</strong> — el treball dels obstacles en equip reforça la relació entre l'animal i la persona.</li>
+          <li><strong>Reducció de l'ansietat</strong> — el joc estructurat és una eina eficaç per a gossos amb conductes d'hiperactivitat o ansietat per separació.</li>
+          <li><strong>Atractiu per al municipi</strong> — una zona equipada és un servei diferenciador que augmenta el valor percebut de l'espai públic.</li>
+        </ul>
+      </div>
+      <aside class="info-box">
+        <h3>Superfície recomanada amb equipament</h3>
+        <ul>
+          <li><strong>Sense equipament:</strong> 200–300 m² suficient</li>
+          <li><strong>3–5 obstacles:</strong> mínim 400–500 m²</li>
+          <li><strong>Circuit complet (8–12 obstacles):</strong> 600–1.000 m²</li>
+        </ul>
+        <hr style="border-color:var(--color-border); margin:0.75rem 0;" />
+        <p style="font-size:0.82rem; color:var(--color-muted);">Cada obstacle necessita una zona lliure de 2–3 m al voltant per permetre l'aproximació i la sortida segures.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Catàleg d'obstacles i estructures</h2>
+      <div class="obstacles-grid">
+        {[
+          { nom: 'Túnel flexible', desc: 'Túnel de polietilè o lona reforçada de 50–60 cm de diàmetre i 2–4 m de longitud. El preferit pels gossos: instintiu, segur i estimulant. Disponible en versions rígides (PVC) per a instal·lació permanent.', dims: 'Ø 50–60 cm · L 2–4 m', mat: 'PVC rígid o lona reforçada', recomanat: 'Totes les races' },
+          { nom: 'Passarel·la (dog walk)', desc: 'Plataforma elevada de 2,5–4 m de longitud i 30–40 cm d\'amplada, amb rampes d\'accés i descens en els dos extrems. Treballa la confiança en alçada i l\'equilibri. Superfície antilliscant obligatòria.', dims: 'L 3,5–4 m · h 60–80 cm', mat: 'Fusta tractada o PEHD', recomanat: 'Races mitjanes i grans' },
+          { nom: 'Seesaws (balancí)', desc: 'Tauló de 2,5–3 m en equilibri sobre pivot central. Entrena l\'equilibri i la tolerància a moviments inesperats. Límit de pes recomanat 40 kg. La velocitat de caiguda ha d\'estar amortida.', dims: 'L 2,5–3 m · h màx. 30 cm', mat: 'Fusta tractada + pivot acer', recomanat: 'Races de talla petita-mitjana' },
+          { nom: 'Rampa inclinada', desc: 'Superfície inclinada de fusta o PEHD a 35–45°. Entrena la musculatura posterior i la confiança. S\'usa com a A-Frame en les seqüències d\'agility. Superfície amb llistons antilliscants.', dims: 'L total 2–2,5 m · h cim 1–1,2 m', mat: 'Fusta de robínia o PEHD', recomanat: 'Totes les races' },
+          { nom: 'Saltador (jump)', desc: 'Barra horitzontal regulable en alçada (20–60 cm) sobre dos suports. Ajustable per a races de diferent talla. La barra ha de ser desmuntable per evitar lesions en cas de col·lisió.', dims: 'A regulable 20–60 cm', mat: 'Acer galvanitzat + PVC', recomanat: 'Races àgils, totes les tallas' },
+          { nom: 'Estacada (weave poles)', desc: 'Fila de 6–12 pals verticals separats 50–60 cm per on el gos ha de serpentintejar. Exercici de coordinació i concentració de dificultat alta. Pals de PVC rígid clavats al terra o amb base de formigó.', dims: 'Pals Ø 3 cm · h 100 cm · separació 50 cm', mat: 'PVC o acer inox', recomanat: 'Gossos amb bona motivació' },
+          { nom: 'Plataforma de pausa', desc: 'Taula o plataforma elevada 30–50 cm on el gos s\'atura i seu per ordre del propietari. Entrena l\'autocontrol i la concentració. Superfície antilliscant, vores arrodonides.', dims: '60×60 cm · h 30–50 cm', mat: 'Fusta tractada o formigó', recomanat: 'Totes les races' },
+          { nom: 'Tirolina per a gossos', desc: 'Cordo aeri amb plataforma o anell on el gos pot penjar breument. Exercici de confiança i joc. Pes màxim recomanat 20 kg. Poc habitual en espais públics municipals, més propi de centres d\'adiestrament.', dims: 'L 4–6 m · h plataforma 40–60 cm', mat: 'Acer inoxidable + cordó polièster', recomanat: 'Races petites-mitjanes àgils' },
+        ].map(o => (
+          <div class="obstacle-card">
+            <h3>{o.nom}</h3>
+            <p>{o.desc}</p>
+            <dl>
+              <dt>Dimensions</dt><dd>{o.dims}</dd>
+              <dt>Material</dt><dd>{o.mat}</dd>
+              <dt>Recomanat</dt><dd>{o.recomanat}</dd>
+            </dl>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Materials: durabilitat en espai públic</h2>
+      <p>L'equipament de zones de gossos públiques ha de suportar condicions molt més exigents que el material d'adiestrament privat: intempèrie constant, ús intensiu, actes de vandalisme i manca de supervisió. Els materials recomanats per a instal·lació permanent:</p>
+      <div class="mats-grid">
+        <div class="mat-card">
+          <h3>Fusta de robínia</h3>
+          <p>La millor opció per a plataformes, passarel·les i rampes. Durabilitat natural classe I sense tractament químic. Superfície antilliscant natural quan és rugosa. Vida útil 25–40 anys.</p>
+          <span class="mat-badge">Recomanat</span>
+        </div>
+        <div class="mat-card">
+          <h3>PEHD (polietilè d'alta densitat)</h3>
+          <p>Plàstic tècnic reciclat, impermeable, fàcil de netejar i sense astelles. Ideal per a túnels, plataformes i elements de contacte directe amb el gos. Colors estables als UV.</p>
+          <span class="mat-badge">Recomanat</span>
+        </div>
+        <div class="mat-card">
+          <h3>Acer galvanitzat + pintura epoxi</h3>
+          <p>Per a estructures portants, pivots i elements de suport. Galvanitzat en calent + capa epoxi garanteix 20–25 anys sense corrosió significativa en entorns estàndard.</p>
+          <span class="mat-badge">Recomanat</span>
+        </div>
+        <div class="mat-card">
+          <h3>Fusta tractada en autoclau</h3>
+          <p>Alternativa econòmica a la robínia. Requereix tractament superficial cada 3–5 anys. Verificar que el tractament és lliure de crom i arsènic.</p>
+          <span class="mat-badge mat-badge-ok">Acceptable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Dissenyeu el circuit de joc per al vostre espai</h2>
+      <p>Us ajudem a seleccionar els obstacles adequats per al vostre espai, pressupost i tipologia de gossos del barri.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a href="/contacte" class="btn btn-primary">Contactar</a>
+        <a href="/productes/zones-de-gossos" class="btn btn-outline">← Zones de Gossos</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.35rem 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border); }
+  .info-box li:last-child { border-bottom: none; }
+  .beneficis-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  .beneficis-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .obstacles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .obstacle-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .obstacle-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .obstacle-card > p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+  .obstacle-card dl { display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 0.75rem; font-size: 0.8rem; }
+  .obstacle-card dt { font-weight: 600; color: var(--color-heading); }
+  .obstacle-card dd { color: var(--color-muted); margin: 0; }
+  .mats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+  .mat-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; position: relative; }
+  .mat-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--color-heading); }
+  .mat-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+  .mat-badge { font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; background: #dcfce7; color: #166534; }
+  .mat-badge-ok { background: #fef9c3; color: #854d0e; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,218 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Zones de Gossos', item: 'https://mobiliariurba.cat/productes/zones-de-gossos' },
+    { '@type': 'ListItem', position: 4, name: 'Mobiliari Complementari', item: 'https://mobiliariurba.cat/productes/zones-de-gossos/mobiliari-complementari' },
+  ],
+});
+---
+
+<Layout
+  title="Mobiliari per a Zones de Gossos — Dispensadors, Fonts i Bancs"
+  description="Dispensadors de bosses, papereres higièniques, fonts per a gossos, bancs i senyalística per a zones d'esbarjo canines en espais públics municipals de Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <a href="/productes/zones-de-gossos">Zones de Gossos</a><span>/</span>
+        <span>Mobiliari Complementari</span>
+      </nav>
+      <h1>Mobiliari Complementari per a Zones de Gossos</h1>
+      <p>Dispensadors de bosses, papereres higièniques, fonts per a gossos, bancs per a propietaris i senyalística. El mobiliari complementari determina en gran mesura l'experiència d'ús i el nivell d'higiene de la zona.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="mobil-grid">
+
+        <div class="mobil-section">
+          <h2>Dispensadors de bosses i papereres higièniques</h2>
+          <p>El binomi dispensador-paperera és l'element de gestió higiènica bàsic de qualsevol zona de gossos. La seva presència no garanteix que tots els propietaris recullin els excrements, però la seva absència sí que garanteix que molts no ho faran.</p>
+
+          <div class="items-list">
+            <div class="item-card">
+              <h3>Dispensador de bosses individual</h3>
+              <p>Unitat autònoma amb pal d'ancoratge i dipòsit de bosses per a 200–500 unitats. Les millors versions inclouen un porta-bosses de reserva visible des de l'exterior per facilitar la reposició. Material: acer inoxidable AISI 304 o polietilè UV estabilitzat.</p>
+              <ul>
+                <li>Capacitat: 200–500 bosses per càrrega</li>
+                <li>Alçada de subministrament: 90–110 cm (accessible)</li>
+                <li>Anclatge: pal enterrat o platina de cimentació</li>
+                <li>Mínim recomanat: 1 unitat per cada 300 m² de zona</li>
+              </ul>
+            </div>
+
+            <div class="item-card">
+              <h3>Dispensador + paperera integrats</h3>
+              <p>Element únic que combina el dispensador de bosses amb una paperera de residus integrada. Solució més pràctica i compacta. La paperera ha de ser de capacitat suficient (mínim 30 L) i tenir tapa per evitar olors i plagues. Ideal per a zones petites amb espai limitat.</p>
+              <ul>
+                <li>Capacitat paperera: 30–60 L</li>
+                <li>Material: acer galvanitzat o polietilè reciclat</li>
+                <li>Anclatge: pal o base de cimentació</li>
+                <li>Freqüència de buidatge recomanada: 3 cops per setmana mínima</li>
+              </ul>
+            </div>
+
+            <div class="item-card">
+              <h3>Paperera higiènica independent</h3>
+              <p>Paperera específica per a residus de mascotes, amb tapa de pedal o obertura lateral, ubicada prop del dispensador. La versió amb pedal és molt valorada ja que permet l'obertura sense mans. Capacitat mínima recomanada per a zones estàndard: 50 L.</p>
+              <ul>
+                <li>Capacitat: 30–80 L</li>
+                <li>Apertura: pedal (recomanat), lateral o superior</li>
+                <li>Material: acer inox o PEHD reciclat</li>
+                <li>Sac interior substituïble recomanat</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobil-section">
+          <h2>Fonts per a gossos</h2>
+          <p>Les fonts d'aigua per a gossos són un element de confort molt valorat pels propietaris, especialment en zones d'ús intensiu a l'estiu. No és obligatòria per normativa, però incrementa significativament l'ús de la zona i el temps d'estada.</p>
+
+          <div class="items-list">
+            <div class="item-card">
+              <h3>Font doble (persones + gossos)</h3>
+              <p>Font amb dues alçades: broc estàndard a 100 cm per a persones i broc baix a 15–25 cm per a gossos, amb cubeta de recollida integrada. La solució més completa i eficient en una única instal·lació. Connexió a xarxa d'aigua potable obligatòria.</p>
+              <ul>
+                <li>Material: acer inoxidable AISI 316 (mínim) o fosa</li>
+                <li>Alçada broc gos: 15–25 cm del terra</li>
+                <li>Cubeta de recollida: mínim 3 L de capacitat</li>
+                <li>Desguàs: connexió a clavegueram o pou d'infiltració</li>
+              </ul>
+            </div>
+
+            <div class="item-card">
+              <h3>Font exclusiva per a gossos</h3>
+              <p>Broc baix a ras de terra (10–20 cm) amb cubeta gran (5–10 L). Alguns models incorporen una palanca que el propietari acciona amb el peu per alliberar l'aigua. Especialment útil per a gossos de talla petita i per a zones sense connexió fàcil a xarxa.</p>
+              <ul>
+                <li>Alçada total: 30–50 cm</li>
+                <li>Capacitat cubeta: 5–10 L</li>
+                <li>Accionament: pedal o manual</li>
+                <li>Material: acer inox o PEHD</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobil-section">
+          <h2>Bancs per a propietaris</h2>
+          <p>Els propietaris necessiten seure mentre els seus gossos juguen. La presència de bancs confortables incrementa el temps d'estada i la percepció de qualitat de la zona. Requisits específics per a zones de gossos:</p>
+          <ul class="criteria-list">
+            <li><strong>Respatller i braços</strong> — faciliten l'asseguda i l'aixecament per a persones grans. Prioritari en zones d'ús intergeneracional.</li>
+            <li><strong>Materials fàcils de netejar</strong> — acer inoxidable, PEHD reciclat o fusta tractada. Evitar relleus i juntures que acumulin brutícia.</li>
+            <li><strong>Posicionament</strong> — orientats cap a l'interior de la zona per permetre la supervisió visual dels gossos en tot moment.</li>
+            <li><strong>Anclatge sòlid</strong> — les zones de gossos tenen risc elevat de robatori o desplaçament de mobiliari. Ancoratge a cimentació obligatori.</li>
+            <li><strong>Quantitat mínima</strong> — 2 bancs per a zones de fins a 400 m²; 1 banc addicional per cada 200 m² extra.</li>
+          </ul>
+        </div>
+
+        <div class="mobil-section">
+          <h2>Senyalística</h2>
+          <p>La senyalística d'una zona de gossos compleix tres funcions: informar els usuaris de les normes d'ús, identificar la zona com a espai municipal habilitat i dissuadir comportaments inadequats.</p>
+
+          <div class="senyal-grid">
+            <div class="senyal-card">
+              <h3>Cartell d'entrada (obligatori)</h3>
+              <ul>
+                <li>Nom de la zona o número de referència municipal</li>
+                <li>Normes d'ús: corretja obligatòria en entrada/sortida, recollida d'excrements, prohibit menjar dins la zona, prohibit menors sense adult</li>
+                <li>Horari d'ús (si hi ha restricció nocturna)</li>
+                <li>Telèfon de l'ajuntament / servei de reclamacions</li>
+                <li>Pictogrames d'ús i prohibicions</li>
+              </ul>
+            </div>
+            <div class="senyal-card">
+              <h3>Senyalització de zones (si hi ha separació gran/petit)</h3>
+              <ul>
+                <li>Identificació clara de cada sector: "Gossos grans (> 10 kg)" / "Gossos petits (< 10 kg)"</li>
+                <li>Pictograma de silueta de gos per cada sector</li>
+                <li>Colors diferenciats per als dos sectors</li>
+              </ul>
+            </div>
+            <div class="senyal-card">
+              <h3>Materials recomanats</h3>
+              <ul>
+                <li>Acer inoxidable + vinil de tall (màxima durabilitat)</li>
+                <li>Alumini + serigrafia UV (opció econòmica)</li>
+                <li>Evitar: paper laminat, plàstic bàsic (es deterioren ràpidament)</li>
+                <li>Mida mínima cartell principal: 40×60 cm</li>
+                <li>Alçada de col·locació: 150–160 cm (llegible de peu)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Pressupost orientatiu del mobiliari complementari</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Element</th><th>Unitats recomanades (zona estàndard 400 m²)</th><th>Cost unitari orientatiu</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dispensador de bosses + paperera integrats</td><td>2</td><td>300–600 € instal·lat</td></tr>
+            <tr><td>Paperera higiènica independent (50 L)</td><td>1–2</td><td>250–500 € instal·lada</td></tr>
+            <tr><td>Font doble (persones + gossos)</td><td>1</td><td>1.500–3.500 € instal·lada (+ connexió)</td></tr>
+            <tr><td>Banc amb respatller</td><td>2–3</td><td>400–900 € instal·lat</td></tr>
+            <tr><td>Cartell d'entrada + senyalística</td><td>1 conjunt</td><td>300–700 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note"><em>* Preus orientatius sense IVA. El cost de connexió a xarxa d'aigua per a la font no està inclòs (variable segons distància).</em></p>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Equipeu la vostra zona de gossos</h2>
+      <p>Us connectem amb fabricants de mobiliari i accessoris per a zones canines i us ajudem a definir el mobiliari adequat per al vostre pressupost i espai.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a href="/contacte" class="btn btn-primary">Contactar</a>
+        <a href="/productes/zones-de-gossos" class="btn btn-outline">← Zones de Gossos</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .mobil-grid { display: flex; flex-direction: column; gap: 3rem; }
+  .mobil-section h2 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--color-heading); padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-border); }
+  .mobil-section > p { font-size: 0.95rem; color: var(--color-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+  .items-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .item-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .item-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--color-primary-dark); }
+  .item-card > p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+  .item-card ul { list-style: disc; padding-left: 1.1rem; font-size: 0.82rem; color: var(--color-muted); line-height: 1.7; }
+  .criteria-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .criteria-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .senyal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .senyal-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.1rem; }
+  .senyal-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .senyal-card ul { list-style: disc; padding-left: 1rem; font-size: 0.82rem; color: var(--color-muted); line-height: 1.7; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: var(--color-bg-alt); padding: 0.6rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; font-size: 0.85rem; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .table-note { font-size: 0.8rem; color: var(--color-muted); margin-top: 0.5rem; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); }
+</style>

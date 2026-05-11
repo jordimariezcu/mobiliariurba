@@ -1,0 +1,229 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+      { '@type': 'ListItem', position: 3, name: 'Zones de Gossos', item: 'https://mobiliariurba.cat/productes/zones-de-gossos' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quina superfície mínima ha de tenir una zona de gossos?',
+        acceptedAnswer: { '@type': 'Answer', text: 'No hi ha normativa estatal que fixi una superfície mínima obligatòria. Les ordenances municipals catalanes solen establir entre 200 i 500 m² com a mínim recomanable. Per a municipis de més de 10.000 habitants, es recomana disposar d\'almenys una zona de 500 m² per districte o barri.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Cal tanca perimetral en una zona de gossos?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Sí. La tanca perimetral és l\'element de seguretat fonamental d\'una zona de gossos. L\'alçada mínima recomanada és de 1,2 m (1,5 m per a municipis amb raça de talla gran). L\'accés ha de ser obligatòriament de doble porta (esclusa) per evitar escapades durant l\'entrada i sortida.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quant costa instal·lar una zona de gossos?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Una zona de gossos bàsica de 200–300 m² amb tanca perimetral, doble porta, dispensadors de bosses i paperera específica té un cost d\'entre 8.000 i 18.000 euros instal·lats. Una zona completa amb equipament de joc i paviment de cautxú pot arribar als 35.000–60.000 euros.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Les zones de gossos necessiten manteniment específic?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Sí. El manteniment bàsic inclou neteja diària o almenys 3 vegades per setmana (recollida d\'excrements residuals, rentat del paviment), revisió mensual de la tanca i els accessoris, i reposició periòdica de bosses als dispensadors. Un contracte de manteniment anual per a una zona estàndard costa entre 2.000 i 5.000 euros.' },
+      },
+    ],
+  },
+]);
+---
+
+<Layout
+  title="Zones de Gossos per a Municipis — Disseny i Equipament"
+  description="Equipament per a zones de gossos i pipicans en espais públics municipals: tanques, doble porta, jocs per a gossos, dispensadors i mobiliari. Guia tècnica i normativa per a Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Zones de Gossos</span>
+      </nav>
+      <h1>Zones de Gossos per a Espais Públics Municipals</h1>
+      <p>Tot l'equipament per a dissenyar i instal·lar una zona d'esbarjo de gossos (pipican) en un parc o jardí municipal: tancaments, equipament de joc, mobiliari i senyalística. Normativa catalana i finançament.</p>
+    </div>
+  </div>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="subcats-grid">
+        {[
+          { href: '/productes/zones-de-gossos/tanques-i-tancaments', title: 'Tanques i Tancaments', desc: 'Tanca perimetral, sistemes de doble porta (esclusa), portes d\'accés i elements de delimitació per a zones de gossos.', badge: 'Seguretat' },
+          { href: '/productes/zones-de-gossos/equipament-de-joc', title: 'Equipament de Joc', desc: 'Obstacles, túnels, passarel·les, seesaws i rampes per a l\'exercici i l\'estimulació mental dels gossos.', badge: 'Joc i exercici' },
+          { href: '/productes/zones-de-gossos/mobiliari-complementari', title: 'Mobiliari Complementari', desc: 'Dispensadors de bosses, papereres higièniques, fonts per a gossos, bancs i senyalística per a propietaris.', badge: 'Mobiliari' },
+        ].map(cat => (
+          <a href={cat.href} class="subcat-card">
+            <div class="subcat-header">
+              <span class="badge badge-green">{cat.badge}</span>
+            </div>
+            <h3>{cat.title}</h3>
+            <p>{cat.desc}</p>
+            <span class="subcat-link">Veure detalls →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Per què instal·lar una zona de gossos?</h2>
+        <p>A Catalunya, s'estima que un de cada quatre llars té un o més gossos. Aquesta realitat genera una demanda creixent d'espais adequats per a l'esbarjo dels animals en l'entorn urbà. Les zones de gossos ben dissenyades aporten beneficis tangibles als municipis:</p>
+        <ul class="beneficis-list">
+          <li><strong>Reducció de conflictes</strong> — Concentrar els gossos en espais habilitats redueix les tensions amb altres usuaris del parc (ciclistes, famílies amb infants, persones grans).</li>
+          <li><strong>Millora de la convivència</strong> — Els propietaris disposen d'un espai legal on els gossos poden córrer sense corretja, reduint les infraccions a l'ordenança.</li>
+          <li><strong>Socialització canina</strong> — L'interacció en un entorn controlat és fonamental per al benestar conductual dels gossos, especialment els que viuen en pisos.</li>
+          <li><strong>Reducció de la contaminació fecal</strong> — Les zones amb dispensadors de bosses i paviment fàcil de netejar concentren i faciliten la gestió dels excrements.</li>
+          <li><strong>Cohesió social</strong> — Les zones de gossos generen comunitat entre propietaris, especialment en barris d'alta densitat.</li>
+        </ul>
+        <p style="margin-top:1rem;">Consulteu la nostra <a href="/guia/zones-de-gossos">guia tècnica sobre zones de gossos</a> per aprofundir en el disseny, la normativa i el finançament.</p>
+      </div>
+      <aside class="info-box">
+        <h3>Marc normatiu a Catalunya</h3>
+        <ul>
+          <li><strong>Decret 6/2013</strong> — Protecció dels animals. Obliga als municipis a habilitar zones específiques per a gossos.</li>
+          <li><strong>Llei 22/2003</strong> (Llei de protecció dels animals de Catalunya) — Regulació de la tinença d'animals de companyia en espai públic.</li>
+          <li><strong>Ordenances municipals</strong> — Cada municipi pot establir requisits addicionals sobre superfície mínima, senyalística i manteniment.</li>
+          <li><strong>EN 1176 / EN 16630</strong> — Aplicable als elements de joc instal·lats dins la zona si estan destinats a animals domèstics en instal·lació permanent.</li>
+        </ul>
+        <a href="/guia/zones-de-gossos" class="btn btn-outline" style="margin-top:1rem; display:inline-block;">Guia tècnica completa</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Elements d'una zona de gossos completa</h2>
+      <p class="section-subtitle">Una zona d'esbarjo de gossos ben equipada ha de cobrir quatre funcions: seguretat perimetral, higiene, comoditat dels propietaris i estimulació dels animals.</p>
+      <div class="elements-grid">
+        {[
+          { num: '01', nom: 'Tanca perimetral', det: 'Malla galvanitzada o tanca de barres. Alçada mínima 1,2 m. Obligatòria.', tipus: 'Seguretat' },
+          { num: '02', nom: 'Doble porta (esclusa)', det: 'Accés amb dues portes en seqüència per evitar escapades. Imprescindible.', tipus: 'Seguretat' },
+          { num: '03', nom: 'Paviment permeable', det: 'Sorra, graveta rentada, gespa artificial o cautxú drenant. Fàcil de netejar.', tipus: 'Paviment' },
+          { num: '04', nom: 'Dispensadors de bosses', det: 'Mínim 2 unitats per zona. Reposició inclosa en el contracte de manteniment.', tipus: 'Higiene' },
+          { num: '05', nom: 'Paperera higiènica', det: 'Específica per a excrements, tancada i amb peu de suport. Buidatge freqüent.', tipus: 'Higiene' },
+          { num: '06', nom: 'Font per a gossos', det: 'Amb broc baix (altura 15–25 cm) i cubeta de recollida. Opcional però molt valorada.', tipus: 'Confort' },
+          { num: '07', nom: 'Bancs per a propietaris', det: 'Mínim 2 bancs dins o adjacent a la zona. Amb respatller, accessible.', tipus: 'Confort' },
+          { num: '08', nom: 'Equipament de joc', det: 'Obstacles, túnels i rampes per a l\'estimulació física i mental dels animals.', tipus: 'Joc' },
+          { num: '09', nom: 'Senyalística', det: 'Cartell d\'entrada amb normes d\'ús, horaris i contacte de l\'ajuntament.', tipus: 'Informació' },
+          { num: '10', nom: 'Il·luminació', det: 'Recomanable si la zona s\'usa a primera hora del matí o al vespre. LED solar viable.', tipus: 'Confort' },
+        ].map(e => (
+          <div class="element-item">
+            <span class="el-num">{e.num}</span>
+            <div>
+              <strong>{e.nom}</strong>
+              <p>{e.det}</p>
+              <span class="el-tipus">{e.tipus}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Dimensionament i pressupost orientatiu</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Zona</th><th>Superfície</th><th>Elements inclosos</th><th>Pressupost orientatiu</th><th>Adequat per a</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bàsica</td><td>150–300 m²</td><td>Tanca, doble porta, dispensadors, paperera</td><td>8.000–18.000 €</td><td>Barri petit, jardí</td></tr>
+            <tr><td>Estàndard</td><td>300–600 m²</td><td>+ Font, bancs, senyalística, paviment</td><td>18.000–35.000 €</td><td>Parc de barri</td></tr>
+            <tr><td>Completa</td><td>600–1.200 m²</td><td>+ Equipament de joc, il·luminació, zones separades</td><td>35.000–65.000 €</td><td>Parc municipal gran</td></tr>
+            <tr><td>Premium</td><td>> 1.200 m²</td><td>Zona gran/petit + equipament complet + arbrat</td><td>65.000–120.000 €</td><td>Parc central, capital de municipi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note"><em>* Pressupostos orientatius inclou subministrament i instal·lació. Exclou obra civil, moviment de terres i connexió a xarxa d'aigua.</em></p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Preguntes freqüents</h2>
+      <div class="faq-list">
+        {[
+          { q: 'Quina superfície mínima ha de tenir una zona de gossos?', r: 'No hi ha normativa estatal que fixi una superfície mínima obligatòria. Les ordenances municipals catalanes solen establir entre 200 i 500 m² com a mínim recomanable. Per a municipis de més de 10.000 habitants, es recomana disposar d\'almenys una zona de 500 m² per districte o barri.' },
+          { q: 'Cal separar les zones per mida de gos?', r: 'No és obligatori per llei, però és molt recomanable en zones de més de 500 m². La separació en dos sectors (gossos petits < 10 kg / gossos grans) redueix el risc d\'accidents i augmenta la seguretat percebuda per part dels propietaris.' },
+          { q: 'Quin paviment és millor per a una zona de gossos?', r: 'La sorra és la més econòmica i còmoda per als animals, però requereix manteniment intensiu (garbellar, reposar). La gespa artificial de drenatge és l\'opció més popular: fàcil de netejar, còmoda i duradora. El cautxú granulat és ideal per a zones d\'exercici amb obstacles.' },
+          { q: 'Les zones de gossos es poden finançar amb subvencions?', r: 'Sí. Les Diputacions catalanes i el PUOSC de la Generalitat inclouen les zones de gossos com a actuació elegible en espai públic quan s\'emmarquen en projectes de millora de parcs i jardins. La clau és justificar-les dins d\'un projecte integral d\'espai públic, no com a actuació aïllada.' },
+        ].map(item => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.r}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Dissenyeu la zona de gossos del vostre municipi</h2>
+      <p>Us connectem amb fabricants especialitzats en equipament per a zones canines i us orientem sobre el disseny i el finançament.</p>
+      <a href="/contacte" class="btn btn-primary btn-lg">Sol·licitar assessorament</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.4rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.875rem; line-height: 1.5; }
+  .info-box li:last-child { border-bottom: none; }
+  .subcats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .subcat-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; transition: box-shadow 0.2s, border-color 0.2s; }
+  .subcat-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+  .subcat-header { display: flex; justify-content: flex-end; }
+  .subcat-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--color-heading); }
+  .subcat-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; flex: 1; }
+  .subcat-link { font-size: 0.875rem; color: var(--color-primary); font-weight: 600; }
+  .beneficis-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  .beneficis-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .section-subtitle { color: var(--color-muted); margin-bottom: 2rem; max-width: 680px; }
+  .elements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+  .element-item { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .el-num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary); opacity: 0.35; min-width: 2rem; line-height: 1; }
+  .element-item strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--color-heading); }
+  .element-item p { font-size: 0.8rem; color: var(--color-muted); line-height: 1.5; margin-bottom: 0.4rem; }
+  .el-tipus { font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 999px; background: var(--color-primary-light); color: var(--color-primary-dark); }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: var(--color-bg-alt); padding: 0.6rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; font-size: 0.85rem; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .table-note { font-size: 0.8rem; color: var(--color-muted); margin-top: 0.5rem; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 780px; }
+  .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+  .faq-item summary { padding: 1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 1.25rem 1rem; font-size: 0.9rem; color: var(--color-muted); line-height: 1.6; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); margin-bottom: 1.5rem; }
+  .btn-lg { padding: 0.875rem 2rem; font-size: 1rem; }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+</style>

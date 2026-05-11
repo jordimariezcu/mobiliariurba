@@ -1,0 +1,225 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Guies', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
+      { '@type': 'ListItem', position: 3, name: 'Zones de Gossos', item: 'https://mobiliariurba.cat/guia/zones-de-gossos' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Guia tècnica: Com dissenyar una zona de gossos municipal a Catalunya',
+    description: 'Tot el que necessita saber un tècnic municipal per planificar, dissenyar i equipar una zona d\'esbarjo de gossos (pipican) en un parc o jardí. Normativa, equipament, pressupost i manteniment.',
+    url: 'https://mobiliariurba.cat/guia/zones-de-gossos',
+    inLanguage: 'ca-ES',
+    author: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+    publisher: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+  },
+]);
+---
+
+<Layout
+  title="Guia Tècnica: Com Dissenyar una Zona de Gossos Municipal"
+  description="Guia completa per planificar una zona d'esbarjo de gossos (pipican) en un parc municipal: normativa catalana, superfície, equipament, manteniment i finançament. Per a tècnics municipals."
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/guia/parcs-infantils">Guies</a><span>/</span>
+        <span>Zones de Gossos</span>
+      </nav>
+      <span class="badge badge-green" style="margin-bottom:0.75rem;">Guia tècnica</span>
+      <h1>Com Dissenyar una Zona de Gossos Municipal a Catalunya</h1>
+      <p>Guia pràctica per a tècnics municipals: normativa, emplaçament, equipament, manteniment i finançament d'una zona d'esbarjo de gossos en un parc o jardí públic.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container guide-layout">
+      <article class="guide-content">
+
+        <h2>1. Context: per què els municipis han d'habilitar zones de gossos</h2>
+        <p>El <strong>Decret 6/2013, de 22 de gener, de protecció dels animals</strong>, que desenvolupa la Llei 22/2003 de protecció dels animals de Catalunya, estableix l'obligació dels municipis de disposar de zones especifiques habilitades per a l'esbarjo dels gossos. Malgrat aquesta obligació legal, molts municipis catalans, especialment els de menys de 5.000 habitants, encara no disposen d'una zona adequada.</p>
+        <p>Les conseqüències pràctiques de no disposar de zones habilitades inclouen: contaminació fecal en zones de joc infantil i espais verds generals, conflictes entre propietaris de gossos i altres usuaris del parc, i infraccions de l'ordenança de tinença d'animals que generen tensions veïnals difícils de gestionar.</p>
+        <p>Des del punt de vista municipal, la instal·lació d'una zona de gossos és una inversió relativament baixa (8.000–35.000 €) amb un alt retorn en termes de convivència i satisfacció ciutadana.</p>
+
+        <h2>2. Marc normatiu aplicable a Catalunya</h2>
+
+        <h3>2.1 Normativa autonòmica</h3>
+        <p>La <strong>Llei 22/2003, de 4 de juliol, de protecció dels animals</strong> és el marc general. El seu article 14 obliga els municipis a disposar de llocs i espais adequats per a l'esbarjo dels gossos. El <strong>Decret 6/2013</strong> concreta aquesta obligació i estableix que les zones han d'estar senyalitzades i tenir els elements necessaris per a la recollida d'excrements.</p>
+
+        <h3>2.2 Ordenances municipals</h3>
+        <p>La majoria de municipis catalans disposen d'una ordenança de tinença d'animals que complementa la normativa autonòmica. Aquestes ordenances solen establir:</p>
+        <ul>
+          <li>Superfície mínima de la zona (habitualment 200–500 m²)</li>
+          <li>Elements obligatoris (tanca, dispensadors, senyalística)</li>
+          <li>Horaris d'ús (alguns municipis estableixen franja nocturna prohibida)</li>
+          <li>Normes de comportament (recollida d'excrements, gossos amb corretja en entrada/sortida)</li>
+        </ul>
+        <p>Si el vostre municipi no té ordenança específica, es pot adoptar com a model l'ordenança tipus de la Federació de Municipis de Catalunya (FMC) o la de la Diputació de Barcelona.</p>
+
+        <h3>2.3 Responsabilitat civil municipal</h3>
+        <p>Si un accident es produeix en una zona de gossos municipal (per exemple, una mossegada entre gossos o una caiguda d'un usuari), l'ajuntament pot tenir responsabilitat patrimonial si es demostra que la zona no estava en condicions adequades de manteniment o no complia els requisits normatiu. La documentació de les inspeccions periòdiques és la principal defensa legal.</p>
+
+        <h2>3. Emplaçament: criteris per triar la millor ubicació</h2>
+
+        <h3>3.1 Distàncies de separació</h3>
+        <p>Tot i que no existeix una distància mínima legal uniforme a Catalunya, les bones pràctiques recomanades per les ordenances més avançades estableixen:</p>
+        <ul>
+          <li><strong>≥ 25 m</strong> de zones de joc infantil (evitar coincidència d'espais i possibles interaccions no desitjades)</li>
+          <li><strong>≥ 10 m</strong> de zones de repòs i àrees de picnic</li>
+          <li><strong>≥ 5 m</strong> de zones de vegetació sensible o jardins formals</li>
+          <li>No adjacents a espais de circulació intensa de vianants o ciclistes</li>
+        </ul>
+
+        <h3>3.2 Accessibilitat i visibilitat</h3>
+        <p>La zona de gossos ha de ser accessible a peu des dels barris residencials propers (idealment a menys de 10 minuts a peu). La visibilitat des de l'exterior és important per a dos motius: facilita la supervisió per part dels serveis municipals i augmenta la percepció de seguretat dels usuaris.</p>
+
+        <h3>3.3 Condicions ambientals</h3>
+        <p>Eviteu emplaçaments amb insolació directa i sense ombra en les hores centrals del dia. Un arbre de fulla caduca que projecti ombra a l'estiu és el complement ideal. Eviteu també zones de fort vent (les zones de gossos generen olors que el vent pot transportar cap a zones residencials adjacents).</p>
+
+        <h2>4. Dimensionament: quina superfície necessiteu?</h2>
+        <p>El dimensionament correcte d'una zona de gossos depèn principalment del nombre de gossos potencials del barri o zona de servei. Com a referència, s'estima que en nuclis urbans catalans hi ha entre 80 i 120 gossos per cada 1.000 habitants.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Habitants de la zona de servei</th><th>Gossos estimats</th><th>Superfície recomanada</th><th>Configuració</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>500–2.000 hab.</td><td>40–200 gossos</td><td>200–300 m²</td><td>Zona única, bàsica</td></tr>
+              <tr><td>2.000–10.000 hab.</td><td>200–1.000 gossos</td><td>300–600 m²</td><td>Zona única o 2 zones petites</td></tr>
+              <tr><td>10.000–30.000 hab.</td><td>1.000–3.000 gossos</td><td>1 zona ≥ 600 m² per barri</td><td>Múltiples zones per barri</td></tr>
+              <tr><td>> 30.000 hab.</td><td>> 3.000 gossos</td><td>Xarxa de zones (1 per barri)</td><td>Zones de 400–1.000 m² cadascuna</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Separació per talla de gos: sí o no?</h2>
+        <p>La divisió de la zona en dos sectors —races petites (< 10 kg) i races grans (> 10 kg)— és recomanable però no obligatòria. Els arguments a favor:</p>
+        <ul>
+          <li>Redueix el risc d'accidents per diferència de mida i força entre animals</li>
+          <li>Augmenta la percepció de seguretat dels propietaris de gossos petits</li>
+          <li>Permet establir alçades de tanca diferenciades (0,8 m per a petits / 1,5 m per a grans)</li>
+        </ul>
+        <p>La divisió requereix el doble d'accessos (doble porta per a cada sector) i augmenta el cost entre un 15 i un 25%. Es recomana fer-la a partir de 500 m² de zona total.</p>
+
+        <h2>6. Paviment: opcions i criteris</h2>
+        <p>El paviment de la zona de gossos ha de complir tres requisits: comoditat per als animals, facilitat de neteja, i durabilitat. Les opcions principals per ordre de cost creixent:</p>
+        <ul>
+          <li><strong>Terra natural compactat</strong> — opció de cost zero però problemàtica: s'enfanga, es degrada i és difícil de netejar. No recomanable per a zones d'ús intensiu.</li>
+          <li><strong>Sorra silícia rentada</strong> (profunditat 20–30 cm) — còmoda per als gossos, natural, però requereix garbellar regularment per treure els excrements no recollits i reposició periòdica. Cost baix d'instal·lació, alt de manteniment.</li>
+          <li><strong>Graveta rentada</strong> (granulometria 10–20 mm) — bona permeabilitat, fàcil de netejar amb mànega. Menys còmoda que la sorra però més duradora. Opció equilibrada per a molts municipis.</li>
+          <li><strong>Gespa artificial de drenatge</strong> — la opció més popular en zones de nova creació. Còmoda, fàcil de netejar amb mànega, durable (12–15 anys), bona aparença. Cost intermedi-alt d'instal·lació, manteniment baix.</li>
+          <li><strong>Cautxú granulat drenant</strong> — el millor per a zones amb equipament de joc. Amortidor de caigudes, fàcil de netejar, durable. Cost alt, però justificat en zones amb obstacles.</li>
+        </ul>
+
+        <h2>7. Manteniment: com gestionar-ho bé</h2>
+        <p>El manteniment insuficient és la principal causa de deteriorament de la imatge i l'ús de les zones de gossos. Un pla de manteniment realista ha d'incloure:</p>
+
+        <h3>Manteniment diari o 3 cops per setmana</h3>
+        <ul>
+          <li>Recollida d'excrements residuals no recollits pels propietaris</li>
+          <li>Buidatge de papereres higièniques (freqüència ajustable per temporada)</li>
+          <li>Inspecció visual ràpida de la tanca i els accessos</li>
+          <li>Reposició de bosses als dispensadors</li>
+        </ul>
+
+        <h3>Manteniment mensual</h3>
+        <ul>
+          <li>Neteja a fons del paviment (mànega o màquina d'alta pressió)</li>
+          <li>Revisió de cargols i juntures de la tanca</li>
+          <li>Inspecció de les portes i els ressorts de retorn</li>
+          <li>Revisió de l'estat de la senyalística</li>
+        </ul>
+
+        <h3>Manteniment anual</h3>
+        <ul>
+          <li>Inspecció tècnica de l'estat general de la instal·lació</li>
+          <li>Reposició de sorra o graveta (si escau)</li>
+          <li>Tractament de la fusta (si hi ha elements de fusta tractada)</li>
+          <li>Revisió dels anclatges dels elements de joc i del mobiliari</li>
+        </ul>
+
+        <h2>8. Finançament</h2>
+        <p>Les zones de gossos, quan s'integren en projectes de millora integral d'espai públic, poden accedir a les mateixes línies de finançament que els parcs infantils o els circuits biosaludables:</p>
+        <ul>
+          <li><strong>PUOSC</strong> — fins al 85% per a municipis fins a 50.000 habitants, si s'integra en un projecte de millora de parc o jardí</li>
+          <li><strong>Diputació de Barcelona (XGL)</strong> — actuacions en espai públic, termini octubre–novembre</li>
+          <li><strong>Diputacions de Girona, Lleida i Tarragona</strong> — convocatòries anuals similars</li>
+        </ul>
+        <p>La clau per obtenir finançament és presentar la zona de gossos com a part d'un projecte integral de millora del parc, no com a actuació aïllada. Afegir elements d'accessibilitat universal (itineraris accessibles, senyalística en Braille) millora la puntuació en els barems de selecció.</p>
+
+        <hr />
+        <p><em>Necessiteu assessorament per planificar la zona de gossos del vostre municipi? <a href="/contacte">Contacteu-nos</a> i us connectem amb fabricants especialitzats i tècnics d'espai públic.</em></p>
+
+      </article>
+
+      <aside class="guide-sidebar">
+        <div class="sidebar-card cta-card">
+          <h3>Necessiteu assessorament?</h3>
+          <p>Connecteu amb especialistes en zones de gossos i espais públics a Catalunya.</p>
+          <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Contactar</a>
+        </div>
+        <div class="sidebar-card">
+          <h3>Productes relacionats</h3>
+          <ul class="related-list">
+            <li><a href="/productes/zones-de-gossos">Zones de Gossos</a></li>
+            <li><a href="/productes/zones-de-gossos/tanques-i-tancaments">Tanques i Tancaments</a></li>
+            <li><a href="/productes/zones-de-gossos/equipament-de-joc">Equipament de Joc</a></li>
+            <li><a href="/productes/zones-de-gossos/mobiliari-complementari">Mobiliari Complementari</a></li>
+            <li><a href="/productes/bancs">Bancs Urbans</a></li>
+            <li><a href="/productes/fonts-i-bebedors">Fonts i Bebedors</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>Guies relacionades</h3>
+          <ul class="related-list">
+            <li><a href="/guia/parcs-infantils">Guia Parcs Infantils</a></li>
+            <li><a href="/guia/espais-gent-gran">Espais per a Gent Gran</a></li>
+            <li><a href="/guia/normativa-en1176">Normativa EN1176</a></li>
+            <li><a href="/blog/subvencions-parc-infantil-catalunya">Guia de Subvencions</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .guide-layout { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .guide-content { min-width: 0; }
+  .guide-content h2 { font-size: 1.35rem; font-weight: 800; margin: 2rem 0 0.75rem; color: var(--color-heading); padding-top: 1.5rem; border-top: 2px solid var(--color-border); }
+  .guide-content h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .guide-content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--color-primary-dark); }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1rem; }
+  .guide-content ul, .guide-content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .guide-content li { font-size: 0.9rem; line-height: 1.7; color: var(--color-text); }
+  .guide-content hr { border: none; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th { background: var(--color-bg-alt); padding: 0.55rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; }
+  td { padding: 0.55rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .guide-sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { padding: 0.3rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.85rem; }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .guide-layout { grid-template-columns: 1fr; } .guide-sidebar { position: static; } }
+</style>
