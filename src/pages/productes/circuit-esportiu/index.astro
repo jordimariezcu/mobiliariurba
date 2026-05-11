@@ -1,11 +1,22 @@
 ---
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Circuit Esportiu Exterior', item: 'https://mobiliariurba.cat/productes/circuit-esportiu' },
+  ],
+});
 ---
 
 <Layout
-  title="Circuit Esportiu Exterior i Cal·listènia per a Municipis"
-  description="Equipament de fitness a l'aire lliure i cal·listènia per a espais públics. Barres, paral·leles, anelles, escaladors i circuits biosaludables. Normativa EN16630. Per a tècnics municipals de Catalunya."
+  title="Circuit Esportiu i Cal·listènia Exterior per a Municipis"
+  description="Cal·listènia exterior, circuits biosaludables i fitness funcional per a espais públics. Normativa EN16630, dimensionament i pressupost orientatiu per a municipis de Catalunya."
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">

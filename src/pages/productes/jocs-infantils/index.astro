@@ -2,6 +2,44 @@
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
 
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+      { '@type': 'ListItem', position: 3, name: 'Jocs Infantils', item: 'https://mobiliariurba.cat/productes/jocs-infantils' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Quins documents ha d'aportar el proveïdor d'un joc infantil?",
+        acceptedAnswer: { '@type': 'Answer', text: "El proveïdor ha d'entregar la Declaració de Conformitat CE, els informes d'assaig d'un laboratori acreditat (per exemple, AENOR o TÜV) i els plànols d'instal·lació amb les zones de seguretat. Sense aquests documents, l'ajuntament no pot acceptar l'equipament." },
+      },
+      {
+        '@type': 'Question',
+        name: "Amb quina freqüència s'han d'inspeccionar els jocs?",
+        acceptedAnswer: { '@type': 'Answer', text: 'La norma EN1176-7 estableix tres nivells: inspecció visual rutinària (setmanal), inspecció operativa (mensual) i inspecció principal (anual per tècnic certificat). L\'ajuntament ha de tenir un registre escrit de totes les inspeccions.' },
+      },
+      {
+        '@type': 'Question',
+        name: "Quin és el perímetre de seguretat mínim al voltant d'un gronxador?",
+        acceptedAnswer: { '@type': 'Answer', text: "Per a gronxadors, la zona de caiguda ha de ser, com a mínim, 2 vegades l'alçada de suspensió per davant i per darrere, i 2 metres als costats. La superfície ha de ser amortidora (EN1177) fins a l'alçada crítica de caiguda de l'element." },
+      },
+      {
+        '@type': 'Question',
+        name: 'Existeixen ajuts o subvencions per renovar un parc infantil?',
+        acceptedAnswer: { '@type': 'Answer', text: "Sí. La Diputació de Barcelona, la de Girona i d'altres disposen de línies anuals per a equipament d'espai públic. A més, els fons Next Generation EU inclouen partides per a espais verds i inclusió. Consulteu cada convocatòria amb l'àrea de Cooperació Local." },
+      },
+    ],
+  },
+]);
+
 const subcategories = [
   {
     href: '/productes/jocs-infantils/gronxadors-i-balancins',
@@ -42,8 +80,9 @@ const subcategories = [
 ---
 
 <Layout
-  title="Jocs Infantils per a Parcs Exteriors"
-  description="Guia completa de jocs infantils homologats per a parcs exteriors a Catalunya: gronxadors, tobogans, jocs inclusius i circuits multijoc. Normativa EN1176."
+  title="Jocs Infantils per a Parcs — Gronxadors, Tobogans i Circuits EN1176"
+  description="Guia de jocs infantils homologats EN1176 per a parcs exteriors: gronxadors, tobogans, circuits multijoc i jocs inclusius. Tot el que necessita saber un tècnic municipal."
+  jsonLd={jsonLd}
 >
   <!-- Breadcrumb + Header -->
   <div class="page-header">

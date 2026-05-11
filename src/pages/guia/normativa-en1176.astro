@@ -1,11 +1,40 @@
 ---
 export const prerender = true;
 import Layout from '../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Guies', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
+      { '@type': 'ListItem', position: 3, name: 'Normativa EN1176', item: 'https://mobiliariurba.cat/guia/normativa-en1176' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Normativa EN1176 per a Jocs Infantils: Guia per a Tècnics Municipals',
+    description: 'La normativa EN1176 explicada per a tècnics municipals: les 8 parts, requisits clau de seguretat (atrapaments, alçades de caiguda), els 5 documents obligatoris al proveïdor i la responsabilitat legal de l\'ajuntament.',
+    url: 'https://mobiliariurba.cat/guia/normativa-en1176',
+    inLanguage: 'ca-ES',
+    author: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+    publisher: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+    about: [
+      { '@type': 'Thing', name: 'EN1176' },
+      { '@type': 'Thing', name: 'Normativa jocs infantils' },
+      { '@type': 'Thing', name: 'Seguretat parcs infantils' },
+    ],
+  },
+]);
 ---
 
 <Layout
-  title="Normativa EN1176 per a Jocs Infantils: Guia per a Tècnics Municipals"
-  description="Explicació completa de la normativa europea EN1176 per a equipament de joc infantil. Requisits tècnics, documents obligatoris i responsabilitats dels ajuntaments."
+  title="Normativa EN1176 per a Tècnics Municipals"
+  description="La normativa EN1176 explicada pas a pas: les 8 parts, requisits de seguretat, els 5 documents obligatoris al proveïdor i la responsabilitat legal de l'ajuntament en cas d'accident."
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <div class="page-header page-header-lg">
     <div class="container">

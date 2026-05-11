@@ -1,11 +1,23 @@
 ---
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Jocs Infantils', item: 'https://mobiliariurba.cat/productes/jocs-infantils' },
+    { '@type': 'ListItem', position: 4, name: 'Tobogans', item: 'https://mobiliariurba.cat/productes/jocs-infantils/tobogans' },
+  ],
+});
 ---
 
 <Layout
   title="Tobogans per a Parcs Infantils Exteriors"
-  description="Tobogans individuals, en espiral i integrats en torres multijoc per a parcs exteriors. Homologats EN1176-3. Materials PEHD resistents a UV i vandalisme."
+  description="Tobogans homologats EN1176-3: rectes, espirals, tubulars i d'acer inox. Materials, especificacions tècniques i manteniment. Guia per a tècnics municipals de Catalunya."
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">

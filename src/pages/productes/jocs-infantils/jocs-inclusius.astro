@@ -1,11 +1,23 @@
 ---
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Jocs Infantils', item: 'https://mobiliariurba.cat/productes/jocs-infantils' },
+    { '@type': 'ListItem', position: 4, name: 'Jocs Inclusius i Accessibles', item: 'https://mobiliariurba.cat/productes/jocs-infantils/jocs-inclusius' },
+  ],
+});
 ---
 
 <Layout
-  title="Jocs Infantils Inclusius i Accessibles per a Parcs"
-  description="Equipament de joc inclusiu i accessible per a nens amb discapacitat física, sensorial o cognitiva. Disseny universal per a parcs municipals a Catalunya. Normativa d'accessibilitat."
+  title="Jocs Inclusius i Accessibles per a Parcs"
+  description="Equipament de joc inclusiu per a nens amb discapacitat. Gronxadors adaptats, panells sensorials i superfícies accessibles per a cadires de rodes. Normativa d'accessibilitat."
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">

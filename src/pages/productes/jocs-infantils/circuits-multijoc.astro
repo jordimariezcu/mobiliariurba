@@ -1,11 +1,23 @@
 ---
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Jocs Infantils', item: 'https://mobiliariurba.cat/productes/jocs-infantils' },
+    { '@type': 'ListItem', position: 4, name: 'Circuits Multijoc i Torres', item: 'https://mobiliariurba.cat/productes/jocs-infantils/circuits-multijoc' },
+  ],
+});
 ---
 
 <Layout
   title="Circuits Multijoc i Torres per a Parcs Infantils"
-  description="Estructures de joc combinades: torres, ponts, escales de corda, túnels i tobogans en un sol element. Fusta de robínia i acer galvanitzat. EN1176."
+  description="Circuits multijoc amb torres, ponts oscil·lants, escales de corda i tobogans integrats. Fusta de robínia i acer galvanitzat. Dimensionament i normativa EN1176."
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">

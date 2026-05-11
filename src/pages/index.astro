@@ -11,9 +11,43 @@ const projectes = await reader.collections.projectes.all();
 
 const destacats = productes.filter(p => p.entry.destacat).slice(0, 6);
 const projectesDestacats = projectes.filter(p => p.entry.destacat).slice(0, 3);
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'MobiliariUrbà.cat',
+    url: 'https://mobiliariurba.cat',
+    description: 'Portal en català sobre jocs infantils, circuits esportius i mobiliari urbà per a tècnics municipals i arquitectes de Catalunya.',
+    inLanguage: 'ca-ES',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: { '@type': 'EntryPoint', urlTemplate: 'https://mobiliariurba.cat/blog?q={search_term_string}' },
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'MobiliariUrbà.cat',
+    url: 'https://mobiliariurba.cat',
+    logo: 'https://mobiliariurba.cat/og-default.png',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'info@mobiliariurba.cat',
+      contactType: 'customer support',
+      availableLanguage: 'Catalan',
+    },
+  },
+]);
 ---
 
-<Layout title="Inici">
+<Layout
+  title="MobiliariUrbà.cat — Jocs Infantils i Mobiliari Urbà per a Municipis"
+  description="Portal en català sobre jocs infantils, circuits esportius i mobiliari urbà per a tècnics municipals i arquitectes de Catalunya. Normativa EN1176, materials i subvencions."
+  noSuffix={true}
+  jsonLd={jsonLd}
+>
   <!-- Hero -->
   <section class="hero">
     <div class="container">

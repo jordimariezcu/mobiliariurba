@@ -1,11 +1,23 @@
 ---
 export const prerender = true;
 import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Jocs Infantils', item: 'https://mobiliariurba.cat/productes/jocs-infantils' },
+    { '@type': 'ListItem', position: 4, name: 'Gronxadors i Balancins', item: 'https://mobiliariurba.cat/productes/jocs-infantils/gronxadors-i-balancins' },
+  ],
+});
 ---
 
 <Layout
-  title="Gronxadors i Balancins per a Parcs Exteriors"
-  description="Gronxadors individuals, dobles i adaptats per a parcs exteriors. Homologats EN1176-2. Materials: acer galvanitzat, fusta de robínia i seients inclusius."
+  title="Gronxadors i Balancins per a Parcs Infantils"
+  description="Tipus de gronxadors per a parcs exteriors: estàndard, bressol, adaptat i gronxadors niu. Normativa EN1176-2, zones de seguretat i manteniment preventiu."
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">
