@@ -1,0 +1,178 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Normativa EN1176 per a Jocs Infantils: Guia per a Tècnics Municipals"
+  description="Explicació completa de la normativa europea EN1176 per a equipament de joc infantil. Requisits tècnics, documents obligatoris i responsabilitats dels ajuntaments."
+>
+  <div class="page-header page-header-lg">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/guia/parcs-infantils">Guia Parcs Infantils</a><span>/</span>
+        <span>Normativa EN1176</span>
+      </nav>
+      <span class="badge badge-blue" style="margin-bottom:0.75rem;">Normativa Tècnica</span>
+      <h1>Normativa EN1176: Tot el que ha de Saber un Tècnic Municipal</h1>
+      <p>La norma EN1176 és la referència europea de seguretat per a l'equipament de joc infantil. Aquesta guia explica les parts essencials, els documents que heu d'exigir al proveïdor i les responsabilitats legals de l'ajuntament.</p>
+    </div>
+  </div>
+
+  <div class="guia-wrapper">
+    <div class="container guia-layout">
+      <article class="prose guia-content">
+
+        <h2 id="que-es">Què és la norma EN1176?</h2>
+        <p>La norma EN1176 és un conjunt de normes europees harmonitzades, publicades pel CEN (Comitè Europeu de Normalització), que estableixen els requisits de seguretat i els mètodes d'assaig per a equipament de joc infantil instal·lat de manera permanent en espais públics.</p>
+        <p>A diferència d'altres normatives, la EN1176 no és una llei directament aplicable, però sí que és d'<strong>aplicació presumptiva</strong>: si un producte compleix la EN1176, es presumeix que compleix els requisits essencials de seguretat del Reial Decret 1801/2003 (Seguretat General dels Productes). Això és crucial per a l'ajuntament, ja que inverteix la càrrega de la prova en cas d'accident.</p>
+
+        <h2 id="parts">Les parts de la norma EN1176</h2>
+        <p>La norma es divideix en diverses parts, cadascuna dedicada a un tipus d'element de joc:</p>
+        <table>
+          <thead><tr><th>Part</th><th>Contingut</th></tr></thead>
+          <tbody>
+            <tr><td><strong>EN1176-1</strong></td><td>Requisits generals de seguretat i mètodes d'assaig (obligatòria per a tots els elements)</td></tr>
+            <tr><td>EN1176-2</td><td>Gronxadors</td></tr>
+            <tr><td>EN1176-3</td><td>Tobogans</td></tr>
+            <tr><td>EN1176-4</td><td>Tirolines</td></tr>
+            <tr><td>EN1176-5</td><td>Carrusels</td></tr>
+            <tr><td>EN1176-6</td><td>Balancins de molla</td></tr>
+            <tr><td><strong>EN1176-7</strong></td><td>Guia d'instal·lació, inspecció, manteniment i operació (aplicable a tots)</td></tr>
+            <tr><td>EN1176-10</td><td>Equipament de joc completament tancat</td></tr>
+            <tr><td>EN1176-11</td><td>Xarxes d'espai tridimensional</td></tr>
+          </tbody>
+        </table>
+        <p>La part 1 (requisits generals) i la part 7 (inspecció i manteniment) s'apliquen sempre, independentment del tipus d'element. Les parts 2–6 s'apliquen adicionalment a cada element específic.</p>
+
+        <h2 id="requisits">Requisits clau de la EN1176-1</h2>
+
+        <h3>Atrapament de cap i coll</h3>
+        <p>Una de les causes més greus d'accident és l'atrapament del cap en obertures de la xarxa o estructura. La norma estableix:</p>
+        <ul>
+          <li>Obertures &lt; 89 mm: prohibides (no permeten que hi entre el cap)</li>
+          <li>Obertures 89–230 mm: prohibides (el cap hi entra però no en pot sortir)</li>
+          <li>Obertures &gt; 230 mm: permeses (el cap pot entrar i sortir)</li>
+        </ul>
+        <p>Aquesta restricció s'aplica a totes les obertures de l'estructura, incloent-hi finestres, forats de plataformes i xarxes.</p>
+
+        <h3>Atrapament de dits i extremitats</h3>
+        <p>Les juntes entre components mòbils (cadenes, articulacions de gronxadors, sistemes de rotació) no han de tenir obertures que puguin atrapar els dits (entre 8 i 25 mm) ni els peus (entre 30 i 230 mm).</p>
+
+        <h3>Alçades de caiguda lliure</h3>
+        <p>L'alçada de caiguda lliure determina el tipus de superfície amortidora necessari:</p>
+        <table>
+          <thead><tr><th>Grup d'edat</th><th>Alçada màx. de caiguda</th></tr></thead>
+          <tbody>
+            <tr><td>Nens menors de 3 anys</td><td>1,0 m</td></tr>
+            <tr><td>Nens de 3 a 14 anys</td><td>3,0 m</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Resistència estructural</h3>
+        <p>L'estructura ha de suportar una càrrega estàtica de 50 kg per punt d'accés, sense deformació permanent. Els ancoratges al sòl han d'estar dissenyats per resistir el moment de bolcament equivalent a 1,5 vegades la càrrega de disseny.</p>
+
+        <h2 id="documents">Documents que heu d'exigir al proveïdor</h2>
+        <p>Quan l'ajuntament rep una oferta per a la instal·lació d'un parc infantil, ha d'exigir obligatòriament els documents següents:</p>
+        <div class="doc-list">
+          {[
+            { num: '01', title: 'Declaració de Conformitat CE', desc: 'Document signat pel fabricant on declara que el producte compleix la Directiva de Seguretat General de Productes i les normes EN1176 aplicables. Sense aquest document, el producte no és legal.' },
+            { num: '02', title: 'Informe d\'assaig d\'un laboratori acreditat', desc: 'Informe d\'un organisme notificat (TÜV, AENOR, Bureau Veritas, SGS, etc.) que certifica que el producte ha superat els assajos físics de la EN1176. Ha de ser el model exacte que s\'instal·larà.' },
+            { num: '03', title: 'Manual d\'instal·lació', desc: 'Plànols d\'ancoratge, especificacions de cimentació (tipus de formigó, profunditat, diàmetre), eines necessàries i instruccions pas a pas. Cal seguir-lo exactament.' },
+            { num: '04', title: 'Manual d\'inspecció i manteniment', desc: 'Programa d\'inspeccions recomanat pel fabricant, eines per a cada tasca i llista de peces de recanvi disponibles. Ha de ser compatible amb les exigències de la EN1176-7.' },
+            { num: '05', title: 'Plànol de zones de seguretat', desc: 'Plànol a escala que mostri les zones de seguretat amortidora requerides al voltant de cada element. Necessari per planificar la superfície de cautxú o sorra.' },
+          ].map(doc => (
+            <div class="doc-item">
+              <span class="doc-num">{doc.num}</span>
+              <div>
+                <strong>{doc.title}</strong>
+                <p>{doc.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h2 id="responsabilitat">Responsabilitat de l'ajuntament</h2>
+        <p>Molts tècnics creuen que comprar un producte amb marcatge CE és suficient per eximir l'ajuntament de responsabilitat. Això és un error. La EN1176-7 estableix que la responsabilitat de manteniment i inspecció recau sobre el <strong>titular de la instal·lació</strong>, és a dir, l'ajuntament.</p>
+        <p>Concretament, l'ajuntament és responsable de:</p>
+        <ul>
+          <li>Verificar que la instal·lació s'ha fet seguint el manual del fabricant</li>
+          <li>Mantenir un registre documentat de totes les inspeccions</li>
+          <li>Actuar immediatament davant qualsevol risc detectat (precintament o reparació)</li>
+          <li>Contractar una inspecció principal anual per un tècnic extern qualificat</li>
+          <li>Conservar tots els documents durant tota la vida útil de l'equipament</li>
+        </ul>
+        <div class="info-box">
+          <p><strong>Cas pràctic:</strong> Si un nen es fa mal en un gronxador i els pares denuncien l'ajuntament, el jutge demanarà els registres d'inspecció dels últims anys. Si l'ajuntament no en té, la presumpció de negligència és molt difícil de rebatre. Un programa d'inspecció documentat és la millor defensa legal.</p>
+        </div>
+
+        <h2 id="inspectors">On trobar tècnics d'inspecció acreditats</h2>
+        <p>La inspecció principal anual l'ha de fer una persona física o empresa amb formació específica en EN1176-7. A Catalunya podeu trobar serveis d'inspecció a través de:</p>
+        <ul>
+          <li>Col·legi d'Enginyers Tècnics Industrials de Catalunya (CETIB)</li>
+          <li>Organismes de control acreditats per ENAC (Entitat Nacional d'Acreditació)</li>
+          <li>Empreses de manteniment d'espais públics amb tècnics certificats EN1176-7</li>
+        </ul>
+
+      </article>
+
+      <aside class="guia-sidebar">
+        <div class="sidebar-card toc-card">
+          <h3>En aquesta guia</h3>
+          <ol class="toc-list">
+            <li><a href="#que-es">Què és la EN1176?</a></li>
+            <li><a href="#parts">Les parts de la norma</a></li>
+            <li><a href="#requisits">Requisits tècnics clau</a></li>
+            <li><a href="#documents">Documents obligatoris</a></li>
+            <li><a href="#responsabilitat">Responsabilitat municipal</a></li>
+            <li><a href="#inspectors">Inspectors acreditats</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-card cta-card">
+          <h3>Necessiteu un partner?</h3>
+          <p>Connecteu amb proveïdors especialitzats en jocs infantils homologats EN1176 a Catalunya.</p>
+          <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Contactar</a>
+        </div>
+        <div class="sidebar-card">
+          <h3>Guies relacionades</h3>
+          <ul class="related-list">
+            <li><a href="/guia/parcs-infantils">Guia de planificació de parcs</a></li>
+            <li><a href="/productes/jocs-infantils">Catàleg jocs infantils</a></li>
+            <li><a href="/productes/jocs-infantils/jocs-inclusius">Accessibilitat als parcs</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-header-lg { padding: 3rem 0; }
+  .guia-wrapper { padding: 3rem 0 5rem; }
+  .guia-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+  .guia-content { min-width: 0; }
+  .guia-sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .toc-card ol { padding-left: 1.25rem; }
+  .toc-card li { margin-bottom: 0.4rem; }
+  .toc-card a { font-size: 0.85rem; color: var(--color-primary); }
+  .toc-card a:hover { text-decoration: underline; }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+
+  .doc-list { display: flex; flex-direction: column; gap: 1rem; margin: 1.25rem 0; }
+  .doc-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .doc-num { background: var(--color-primary); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .doc-item strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+  .doc-item p { font-size: 0.875rem; color: var(--color-muted); margin: 0; line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    .guia-layout { grid-template-columns: 1fr; }
+    .guia-sidebar { position: static; }
+    .toc-card { display: none; }
+  }
+</style>

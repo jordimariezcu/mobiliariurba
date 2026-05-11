@@ -1,0 +1,196 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Guia Completa per Planificar un Parc Infantil"
+  description="Guia tècnica per a tècnics municipals i arquitectes sobre com planificar, equipar i mantenir un parc infantil a Catalunya. Normativa, materials, superfícies i pressupost."
+>
+  <div class="page-header page-header-lg">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <span>Guia Parcs Infantils</span>
+      </nav>
+      <span class="badge badge-blue" style="margin-bottom:0.75rem;">Guia Tècnica</span>
+      <h1>Guia Completa per Planificar un Parc Infantil</h1>
+      <p>Tot el que necessita saber un tècnic municipal, arquitecte o gestor d'espais públics per dissenyar, equipar, legalitzar i mantenir un parc infantil a Catalunya.</p>
+      <div class="toc-inline">
+        <span>En aquesta guia:</span>
+        <a href="#que-necessites">Necessitats</a>
+        <a href="#normativa">Normativa</a>
+        <a href="#materials">Materials</a>
+        <a href="#superficies">Superfícies</a>
+        <a href="#manteniment">Manteniment</a>
+        <a href="#pressupost">Pressupost</a>
+        <a href="#subvencions">Subvencions</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="guia-wrapper">
+    <div class="container guia-layout">
+
+      <!-- Contingut principal -->
+      <article class="prose guia-content">
+
+        <h2 id="que-necessites">1. Anàlisi de necessitats prèvia</h2>
+        <p>Abans de contactar cap proveïdor, el tècnic municipal ha de respondre quatre preguntes fonamentals que condicionaran tot el projecte:</p>
+        <ul>
+          <li><strong>A qui va destinat?</strong> El rang d'edat principal determina les alçades, els elements i les zones de seguretat. Un parc de 0–3 anys és radicalment diferent d'un de 6–12 anys.</li>
+          <li><strong>Quants nens simultanis?</strong> Afecta directament la mida de l'estructura i el nombre d'elements. La regla general és 1 element per cada 3–5 nens d'ús simultani previst.</li>
+          <li><strong>Quin espai tenim?</strong> Cal comptar l'espai de la instal·lació <em>més</em> les zones de seguretat amortidora obligatòries (EN1177) que solen doblar l'espai dels elements.</li>
+          <li><strong>Hi ha nens amb discapacitat a la zona?</strong> Si és un parc de barri, el disseny universal hauria de ser el punt de partida, no un afegit opcional.</li>
+        </ul>
+        <div class="info-box">
+          <p><strong>Consell:</strong> Contacteu amb les AMPA de les escoles del barri i amb els serveis socials municipals abans de redactar el plec. Sovint hi ha necessitats no detectades (nens en cadira de rodes, nens amb TEA) que afectaran el disseny.</p>
+        </div>
+
+        <h2 id="normativa">2. Marc normatiu a Catalunya</h2>
+        <p>Els parcs infantils a Catalunya estan regulats per diverses normes que el tècnic municipal ha de conèixer:</p>
+        <table>
+          <thead><tr><th>Norma</th><th>Àmbit</th><th>Obligatorietat</th></tr></thead>
+          <tbody>
+            <tr><td>EN1176 (parts 1–7)</td><td>Seguretat equipament de joc</td><td>Obligatòria (marcatge CE)</td></tr>
+            <tr><td>EN1177</td><td>Superfícies amortidores</td><td>Obligatòria</td></tr>
+            <tr><td>Decret 135/1995 Cat.</td><td>Accessibilitat</td><td>Obligatòria espais públics</td></tr>
+            <tr><td>RD 1801/2003</td><td>Seguretat general productes</td><td>Estatal, obligatòria</td></tr>
+            <tr><td>Ordenança municipal</td><td>Condicions locals</td><td>Varia per municipi</td></tr>
+          </tbody>
+        </table>
+        <p>La norma EN1176 és la més important. Estableix tots els requisits tècnics: dimensions mínimes d'obertures (per evitar atrapaments de cap), alçades màximes de caiguda, resistència estructural, ancoratges i procediments d'inspecció. <a href="/guia/normativa-en1176">Llegiu la nostra guia detallada sobre EN1176 →</a></p>
+
+        <h2 id="materials">3. Elecció de materials</h2>
+        <p>El material de l'estructura determina la durabilitat, el manteniment i el cost total del cicle de vida. Aquí teniu una comparativa dels quatre materials principals:</p>
+
+        <h3>Fusta de Robínia — La millor opció natural</h3>
+        <p>La robínia (<em>Robinia pseudoacacia</em>) és la fusta de referència per a parcs infantils d'alta qualitat a Europa. No necessita tractaments químics, té una densitat de 770 kg/m³ i una durabilitat natural de classe I (EN350). La seva resistència natural a la podridura supera els 25 anys en exterior. <strong>Inconvenient:</strong> preu elevat i dificultat d'obtenció en grans quantitats a la Península.</p>
+
+        <h3>Fusta tractada en autoclau (classe IV)</h3>
+        <p>Pi o avet impregnat amb sals de coure (CuAz o similar), sense arsènic ni crom. Adequat per a ús en contacte amb el sòl. Vida útil de 15–20 anys. Cal verificar que el tractament és lliure de compostos carcinògens i que compleix la normativa europea de biocides.</p>
+
+        <h3>Acer galvanitzat en calent</h3>
+        <p>Estructura robusta, modular i de manteniment mínim. Ideal per a zones urbanes d'alta afluència i risc de vandalisme. La galvanització en calent (mínim 85 μm de zinc) garanteix una durabilitat de 20–30 anys en ambient urbà. <strong>Inconvenient:</strong> estètica més industrial, es pot escalfar en dies calorosos.</p>
+
+        <h3>PEHD (Polietilè d'Alta Densitat)</h3>
+        <p>Plàstic tècnic utilitzat per a plataformes, panells, tobogans i elements de colors. Resistent als raigs UV, al vandalisme i a la humitat. Ecofriendly si és de material reciclat post-consum. Vida útil de 15–20 anys. <strong>Limitació:</strong> no estructural; s'utilitza sempre combinat amb acer o fusta per als elements portants.</p>
+
+        <h2 id="superficies">4. Superfícies de seguretat (EN1177)</h2>
+        <p>La superfície amortidora és tan important com l'equipament de joc. La norma EN1177 estableix l'alçada crítica de caiguda de cada element i la superfície mínima necessària per absorbir l'impacte.</p>
+        <table>
+          <thead><tr><th>Material</th><th>Alçada crítica màx.</th><th>Manteniment</th><th>Accessibilitat</th></tr></thead>
+          <tbody>
+            <tr><td>Cautxú colat in situ</td><td>Fins a 3,0 m</td><td>Mínim</td><td>✅ Excel·lent</td></tr>
+            <tr><td>Lloses de cautxú</td><td>Fins a 3,0 m</td><td>Baix</td><td>✅ Bona</td></tr>
+            <tr><td>Sorra de quars (>30 cm)</td><td>Fins a 3,0 m</td><td>Alt (rastrellar)</td><td>❌ No accessible</td></tr>
+            <tr><td>Escorça de fusta (>30 cm)</td><td>Fins a 3,0 m</td><td>Mig (reposició)</td><td>❌ No accessible</td></tr>
+            <tr><td>Gespa artificial amortidora</td><td>Fins a 1,5 m</td><td>Baix-mig</td><td>⚠️ Acceptable</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="manteniment">5. Programa de manteniment obligatori</h2>
+        <p>La norma EN1176-7 estableix tres nivells d'inspecció que l'ajuntament ha de documentar obligatòriament:</p>
+
+        <h3>Inspecció visual rutinària (setmanal)</h3>
+        <p>Realitzada per personal de manteniment. Detecta riscos evidents: elements trencats, graffiti sobre zones de joc, fragments de vidre, elements metàl·lics exposats, vandalisme. Ha de tenir un registre (full de paper o app).</p>
+
+        <h3>Inspecció operativa (mensual)</h3>
+        <p>Comprova el desgast de components: cargols, cadenes, seients, ancoratges superficials, xarxes i cordes. Inclou la verificació de les zones de seguretat. Ha de documentar-se amb data i signatura.</p>
+
+        <h3>Inspecció principal anual</h3>
+        <p>Realitzada per un tècnic extern qualificat en EN1176. Avalua l'estat estructural, els ancoratges al sòl, la degradació dels materials i la conformitat amb la normativa vigent. L'informe és el document legal que justifica la seguretat del parc davant d'una possible reclamació.</p>
+        <div class="info-box">
+          <p><strong>Responsabilitat civil:</strong> En cas d'accident en un parc infantil municipal, l'ajuntament és responsable si no pot demostrar que seguia un programa d'inspecció documentat. L'informe anual d'un tècnic acreditat és la millor protecció legal.</p>
+        </div>
+
+        <h2 id="pressupost">6. Orientació de pressupost</h2>
+        <p>Els preus varien molt en funció del material, la mida i la complexitat. Aquestes xifres són orientatives (IVA no inclòs, instal·lació no inclosa):</p>
+        <table>
+          <thead><tr><th>Element</th><th>Preu orientatiu</th></tr></thead>
+          <tbody>
+            <tr><td>Gronxador doble acer galvanitzat</td><td>1.200 – 2.500 €</td></tr>
+            <tr><td>Tobogan individual (0,9 m)</td><td>800 – 1.800 €</td></tr>
+            <tr><td>Balancí de molla (forma animal)</td><td>400 – 900 €</td></tr>
+            <tr><td>Torre simple + tobogan fusta robínia</td><td>4.000 – 8.000 €</td></tr>
+            <tr><td>Circuit multijoc (2 torres + pont)</td><td>12.000 – 35.000 €</td></tr>
+            <tr><td>Gronxador adaptat cadira de rodes</td><td>3.500 – 7.000 €</td></tr>
+            <tr><td>Superfície cautxú colat (per m²)</td><td>80 – 140 €/m²</td></tr>
+            <tr><td>Instal·lació + cimentació (estimat)</td><td>15–25% del cost de material</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="subvencions">7. Subvencions i ajuts disponibles</h2>
+        <p>Els ajuntaments catalans poden accedir a diverses línies de finançament per a la renovació o creació de parcs infantils:</p>
+        <ul>
+          <li><strong>Diputació de Barcelona (PUOSC):</strong> El Pla Únic d'Obres i Serveis de Catalunya finança inversions en espai públic per a municipis de menys de 50.000 habitants.</li>
+          <li><strong>Diputació de Girona, Lleida i Tarragona:</strong> Convocatòries anuals d'ajuts per a equipaments municipals. Cal consultar cada convocatòria.</li>
+          <li><strong>Fons Next Generation EU:</strong> El Pla de Recuperació inclou partides per a "espais verds i accessibles" i "equipament esportiu i de lleure". Els ajuntaments poden accedir-hi a través de les convocatòries específiques del Ministeri.</li>
+          <li><strong>Fons FEDER:</strong> Per a municipis en zones d'objectiu. Finança inversions en millora d'espai públic i accessibilitat.</li>
+        </ul>
+        <p>Us recomanem contactar amb l'Àrea de Cooperació Local de la Diputació corresponent per identificar les convocatòries vigents abans de redactar el pressupost del projecte.</p>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="guia-sidebar">
+        <div class="sidebar-card toc-card">
+          <h3>Índex de continguts</h3>
+          <ol class="toc-list">
+            <li><a href="#que-necessites">Anàlisi de necessitats</a></li>
+            <li><a href="#normativa">Marc normatiu</a></li>
+            <li><a href="#materials">Elecció de materials</a></li>
+            <li><a href="#superficies">Superfícies de seguretat</a></li>
+            <li><a href="#manteniment">Programa de manteniment</a></li>
+            <li><a href="#pressupost">Orientació de pressupost</a></li>
+            <li><a href="#subvencions">Subvencions disponibles</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-card cta-card">
+          <h3>Necessiteu assessorament?</h3>
+          <p>Connecteu-vos amb els partners especialistes de la nostra xarxa per rebre pressupost sense compromís.</p>
+          <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Sol·licitar informació</a>
+        </div>
+        <div class="sidebar-card">
+          <h3>Guies relacionades</h3>
+          <ul class="related-list">
+            <li><a href="/guia/normativa-en1176">Normativa EN1176 detallada</a></li>
+            <li><a href="/productes/jocs-infantils">Catàleg jocs infantils</a></li>
+            <li><a href="/productes/jocs-infantils/jocs-inclusius">Jocs inclusius</a></li>
+            <li><a href="/productes/jocs-infantils/gronxadors-i-balancins">Gronxadors</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-header-lg { padding: 3rem 0; }
+  .toc-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-muted); }
+  .toc-inline a { color: var(--color-primary); border-bottom: 1px solid currentColor; }
+  .toc-inline a:hover { color: var(--color-primary-dark); }
+
+  .guia-wrapper { padding: 3rem 0 5rem; }
+  .guia-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+  .guia-content { min-width: 0; }
+
+  .guia-sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .toc-card ol { padding-left: 1.25rem; }
+  .toc-card li { margin-bottom: 0.4rem; }
+  .toc-card a { font-size: 0.85rem; color: var(--color-primary); }
+  .toc-card a:hover { text-decoration: underline; }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .guia-layout { grid-template-columns: 1fr; }
+    .guia-sidebar { position: static; }
+    .toc-card { display: none; }
+  }
+</style>

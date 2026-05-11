@@ -1,0 +1,258 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const subcategories = [
+  {
+    href: '/productes/jocs-infantils/gronxadors-i-balancins',
+    icon: '🫧',
+    title: 'Gronxadors i Balancins',
+    desc: 'Per a totes les edats. Estructures individuals, dobles i adaptades per a nens amb mobilitat reduïda.',
+    tags: ['Des de 2 anys', 'EN1176', 'Acer galvanitzat'],
+  },
+  {
+    href: '/productes/jocs-infantils/tobogans',
+    icon: '🛝',
+    title: 'Tobogans i Estructures de Joc',
+    desc: 'Tobogans individuals, en espiral i integrats en torres multijoc. Plàstic PEHD resistent als raigs UV.',
+    tags: ['2–12 anys', 'PEHD UV', 'Modular'],
+  },
+  {
+    href: '/productes/jocs-infantils/jocs-inclusius',
+    icon: '♿',
+    title: 'Jocs Inclusius i Accessibles',
+    desc: 'Equipament dissenyat per a nens amb discapacitat física, sensorial o cognitiva. Compleix EN1176 i normativa d\'accessibilitat.',
+    tags: ['Accessibilitat', 'Disseny universal', 'Sensorial'],
+  },
+  {
+    href: '/productes/jocs-infantils/circuits-multijoc',
+    icon: '🏗️',
+    title: 'Circuits Multijoc i Torres',
+    desc: 'Estructures combinades amb ponts, escales de corda, túnels i panells de joc. Ideals per a parcs grans.',
+    tags: ['3–12 anys', 'Modular', 'Fusta robínia'],
+  },
+  {
+    href: '/productes/circuit-esportiu',
+    icon: '💪',
+    title: 'Circuits Esportius',
+    desc: 'Equipament de cal·listènia, fitness a l\'aire lliure i circuits biosaludables per a joves i adults.',
+    tags: ['Adolescents / Adults', 'Acer inox', 'EN16630'],
+  },
+];
+---
+
+<Layout
+  title="Jocs Infantils per a Parcs Exteriors"
+  description="Guia completa de jocs infantils homologats per a parcs exteriors a Catalunya: gronxadors, tobogans, jocs inclusius i circuits multijoc. Normativa EN1176."
+>
+  <!-- Breadcrumb + Header -->
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Jocs Infantils</span>
+      </nav>
+      <h1>Jocs Infantils per a Parcs Exteriors</h1>
+      <p>Equipament homologat EN1176 per a espais de joc a l'aire lliure: parcs municipals, escoles, urbanitzacions i àrees residencials.</p>
+    </div>
+  </div>
+
+  <!-- Subcategories grid -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        {subcategories.map(cat => (
+          <a href={cat.href} class="card">
+            <div class="card-img">
+              <div class="placeholder-img">{cat.icon}</div>
+            </div>
+            <div class="card-body">
+              <h3>{cat.title}</h3>
+              <p>{cat.desc}</p>
+              <div class="tag-list">
+                {cat.tags.map(t => <span class="tag">{t}</span>)}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloc normatiu -->
+  <section class="section section-alt">
+    <div class="container norm-grid">
+      <div>
+        <span class="badge badge-blue">Normativa</span>
+        <h2 class="section-title">Normativa EN1176 i EN1177</h2>
+        <p class="section-subtitle">Tot l'equipament de joc instal·lat en espais públics a Catalunya ha de complir les normes europees de seguretat.</p>
+        <div class="prose">
+          <p><strong>EN1176</strong> — Defineix els requisits de seguretat i els mètodes d'assaig per a equipament de joc instal·lat de manera permanent. S'aplica a gronxadors, tobogans, estructures de corda i circuits multijoc.</p>
+          <p><strong>EN1177</strong> — Regula les superfícies amortidores de la zona de joc (cautxú reciclat, sorra certificada, escorça de fusta) i l'alçada crítica de caiguda de cada element.</p>
+          <p>Llegeix la nostra guia completa per entendre quins documents cal exigir al proveïdor i com planificar les inspeccions periòdiques obligatòries.</p>
+        </div>
+        <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="/guia/normativa-en1176" class="btn btn-primary">Guia Normativa EN1176</a>
+          <a href="/guia/parcs-infantils" class="btn btn-outline">Guia completa de parcs</a>
+        </div>
+      </div>
+      <div class="norm-cards">
+        {[
+          { norm: 'EN1176-1', desc: 'Requisits generals de seguretat' },
+          { norm: 'EN1176-2', desc: 'Gronxadors' },
+          { norm: 'EN1176-3', desc: 'Tobogans' },
+          { norm: 'EN1176-4', desc: 'Tirolines' },
+          { norm: 'EN1176-5', desc: 'Carrusels' },
+          { norm: 'EN1177', desc: 'Superfícies amortidores' },
+        ].map(n => (
+          <div class="norm-card">
+            <strong>{n.norm}</strong>
+            <span>{n.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Materials més habituals</h2>
+      <p class="section-subtitle">Cada entorn requereix un material diferent. Aquí tens una comparativa per ajudar-te a triar.</p>
+      <div class="materials-grid">
+        {[
+          {
+            name: 'Fusta de Robínia',
+            icon: '🪵',
+            pros: ['Estètica natural', 'Molt resistent', 'No necessita tractament químic', 'Durabilitat > 25 anys'],
+            cons: ['Cost inicial alt', 'Poc modular'],
+            ideal: 'Parcs de barri, entorns naturals',
+          },
+          {
+            name: 'Acer Galvanitzat',
+            icon: '⚙️',
+            pros: ['Molt resistent al vandalisme', 'Manteniment mínim', 'Modular i ampliable', 'Bon preu'],
+            cons: ['Menys estètica', 'Es pot escalfar al sol'],
+            ideal: 'Zones urbanes, escoles, parcs grans',
+          },
+          {
+            name: 'PEHD (Plàstic Reciclat)',
+            icon: '♻️',
+            pros: ['Colors vius i atractius', 'Resistent a UV i humitat', 'Econòmic', 'Material reciclat'],
+            cons: ['Menys resistència a impacts', 'Pot decolorar-se a llarg termini'],
+            ideal: 'Jocs per a nens petits, entorns costaners',
+          },
+          {
+            name: 'Acer Inoxidable',
+            icon: '✨',
+            pros: ['Màxima durabilitat', 'Ideal en entorns marítims', 'Estètica moderna', 'Antibacterià'],
+            cons: ['Cost elevat', 'Es pot escalfar'],
+            ideal: 'Passeigs marítims, zones de màxima exigència',
+          },
+        ].map(m => (
+          <div class="material-card">
+            <div class="mat-header">
+              <span class="mat-icon">{m.icon}</span>
+              <h3>{m.name}</h3>
+            </div>
+            <p class="mat-ideal">Ideal per a: <strong>{m.ideal}</strong></p>
+            <div class="mat-lists">
+              <div>
+                <p class="mat-label pros">✓ Avantatges</p>
+                <ul>{m.pros.map(p => <li>{p}</li>)}</ul>
+              </div>
+              <div>
+                <p class="mat-label cons">✗ Inconvenients</p>
+                <ul>{m.cons.map(c => <li>{c}</li>)}</ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container faq-container">
+      <h2 class="section-title">Preguntes freqüents</h2>
+      <div class="faq-list">
+        {[
+          {
+            q: 'Quins documents ha d\'aportar el proveïdor d\'un joc infantil?',
+            a: 'El proveïdor ha d\'entregar la Declaració de Conformitat CE, els informes d\'assaig d\'un laboratori acreditat (per exemple, AENOR o TÜV) i els plànols d\'instal·lació amb les zones de seguretat. Sense aquests documents, l\'ajuntament no pot acceptar l\'equipament.',
+          },
+          {
+            q: 'Amb quina freqüència s\'han d\'inspeccionar els jocs?',
+            a: 'La norma EN1176-7 estableix tres nivells: inspecció visual rutinària (setmanal), inspecció operativa (mensual) i inspecció principal (anual per tècnic certificat). L\'ajuntament ha de tenir un registre escrit de totes les inspeccions.',
+          },
+          {
+            q: 'Quin és el perímetre de seguretat mínim al voltant d\'un gronxador?',
+            a: 'Per a gronxadors, la zona de caiguda ha de ser, com a mínim, 2 vegades l\'alçada de suspensió per davant i per darrere, i 2 metres als costats. La superfície ha de ser amortidora (EN1177) fins a l\'alçada crítica de caiguda de l\'element.',
+          },
+          {
+            q: 'Existeixen ajuts o subvencions per renovar un parc infantil?',
+            a: 'Sí. La Diputació de Barcelona, la de Girona i d\'altres disposen de línies anuals per a equipament d\'espai públic. A més, els fons Next Generation EU inclouen partides per a espais verds i inclusió. Consulteu cada convocatòria amb l\'àrea de Cooperació Local.',
+          },
+        ].map(item => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Partner -->
+  <section class="section cta-partner">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Sou fabricants o distribuïdors de jocs infantils?</h2>
+        <p>Mobiliariurbà.cat és el portal de referència en català per a tècnics municipals i arquitectes. Posicioneu la vostra empresa davant dels decisors de compra a Catalunya.</p>
+        <a href="/contacte" class="btn btn-accent btn-lg">Ser partner exclusiu</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .norm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .norm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .norm-card { background: white; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 0.875rem 1rem; }
+  .norm-card strong { display: block; font-size: 0.85rem; color: var(--color-primary); margin-bottom: 0.2rem; }
+  .norm-card span { font-size: 0.8rem; color: var(--color-muted); }
+
+  .materials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+  .material-card { background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .mat-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .mat-icon { font-size: 1.75rem; }
+  .mat-header h3 { font-size: 1rem; font-weight: 700; }
+  .mat-ideal { font-size: 0.8rem; color: var(--color-muted); margin-bottom: 0.75rem; }
+  .mat-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .mat-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+  .mat-label.pros { color: #166534; }
+  .mat-label.cons { color: #9a3412; }
+  .mat-lists ul { padding-left: 1rem; }
+  .mat-lists li { font-size: 0.8rem; color: var(--color-muted); margin-bottom: 0.2rem; }
+
+  .faq-container { max-width: 780px; margin: 0 auto; }
+  .faq-list { margin-top: 2rem; }
+  .faq-item { border-bottom: 1px solid var(--color-border); padding: 1rem 0; }
+  .faq-item summary { font-weight: 600; cursor: pointer; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); flex-shrink: 0; margin-left: 1rem; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { margin-top: 0.75rem; font-size: 0.9rem; color: var(--color-muted); line-height: 1.7; }
+
+  .cta-partner { background: var(--color-primary); color: white; }
+  .cta-box { text-align: center; max-width: 640px; margin: 0 auto; }
+  .cta-box h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 0.75rem; }
+  .cta-box p { opacity: 0.9; margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .norm-grid { grid-template-columns: 1fr; }
+    .norm-cards { grid-template-columns: 1fr 1fr 1fr; }
+    .mat-lists { grid-template-columns: 1fr; }
+  }
+</style>

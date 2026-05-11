@@ -1,0 +1,214 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Circuit Esportiu Exterior i Cal·listènia per a Municipis"
+  description="Equipament de fitness a l'aire lliure i cal·listènia per a espais públics. Barres, paral·leles, anelles, escaladors i circuits biosaludables. Normativa EN16630. Per a tècnics municipals de Catalunya."
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Circuit Esportiu</span>
+      </nav>
+      <h1>Circuit Esportiu Exterior i Cal·listènia</h1>
+      <p>Equipament de fitness a l'aire lliure per a parcs i espais públics: des de circuits biosaludables per a gent gran fins a estacions de cal·listènia per a joves i adults actius. Normativa EN16630.</p>
+    </div>
+  </div>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="subcats-grid">
+        {[
+          { href: '#calistenia', title: 'Cal·listènia i Street Workout', desc: 'Barres de dominades, paral·leles, anelles i plataformes de salt per a entrenament amb pes corporal.', badge: 'Tendència' },
+          { href: '#biosaludable', title: 'Circuit Biosaludable', desc: 'Aparells de baix impacte per a gent gran: elíptica, remar, bicicleta, balancí dorsal.', badge: 'Gent gran' },
+          { href: '#fitness-funcional', title: 'Fitness Funcional', desc: 'Estacions de funcional per a adults: barres TRX, corda de trepat, escala de corda, mur d\'escalar.', badge: 'Adults' },
+          { href: '#circuits-mixtos', title: 'Circuits Mixtos', desc: 'Integra zones per a joves, adults i gent gran en un mateix espai amb recorregut senyalitzat.', badge: 'Recomanat' },
+        ].map(cat => (
+          <a href={cat.href} class="subcat-card">
+            <div class="subcat-header">
+              <span class="badge badge-green">{cat.badge}</span>
+            </div>
+            <h3>{cat.title}</h3>
+            <p>{cat.desc}</p>
+            <span class="subcat-link">Veure detalls →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="intro-grid">
+        <article class="prose">
+
+          <h2 id="calistenia">Cal·listènia i Street Workout</h2>
+          <p>El moviment de cal·listènia ha transformat els parcs urbans arreu d'Europa. Es tracta de zones equipades amb elements pensats per a l'entrenament amb el pes corporal: dominades, fondos, muscle-ups, salts. Han passat de ser espais marginals a convertir-se en equipaments municipals de primer nivell.</p>
+
+          <h3>Equipament essencial d'una zona de cal·listènia</h3>
+          <ul>
+            <li><strong>Barra de dominades</strong> (pull-up bar): disponible en alçada simple (220 cm) i doble (240 + 270 cm). Tub acer galvanitzat Ø 42 mm, ancoratge al sòl amb cimentació HA-25.</li>
+            <li><strong>Paral·leles baixes i altes</strong>: per a fondos, L-sit i moviments de transició. Amplada regulable entre 55 i 75 cm.</li>
+            <li><strong>Anelles de gimnàstica</strong> (rings): suspeses de l'estructura, ajustables en alçada. Material: polipropilè reforçat amb fibra de vidre o acer inox.</li>
+            <li><strong>Barra sueca o monkey bars</strong>: recorregut horitzontal de 3–6 barres per a desplaçaments suspensos.</li>
+            <li><strong>Plataforma de salt i aterratge</strong>: tarima de fusta de robínia o PEHD a 40–60 cm del terra per a box jumps i salts de precisió.</li>
+            <li><strong>Escala inclinada</strong>: estructura de 60° amb barres horitzontals per a abdominals i trepat.</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>Disseny modular:</strong> La majoria de fabricants europeus ofereixen sistemes modulars que permeten ampliar la zona de cal·listènia progressivament. És recomanable planificar des del principi l'espai necessari per a una possible expansió (mínim 6 × 8 m per a una zona bàsica de 4 estacions, fins a 20 × 10 m per a un parc complet).</p>
+          </div>
+
+          <h2 id="biosaludable">Circuit Biosaludable per a Gent Gran</h2>
+          <p>Els circuits biosaludables estan dissenyats específicament per a persones a partir de 55 anys. Els aparells promouen el moviment de baix impacte i articular, i el seu ús regular contribueix a la prevenció de l'osteoporosi, la millora de l'equilibri i el manteniment de la mobilitat.</p>
+
+          <h3>Aparells habituals d'un circuit biosaludable</h3>
+          <table>
+            <thead><tr><th>Aparell</th><th>Musculatura treballada</th><th>Beneficis principals</th></tr></thead>
+            <tbody>
+              <tr><td>Elíptica exterior</td><td>Cames, glutis, braços</td><td>Cardio de baix impacte, coordinació</td></tr>
+              <tr><td>Bicicleta estàtica</td><td>Quàdriceps, isquiotibials</td><td>Mobilitat genoll, cardio suau</td></tr>
+              <tr><td>Remador</td><td>Esquena, dorsals, bíceps</td><td>Força tren superior, postura</td></tr>
+              <tr><td>Balancí dorsal (surf)</td><td>Lumbar, core</td><td>Prevenció mal d'esquena</td></tr>
+              <tr><td>Rotació de tronc</td><td>Oblics, core</td><td>Mobilitat columna, prevenció caigudes</td></tr>
+              <tr><td>Premsa de cames</td><td>Quàdriceps, glutis</td><td>Manteniment força, equilibri</td></tr>
+              <tr><td>Estirador de braços</td><td>Pectorals, tríceps</td><td>Mobilitat espatlla, postura</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Requisits d'accessibilitat</h3>
+          <p>Un circuit biosaludable ha de ser accessible per a persones amb mobilitat reduïda. Requisits mínims:</p>
+          <ul>
+            <li>Superfície dura i antilliscant al voltant de cada aparell (cautxú continu o lloses de cautxú)</li>
+            <li>Espai de maniobra de Ø ≥ 150 cm al costat de cada aparell</li>
+            <li>Almenys un aparell per circuit adaptat per a usuaris de cadira de rodes</li>
+            <li>Rètols informatius en lletra gran (mín. 14 pt) amb pictograma i instruccions d'ús</li>
+            <li>Il·luminació adequada si el circuit s'usa en horari vespertí</li>
+          </ul>
+
+          <h2 id="fitness-funcional">Fitness Funcional per a Adults</h2>
+          <p>Més enllà de la cal·listènia bàsica, alguns municipis estan instal·lant zones de fitness funcional orientades a adults actius de 20–55 anys. Aquests equipaments combinen elements d'entrenament de força, potència i resistència cardiovascular.</p>
+
+          <h3>Elements de fitness funcional exterior</h3>
+          <ul>
+            <li><strong>Punt de suspensió TRX</strong>: barra horitzontal reforçada a 230 cm per a anclatge de cordes de suspensió.</li>
+            <li><strong>Corda de trepat</strong>: fibra sintètica Ø 40 mm, alçada de 5–6 m, ancoratge estructural certificat.</li>
+            <li><strong>Mur d'escalada exterior</strong>: panell de PEHD texturitzat a 60° amb preses intercanviables. Alçada recomanada de 2,5–3,5 m.</li>
+            <li><strong>Banc de pes</strong> i <strong>trampolí de salt</strong> de baix perfil (30 cm) per a exercicis pliomètrics.</li>
+            <li><strong>Escala de corda horitzontal</strong> (agility ladder incrustada al terra) per a exercicis de coordinació i rapidesa.</li>
+          </ul>
+
+          <h2 id="circuits-mixtos">Circuits Mixtos: Disseny per a Tots els Públics</h2>
+          <p>La tendència més avançada en disseny d'espais esportius exteriors és el <strong>circuit mixt</strong>: un recorregut continu que integra zones diferenciades per a gent gran, adults i joves, tot seguint un itinerari senyalitzat. Cada zona té un nivell d'exigència diferent i elements adaptats al seu públic.</p>
+
+          <h3>Com planificar un circuit mixt</h3>
+          <ol>
+            <li><strong>Zonificació:</strong> Dividiu l'espai en zones (biosaludable, funcional, cal·listènia) amb separació visual clara i senyalística.</li>
+            <li><strong>Recorregut:</strong> Dissenyeu un itinerari lògic que guiï l'usuari d'una zona a l'altra, idealment en circuit tancat.</li>
+            <li><strong>Superfícies:</strong> Cautxú continu per a biosaludable i fitness funcional; gespa artificial o sauló compactat per als sectors de cal·listènia.</li>
+            <li><strong>Il·luminació:</strong> Punts de llum cada 8–10 m per garantir l'ús en horari d'hivern.</li>
+            <li><strong>Bancs i hidratació:</strong> Bancs amb respatller cada 20–30 m al llarg del recorregut i font d'aigua en el punt central.</li>
+          </ol>
+
+          <div class="info-box">
+            <p><strong>Cas d'èxit:</strong> Diverses capitals de comarca catalanes han instal·lat circuits mixtos de 400–600 m² en parcs fluvials i vies verdes, obtenint taxes d'ús molt superiors als circuits biosaludables convencionals. La clau és la integració de públics i la senyalística clara que invita a la progressió.</p>
+          </div>
+
+          <h2 id="normativa">Normativa aplicable: EN16630</h2>
+          <p>L'equipament esportiu exterior fix per a adults (fitness a l'aire lliure) està regulat per la norma europea <strong>EN16630:2015</strong>, equivalent a la EN1176 en l'àmbit dels jocs infantils.</p>
+          <table>
+            <thead><tr><th>Aspecte</th><th>Requisit EN16630</th></tr></thead>
+            <tbody>
+              <tr><td>Atrapament de dits</td><td>Obertures entre 8 i 25 mm prohibides en zones accessibles</td></tr>
+              <tr><td>Punts de pinçament</td><td>Cap obertura que pugui atrapar extremitats en moviment</td></tr>
+              <tr><td>Resistència estructural</td><td>Càrregues estàtiques: 150 kg per punt d'esforç, factor de seguretat ×2</td></tr>
+              <tr><td>Ancoratge al sòl</td><td>Cimentació HA-25, profunditat mínima 60 cm (variable per alçada)</td></tr>
+              <tr><td>Zones de caiguda lliure</td><td>Superfície amortidora si alçada de caiguda > 600 mm</td></tr>
+              <tr><td>Manteniment</td><td>Inspecció visual mensual + inspecció tècnica anual documentada</td></tr>
+            </tbody>
+          </table>
+          <p>Igual que la EN1176, la EN16630 és d'<strong>aplicació presumptiva</strong>: el compliment de la norma presumeix el compliment dels requisits essencials de seguretat. El fabricant ha de proporcionar la Declaració de Conformitat CE, l'informe d'assaig i el manual d'instal·lació i manteniment.</p>
+
+          <h2 id="pressupost">Orientació de pressupost</h2>
+          <table>
+            <thead><tr><th>Element</th><th>Preu orientatiu (sense IVA)</th></tr></thead>
+            <tbody>
+              <tr><td>Barra de dominades doble (cal·listènia)</td><td>600 – 1.400 €</td></tr>
+              <tr><td>Estació cal·listènia completa (4 elements)</td><td>3.500 – 8.000 €</td></tr>
+              <tr><td>Parc cal·listènia complet (8–10 elements)</td><td>12.000 – 28.000 €</td></tr>
+              <tr><td>Aparell biosaludable individual</td><td>900 – 2.200 €</td></tr>
+              <tr><td>Circuit biosaludable (6 aparells)</td><td>8.000 – 18.000 €</td></tr>
+              <tr><td>Circuit mixt complet (15–20 elements)</td><td>25.000 – 60.000 €</td></tr>
+              <tr><td>Superfície cautxú (per m²)</td><td>80 – 140 €/m²</td></tr>
+              <tr><td>Instal·lació + cimentació</td><td>15–20% del cost de material</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Normativa aplicable</h3>
+            <ul style="font-size:0.85rem; line-height:1.7; padding-left:1rem;">
+              <li><strong>EN16630:2015</strong> — Fitness exterior adult</li>
+              <li><strong>EN1176</strong> — Si hi ha zona infantil integrada</li>
+              <li><strong>Decret 135/1995</strong> — Accessibilitat Cat.</li>
+              <li><strong>RD 1/2013</strong> — Llei Gral. Discapacitat</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3>Documents al proveïdor</h3>
+            <ul style="font-size:0.85rem; line-height:1.7; padding-left:1rem;">
+              <li>Declaració Conformitat CE</li>
+              <li>Informe d'assaig EN16630</li>
+              <li>Manual d'instal·lació</li>
+              <li>Manual de manteniment</li>
+              <li>Plànol zones de seguretat</li>
+            </ul>
+          </div>
+          <div class="sidebar-card cta-card">
+            <h3>Sou especialistes?</h3>
+            <p>Distribuïu equipament de fitness exterior o cal·listènia? Posicioneu-vos com a referència a Catalunya.</p>
+            <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Ser partner exclusiu</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Guies relacionades</h3>
+            <ul class="related-list">
+              <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
+              <li><a href="/guia/parcs-infantils">Guia Planificació Parcs</a></li>
+              <li><a href="/guia/normativa-en1176">Normativa EN1176</a></li>
+              <li><a href="/productes/jocs-infantils/jocs-inclusius">Jocs Inclusius</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .subcats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  .subcat-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; text-decoration: none; color: inherit; transition: box-shadow 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+  .subcat-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+  .subcat-header { margin-bottom: 0.75rem; }
+  .subcat-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .subcat-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; flex: 1; }
+  .subcat-link { font-size: 0.8rem; color: var(--color-primary); font-weight: 600; margin-top: 0.75rem; }
+
+  .intro-grid { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+
+  @media (max-width: 1100px) { .subcats-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .subcats-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .subcats-grid { grid-template-columns: 1fr; } }
+</style>

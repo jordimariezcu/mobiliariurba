@@ -56,6 +56,38 @@ export default config({
       },
     }),
 
+    blog: collection({
+      label: 'Blog / Guies',
+      slugField: 'titol',
+      path: 'src/content/blog/*',
+      format: { contentField: 'contingut' },
+      schema: {
+        titol: fields.slug({ name: { label: 'Títol' } }),
+        descripcio: fields.text({ label: 'Meta descripció (SEO)', multiline: true }),
+        categoria: fields.select({
+          label: 'Categoria',
+          options: [
+            { label: 'Normativa', value: 'normativa' },
+            { label: 'Materials', value: 'materials' },
+            { label: 'Jocs Infantils', value: 'jocs-infantils' },
+            { label: 'Esport Exterior', value: 'esport-exterior' },
+            { label: 'Accessibilitat', value: 'accessibilitat' },
+            { label: 'Subvencions', value: 'subvencions' },
+            { label: 'Manteniment', value: 'manteniment' },
+          ],
+          defaultValue: 'normativa',
+        }),
+        data: fields.date({ label: 'Data de publicació' }),
+        imatge: fields.image({
+          label: 'Imatge destacada',
+          directory: 'public/imatges/blog',
+          publicPath: '/imatges/blog/',
+        }),
+        destacat: fields.checkbox({ label: 'Article destacat', defaultValue: false }),
+        contingut: fields.mdx({ label: 'Contingut' }),
+      },
+    }),
+
     projectes: collection({
       label: 'Projectes',
       slugField: 'titol',

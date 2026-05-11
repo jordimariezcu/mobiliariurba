@@ -1,0 +1,100 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+let posts: any[] = [];
+try {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const allPosts = await reader.collections.blog.all();
+  posts = allPosts
+    .filter((p: any) => p.entry.data)
+    .sort((a: any, b: any) => {
+      const da = a.entry.data?.date ?? '';
+      const db = b.entry.data?.date ?? '';
+      return db.localeCompare(da);
+    });
+} catch {
+  // No posts yet — render empty state
+}
+---
+
+<Layout
+  title="Blog i Guies Tècniques de Mobiliari Urbà"
+  description="Articles tècnics per a tècnics municipals i arquitectes: normativa EN1176, materials per a parcs, accessibilitat, subvencions i manteniment d'espais públics a Catalunya."
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <span>Blog</span>
+      </nav>
+      <h1>Blog i Guies Tècniques</h1>
+      <p>Articles especialitzats sobre normativa, materials, accessibilitat i gestió d'espais públics per a professionals municipals de Catalunya.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <div class="empty-state">
+          <h2>Aviat, nous articles</h2>
+          <p>Estem preparant guies tècniques sobre normativa EN1176, materials per a parcs i subvencions disponibles. Torneu aviat.</p>
+          <a href="/guia/parcs-infantils" class="btn btn-primary">Llegiu la guia de parcs infantils</a>
+        </div>
+      ) : (
+        <div class="blog-grid">
+          {posts.map((post: any) => (
+            <article class="blog-card">
+              {post.entry.data?.imatge && (
+                <a href={`/blog/${post.slug}`} class="blog-card-img">
+                  <img src={post.entry.data.imatge} alt={post.entry.data.titol} loading="lazy" />
+                </a>
+              )}
+              <div class="blog-card-body">
+                {post.entry.data?.categoria && (
+                  <span class="badge badge-blue">{post.entry.data.categoria}</span>
+                )}
+                <h2 class="blog-card-title">
+                  <a href={`/blog/${post.slug}`}>{post.entry.data?.titol ?? post.slug}</a>
+                </h2>
+                {post.entry.data?.descripcio && (
+                  <p class="blog-card-desc">{post.entry.data.descripcio}</p>
+                )}
+                <div class="blog-card-meta">
+                  {post.entry.data?.data && (
+                    <time datetime={post.entry.data.data}>
+                      {new Date(post.entry.data.data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </time>
+                  )}
+                  <a href={`/blog/${post.slug}`} class="read-more">Llegir article →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .blog-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+  .blog-card-img img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .blog-card-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; gap: 0.5rem; }
+  .blog-card-title { font-size: 1.05rem; margin: 0.25rem 0; }
+  .blog-card-title a { color: inherit; text-decoration: none; }
+  .blog-card-title a:hover { color: var(--color-primary); }
+  .blog-card-desc { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; flex: 1; }
+  .blog-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; font-size: 0.8rem; color: var(--color-muted); }
+  .read-more { color: var(--color-primary); font-weight: 600; }
+
+  .empty-state { text-align: center; padding: 4rem 2rem; max-width: 480px; margin: 0 auto; }
+  .empty-state h2 { margin-bottom: 0.75rem; }
+  .empty-state p { color: var(--color-muted); margin-bottom: 1.5rem; }
+
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>
