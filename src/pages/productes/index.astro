@@ -1,84 +1,188 @@
 ---
 export const prerender = true;
 import Layout from '../../layouts/Layout.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
 
-const reader = createReader(process.cwd(), keystaticConfig);
-const productes = await reader.collections.productes.all();
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+  ],
+});
 
-const categories = [...new Set(productes.map(p => p.entry.categoria))].sort();
+const seccions = [
+  {
+    titol: 'Jocs Infantils',
+    desc: 'Equipament homologat EN1176 per a parcs infantils: gronxadors, tobogans, jocs inclusius i circuits multijoc.',
+    href: '/productes/jocs-infantils',
+    badge: 'EN1176',
+    badgeColor: '#dbeafe',
+    badgeText: '#1e40af',
+    subcats: [
+      { nom: 'Gronxadors i Balancins', href: '/productes/jocs-infantils/gronxadors-i-balancins' },
+      { nom: 'Tobogans', href: '/productes/jocs-infantils/tobogans' },
+      { nom: 'Jocs Inclusius', href: '/productes/jocs-infantils/jocs-inclusius' },
+      { nom: 'Circuits Multijoc', href: '/productes/jocs-infantils/circuits-multijoc' },
+    ],
+  },
+  {
+    titol: 'Aparells Biosaludables',
+    desc: 'Circuits de fitness per a gent gran i adults: elíptica, bicicleta, remar, barres d\'equilibri. Normativa EN16630.',
+    href: '/productes/aparells-biosaludables',
+    badge: 'EN16630',
+    badgeColor: '#dcfce7',
+    badgeText: '#166534',
+    subcats: [
+      { nom: 'Aparells per a Gent Gran', href: '/productes/aparells-biosaludables/aparells-gent-gran' },
+      { nom: 'Circuits de Passeig', href: '/productes/aparells-biosaludables/circuits-passeig' },
+    ],
+  },
+  {
+    titol: 'Circuit Esportiu',
+    desc: 'Cal·listènia exterior, fitness funcional i zones de street workout per a joves i adults actius.',
+    href: '/productes/circuit-esportiu',
+    badge: 'Adults',
+    badgeColor: '#ffedd5',
+    badgeText: '#9a3412',
+    subcats: [],
+  },
+  {
+    titol: 'Bancs Urbans',
+    desc: 'Bancs per a parcs, places i passejos: fusta, acer, formigó i materials reciclats. Accessibilitat garantida.',
+    href: '/productes/bancs',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+  {
+    titol: 'Papereres',
+    desc: 'Contenidors de residus per a espais públics: 5 tipologies, materials anti-vandàlics i capacitats des de 30 L.',
+    href: '/productes/papereres',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+  {
+    titol: 'Fonts i Bebedors',
+    desc: 'Fonts d\'aigua potable en acer inoxidable AISI 304/316 per a parcs, places i zones esportives.',
+    href: '/productes/fonts-i-bebedors',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+  {
+    titol: 'Taules de Pícnic',
+    desc: 'Taules i conjunts per a zones de repòs i àpat: fusta tractada, robínia, acer i formigó. Models accessibles.',
+    href: '/productes/taules-de-picnic',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+  {
+    titol: 'Pilones i Bolards',
+    desc: 'Control d\'accés de vehicles a espai públic: models fixos, basculants i motoritzats. Estàndard APR i PAS 68.',
+    href: '/productes/pilones-i-bolards',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+  {
+    titol: 'Alcorques',
+    desc: 'Protecció d\'arbrat en zones urbanes: alcorques de fosa, acer i formigó. Dimensions normalitzades EN 1342.',
+    href: '/productes/alcorques',
+    badge: 'Mobiliari',
+    badgeColor: '#f3f4f6',
+    badgeText: '#374151',
+    subcats: [],
+  },
+];
 ---
 
-<Layout title="Productes" description="Catàleg complet de mobiliari urbà: bancs, papereres, jardineres, aparcabicicletes i molt més.">
+<Layout
+  title="Productes — Equipament i Mobiliari Urbà per a Municipis"
+  description="Catàleg d'equipament d'espai públic per a municipis catalans: jocs infantils EN1176, aparells biosaludables EN16630, circuit esportiu i mobiliari urbà de qualitat."
+  jsonLd={jsonLd}
+>
   <div class="page-header">
     <div class="container">
-      <h1>Productes</h1>
-      <p>Catàleg complet de mobiliari urbà per a espais públics</p>
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <span>Productes</span>
+      </nav>
+      <h1>Productes i Equipament per a Espais Públics</h1>
+      <p>Totes les categories d'equipament urbà amb informació tècnica, normativa i orientació per a tècnics municipals de Catalunya.</p>
     </div>
   </div>
 
   <section class="section">
     <div class="container">
-      {categories.length > 0 && (
-        <div class="filter-bar">
-          <a href="/productes" class="filter-btn active">Tots</a>
-          {categories.map(cat => (
-            <a href={`/productes?cat=${cat}`} class="filter-btn">{cat}</a>
-          ))}
-        </div>
-      )}
+      <div class="prods-grid">
+        {seccions.map(s => (
+          <div class="prod-card">
+            <div class="prod-top">
+              <span class="prod-badge" style={`background:${s.badgeColor}; color:${s.badgeText}`}>{s.badge}</span>
+              <h2><a href={s.href}>{s.titol}</a></h2>
+              <p>{s.desc}</p>
+            </div>
+            {s.subcats.length > 0 && (
+              <ul class="prod-subs">
+                {s.subcats.map(sc => (
+                  <li><a href={sc.href}>{sc.nom}</a></li>
+                ))}
+              </ul>
+            )}
+            <a href={s.href} class="prod-btn">Veure {s.titol} →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-      {productes.length > 0 ? (
-        <div class="grid-4">
-          {productes.map(p => (
-            <a href={`/productes/${p.slug}`} class="card">
-              {p.entry.imatge ? (
-                <div class="card-img">
-                  <img src={p.entry.imatge} alt={p.entry.nom} loading="lazy" />
-                </div>
-              ) : (
-                <div class="card-img"><div class="placeholder-img"></div></div>
-              )}
-              <div class="card-body">
-                <span class="badge">{p.entry.categoria}</span>
-                <h3>{p.entry.nom}</h3>
-                {p.entry.material && <p class="text-muted">{p.entry.material}</p>}
-                {p.entry.referencia && <p class="ref">Ref: {p.entry.referencia}</p>}
-              </div>
-            </a>
-          ))}
-        </div>
-      ) : (
-        <div class="empty-state">
-          <p>Aviat trobareu aquí el nostre catàleg complet de productes.</p>
-        </div>
-      )}
+  <section class="section section-alt">
+    <div class="container guies-row">
+      <div class="guies-text">
+        <h2>Recursos per a tècnics municipals</h2>
+        <p>Guies pràctiques sobre normativa, disseny i finançament d'equipaments d'espai públic a Catalunya.</p>
+      </div>
+      <div class="guies-links">
+        <a href="/guia/parcs-infantils" class="guia-pill">Guia Parcs Infantils</a>
+        <a href="/guia/normativa-en1176" class="guia-pill">Normativa EN1176</a>
+        <a href="/guia/espais-gent-gran" class="guia-pill">Espais Gent Gran</a>
+        <a href="/blog" class="guia-pill">Blog Tècnic</a>
+        <a href="/contacte" class="guia-pill guia-pill-primary">Contactar →</a>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .page-header { background: var(--color-bg-alt); padding: 2.5rem 0; border-bottom: 1px solid var(--color-border); }
-  .page-header h1 { font-size: 2rem; font-weight: 700; }
-  .page-header p { color: var(--color-muted); margin-top: 0.375rem; }
-  .section { padding: 3rem 0; }
-  .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-  .filter-btn {
-    padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.875rem; font-weight: 500;
-    border: 1px solid var(--color-border); transition: all 0.2s;
-  }
-  .filter-btn:hover, .filter-btn.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
-  .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
-  .card { background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); transition: box-shadow 0.2s, transform 0.2s; }
-  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-2px); }
-  .card-img { aspect-ratio: 4/3; overflow: hidden; background: var(--color-bg-alt); }
-  .card-img img { width: 100%; height: 100%; object-fit: cover; }
-  .placeholder-img { width: 100%; height: 100%; background: linear-gradient(135deg, #e5e7eb, #d1d5db); }
-  .card-body { padding: 1rem; }
-  .card-body h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; background: #dcfce7; color: var(--color-primary-dark); font-size: 0.7rem; font-weight: 600; text-transform: capitalize; margin-bottom: 0.375rem; }
-  .text-muted { color: var(--color-muted); font-size: 0.8rem; }
-  .ref { color: var(--color-muted); font-size: 0.75rem; margin-top: 0.25rem; }
-  .empty-state { text-align: center; padding: 4rem; color: var(--color-muted); font-size: 1.1rem; }
+  .prods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .prod-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: box-shadow 0.2s, border-color 0.2s; }
+  .prod-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+  .prod-top { flex: 1; }
+  .prod-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; margin-bottom: 0.5rem; }
+  .prod-card h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.4rem; }
+  .prod-card h2 a { color: var(--color-heading); text-decoration: none; }
+  .prod-card h2 a:hover { color: var(--color-primary); }
+  .prod-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; }
+  .prod-subs { list-style: none; padding: 0; border-top: 1px solid var(--color-border); padding-top: 0.6rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .prod-subs a { font-size: 0.82rem; color: var(--color-primary); text-decoration: none; }
+  .prod-subs a:hover { text-decoration: underline; }
+  .prod-btn { font-size: 0.85rem; font-weight: 700; color: var(--color-primary); text-decoration: none; padding-top: 0.25rem; }
+  .prod-btn:hover { text-decoration: underline; }
+  .guies-row { display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; }
+  .guies-text { flex: 1; min-width: 240px; }
+  .guies-text h2 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; }
+  .guies-text p { font-size: 0.9rem; color: var(--color-muted); }
+  .guies-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .guia-pill { padding: 0.45rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); font-size: 0.85rem; font-weight: 600; color: var(--color-primary); text-decoration: none; background: var(--color-bg); transition: all 0.2s; }
+  .guia-pill:hover { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+  .guia-pill-primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+  .guia-pill-primary:hover { background: var(--color-primary-dark); }
 </style>

@@ -28,6 +28,7 @@ let categoria = '';
 let data: string | null = null;
 let imatge: string | null = null;
 let Content: any = null;
+let altresPosts: { slug: string; titol: string; categoria: string }[] = [];
 
 try {
   const reader = createReader(process.cwd(), keystaticConfig);
@@ -40,6 +41,12 @@ try {
   data = post.data ?? null;
   imatge = post.imatge ?? null;
   Content = await post.contingut();
+
+  const tots = await reader.collections.blog.all();
+  altresPosts = tots
+    .filter((p: any) => p.slug !== slug)
+    .map((p: any) => ({ slug: p.slug, titol: getTitle(p.entry.titol), categoria: p.entry.categoria ?? '' }))
+    .slice(0, 4);
 } catch {
   return Astro.redirect('/blog');
 }
@@ -102,16 +109,29 @@ const jsonLd = JSON.stringify([
       <aside class="post-sidebar">
         <div class="sidebar-card cta-card">
           <h3>Necessiteu assessorament?</h3>
-          <p>Connecteu amb especialistes en mobiliari urbà i parcs infantils a Catalunya.</p>
+          <p>Connecteu amb especialistes en mobiliari urbà i espais públics a Catalunya.</p>
           <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Contactar</a>
         </div>
+        {altresPosts.length > 0 && (
+          <div class="sidebar-card">
+            <h3>Més articles</h3>
+            <ul class="related-list">
+              {altresPosts.map(p => (
+                <li>
+                  <span class="related-cat">{p.categoria.replace(/-/g, ' ')}</span>
+                  <a href={`/blog/${p.slug}`}>{p.titol}</a>
+                </li>
+              ))}
+            </ul>
+            <a href="/blog" class="sidebar-all-link">Veure tots els articles →</a>
+          </div>
+        )}
         <div class="sidebar-card">
-          <h3>Guies recomanades</h3>
+          <h3>Guies tècniques</h3>
           <ul class="related-list">
             <li><a href="/guia/parcs-infantils">Guia Parcs Infantils</a></li>
             <li><a href="/guia/normativa-en1176">Normativa EN1176</a></li>
-            <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
-            <li><a href="/productes/circuit-esportiu">Circuit Esportiu</a></li>
+            <li><a href="/guia/espais-gent-gran">Espais per a Gent Gran</a></li>
           </ul>
         </div>
       </aside>
@@ -129,8 +149,13 @@ const jsonLd = JSON.stringify([
   .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
   .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
   .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
-  .related-list li { margin-bottom: 0.4rem; }
-  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
-  .related-list a:hover { text-decoration: underline; }
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { margin-bottom: 0.6rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--color-border); }
+  .related-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .related-cat { display: block; font-size: 0.7rem; font-weight: 700; text-transform: capitalize; color: var(--color-primary-dark); background: var(--color-primary-light); padding: 0.1rem 0.4rem; border-radius: 99px; display: inline-block; margin-bottom: 0.2rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-heading); display: block; line-height: 1.4; }
+  .related-list a:hover { color: var(--color-primary); text-decoration: underline; }
+  .sidebar-all-link { display: block; font-size: 0.82rem; font-weight: 600; color: var(--color-primary); margin-top: 0.75rem; text-decoration: none; }
+  .sidebar-all-link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .post-sidebar { position: static; } }
 </style>
