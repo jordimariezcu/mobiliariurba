@@ -1,0 +1,268 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Aparells Biosaludables', item: 'https://mobiliariurba.cat/productes/aparells-biosaludables' },
+    { '@type': 'ListItem', position: 4, name: 'Aparells per a Gent Gran', item: 'https://mobiliariurba.cat/productes/aparells-biosaludables/aparells-gent-gran' },
+  ],
+});
+---
+
+<Layout
+  title="Aparells de Gimnàs Exterior per a Gent Gran — EN16630"
+  description="Aparells biosaludables per a persones grans en espais públics: elíptica, bicicleta, remar, balancí dorsal i rotació lumbar. Baix impacte, normativa EN16630, finançament municipal."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <a href="/productes/aparells-biosaludables">Aparells Biosaludables</a><span>/</span>
+        <span>Aparells per a Gent Gran</span>
+      </nav>
+      <h1>Aparells de Gimnàs Exterior per a Gent Gran</h1>
+      <p>Equipament de baix impacte dissenyat específicament per a persones majors de 60 anys. Millora la mobilitat articular, l'equilibri i la resistència cardiovascular en entorns segurs i accessibles.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Criteris de disseny per a gent gran</h2>
+        <p>Els aparells per a persones grans no poden ser simplement versions reduïdes dels aparells de fitness convencional. Han de complir criteris específics que garanteixin la seguretat i l'eficàcia per a un usuari amb capacitats físiques reduïdes respecte a un adult jove:</p>
+        <ul class="criteria-list">
+          <li><strong>Velocitat de moviment controlada</strong> — els aparells han de tenir resistència progressiva i no permetre acceleracions sobtades que puguin causar estiraments musculars.</li>
+          <li><strong>Agafadors ergonòmics</strong> — diàmetre entre 30 i 40 mm, tractament antilliscant, posicionats a alçada accessible (entre 85 i 105 cm del terra).</li>
+          <li><strong>Amplada d'accés</strong> — mínima de 90 cm per permetre l'accés amb caminador o bastó. Preferiblement 120 cm per a cadira de rodes.</li>
+          <li><strong>Alçada del seient</strong> — entre 44 i 50 cm del terra per facilitar l'assentament i l'aixecament sense esforç articular excessiu.</li>
+          <li><strong>Etiquetes instruccionals</strong> — pictogrames clars amb figures d'ús correcte i incorrecte, en materials duradors i llegibles per a persones amb visió reduïda.</li>
+          <li><strong>Certificació EN16630</strong> — obligatòria per a qualsevol aparell instal·lat en espai públic. Inclou proves de càrrega estàtica (1.500 N) i resistència a la fatiga.</li>
+        </ul>
+      </div>
+      <aside class="info-box">
+        <h3>Beneficis documentats</h3>
+        <p style="font-size:0.85rem; color:var(--color-muted); margin-bottom:0.75rem;">Activitat física moderada regular en persones +65 anys (OMS, 2020):</p>
+        <ul>
+          <li>↓ 21% risc de caigudes</li>
+          <li>↓ 35% risc malalties cardiovasculars</li>
+          <li>↓ 30% risc de diabetis tipus 2</li>
+          <li>↑ Densitat òssia i massa muscular</li>
+          <li>↑ Benestar mental i socialització</li>
+          <li>↓ Deteriorament cognitiu lleu</li>
+        </ul>
+        <hr style="border-color:var(--color-border); margin: 0.75rem 0;" />
+        <p style="font-size:0.8rem; color:var(--color-muted);">Recomanació OMS: 150–300 min d'activitat moderada setmanal per a adults +65.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Catàleg d'aparells recomanats</h2>
+      <p class="section-subtitle">Selecció dels aparells amb millor relació benefici/seguretat per a persones grans en espai públic:</p>
+      <div class="aparells-detail-grid">
+        {[
+          {
+            nom: 'Elíptica exterior',
+            desc: "Simula la marxa nòrdica sense impacte sobre les articulacions. Treball simultani de tren superior i inferior. Ideal com a primer aparell en qualsevol circuit per a gent gran.",
+            grups: 'Quàdriceps, isquiotibials, glutis, pectorals, deltoides',
+            avantatge: 'Sense impacte, cardiovascular efectiu',
+            edat: '55–85 anys',
+          },
+          {
+            nom: 'Bicicleta estàtica exterior',
+            desc: "Treball cardiovascular de baix impacte en posició asseguda. La posició sedestada redueix la càrrega sobre els genolls en persones amb artritis o artrosi lleu-moderada.",
+            grups: 'Quàdriceps, glutis, bessons, cardiovascular',
+            avantatge: "Ideal per a persones amb problemes de genoll",
+            edat: '55–90 anys',
+          },
+          {
+            nom: 'Màquina de remar (rower)',
+            desc: 'Exercici de cos complet que combina treball de braços, esquena i cames en moviment coordinat. Millora la postura i enforteix la musculatura paravertebral.',
+            grups: 'Dorsals, bíceps, quàdriceps, core',
+            avantatge: 'Excel·lent per a la postura i el mal d\'esquena',
+            edat: '55–75 anys',
+          },
+          {
+            nom: 'Balancí dorsal',
+            desc: "Aparell de relaxació activa que mobilitza la columna lumbar amb un moviment de balanceig suau. Molt apreciat per persones amb lumbàlgia crònica. Sovint s'instal·la en parelles per fomentar la interacció social.",
+            grups: 'Musculatura paravertebral, flexors de maluc',
+            avantatge: 'Relaxació lumbar, moviment molt suau',
+            edat: '60–90+ anys',
+          },
+          {
+            nom: 'Rotació lumbar (twister)',
+            desc: 'Plataforma giratòria que permet la rotació controlada del tronc. Millora la mobilitat de la columna toràcica i lumbar. Moviment gentil, molt apreciat per a l\'escalfament.',
+            grups: 'Oblics, musculatura rotadora de la columna',
+            avantatge: 'Mobilitat espinal, escalfament ideal',
+            edat: '55–85 anys',
+          },
+          {
+            nom: 'Premsa de cames',
+            desc: "Enfortiment del tren inferior en posició asseguda, minimitzant la càrrega axial sobre la columna. Clau per a la prevenció de caigudes, ja que enforteix els músculs estabilitzadors del genoll.",
+            grups: 'Quàdriceps, isquiotibials, glutis',
+            avantatge: 'Prevenció de caigudes, enfortiment segur',
+            edat: '55–80 anys',
+          },
+          {
+            nom: "Barres d'equilibri",
+            desc: "Conjunt de barres paral·leles a diferent alçada per practicar exercicis d'equilibri dinàmic i estàtic. Essencials per a la prevenció de caigudes i la millora de la propriocepció.",
+            grups: 'Sistema vestibular, musculatura estabilitzadora de turmell i genoll',
+            avantatge: 'Prevenció caigudes, propriocepció',
+            edat: '60–85 anys',
+          },
+          {
+            nom: "Estirador de braços i espatlles",
+            desc: "Permet realitzar estiraments guiats de la musculatura del tren superior. Especialment útil per a persones amb problemes de mobilitat d'espatlles o manguito rotador.",
+            grups: 'Deltoides, trapezi, pectorals, bíceps',
+            avantatge: 'Flexibilitat, no requereix força',
+            edat: '55–90+ anys',
+          },
+        ].map(a => (
+          <div class="aparell-detail-card">
+            <h3>{a.nom}</h3>
+            <p>{a.desc}</p>
+            <dl>
+              <dt>Grups musculars</dt><dd>{a.grups}</dd>
+              <dt>Principal avantatge</dt><dd>{a.avantatge}</dd>
+              <dt>Rang d'edat recomanat</dt><dd>{a.edat}</dd>
+            </dl>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Combinacions recomanades per circuit</h2>
+      <p>Per maximitzar els beneficis i garantir un treball corporal equilibrat, recomanem combinar aparells que treballin grups musculars complementaris:</p>
+      <div class="combis-grid">
+        <div class="combi-card">
+          <h3>Circuit mínim (4 aparells)</h3>
+          <ol>
+            <li>Elíptica (cardiovascular)</li>
+            <li>Premsa de cames (tren inferior)</li>
+            <li>Remar (tren superior + esquena)</li>
+            <li>Balancí dorsal (relaxació)</li>
+          </ol>
+          <p class="combi-meta">Superfície: ~100 m² · Pressupost: 8.000–12.000 €</p>
+        </div>
+        <div class="combi-card">
+          <h3>Circuit estàndard (6 aparells)</h3>
+          <ol>
+            <li>Elíptica (cardiovascular)</li>
+            <li>Bicicleta estàtica (cardiovascular)</li>
+            <li>Premsa de cames (tren inferior)</li>
+            <li>Remar (tren superior)</li>
+            <li>Rotació lumbar (mobilitat)</li>
+            <li>Balancí dorsal (relaxació)</li>
+          </ol>
+          <p class="combi-meta">Superfície: ~180 m² · Pressupost: 14.000–20.000 €</p>
+        </div>
+        <div class="combi-card">
+          <h3>Circuit complet (8–10 aparells)</h3>
+          <ol>
+            <li>Elíptica doble (2 places)</li>
+            <li>Bicicleta doble (2 places)</li>
+            <li>Remar (2 places)</li>
+            <li>Premsa de cames</li>
+            <li>Rotació lumbar</li>
+            <li>Barres d'equilibri</li>
+            <li>Estirador de braços</li>
+            <li>Balancí dorsal (2 places)</li>
+          </ol>
+          <p class="combi-meta">Superfície: ~280 m² · Pressupost: 22.000–35.000 €</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Instal·lació i accessibilitat</h2>
+      <div class="install-grid">
+        <div>
+          <h3>Paviment i zones de seguretat</h3>
+          <p>La norma EN16630 estableix zones de seguretat al voltant de cada aparell. Per a aparells on l'usuari pot caure (barres d'equilibri, aparells amb seient elevat), es requereix paviment amortidor:</p>
+          <ul>
+            <li>Cautxú en lloses o continu: mínim 3 cm de gruix per a alçada de caiguda lliure ≤ 0,6 m</li>
+            <li>Sorra o graveta rentada: alternativa econòmica, requereix manteniment periòdic</li>
+            <li>Per a aparells de terra (bicicleta, elíptica): paviment dur accessible acceptable</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Accessibilitat universal</h3>
+          <p>Per garantir l'accés a persones amb mobilitat reduïda:</p>
+          <ul>
+            <li>Itinerari accessible (amplada ≥ 90 cm, sense graons) des del vial fins a cada aparell</li>
+            <li>Zones de transferència de cadira de rodes (120×120 cm) davant els aparells adaptats</li>
+            <li>Senyal tàctil de paviment podotàctil per a persones amb visió reduïda a l'entrada de la zona</li>
+            <li>Cartell informatiu en Braille i lletra gran (mínim 14 pt) amb instruccions d'ús</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Manteniment preventiu</h3>
+          <p>Per garantir la seguretat continuada dels aparells:</p>
+          <ul>
+            <li><strong>Inspecció visual setmanal</strong>: desgast visible, pintades, elements solts</li>
+            <li><strong>Revisió operativa mensual</strong>: lubrificació de parts mòbils, revisió de cargols</li>
+            <li><strong>Inspecció anual EN16630</strong>: per tècnic qualificat, amb informe escrit</li>
+            <li>Vida útil estimada: 15–20 anys amb manteniment adequat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Dissenyeu el vostre circuit per a gent gran</h2>
+      <p>Us connectem amb fabricants especialitzats en aparells biosaludables EN16630 i us orientem sobre el millor circuit per al vostre espai i pressupost.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a href="/contacte" class="btn btn-primary">Sol·licitar pressupost</a>
+        <a href="/guia/espais-gent-gran" class="btn btn-outline">Llegir la guia tècnica</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.3rem 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border); }
+  .info-box li:last-child { border-bottom: none; }
+  .criteria-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .criteria-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .section-subtitle { color: var(--color-muted); margin-bottom: 2rem; max-width: 640px; }
+  .aparells-detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+  .aparell-detail-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .aparell-detail-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .aparell-detail-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.75rem; }
+  .aparell-detail-card dl { display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 0.75rem; font-size: 0.8rem; }
+  .aparell-detail-card dt { font-weight: 600; color: var(--color-heading); }
+  .aparell-detail-card dd { color: var(--color-muted); margin: 0; }
+  .combis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .combi-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .combi-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .combi-card ol { padding-left: 1.25rem; font-size: 0.875rem; color: var(--color-muted); line-height: 1.8; }
+  .combi-meta { font-size: 0.8rem; color: var(--color-primary); font-weight: 600; margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--color-border); }
+  .install-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+  .install-grid h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .install-grid ul { list-style: disc; padding-left: 1.25rem; font-size: 0.875rem; color: var(--color-muted); line-height: 1.7; }
+  .install-grid p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; margin-bottom: 0.5rem; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,224 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+      { '@type': 'ListItem', position: 3, name: 'Aparells Biosaludables', item: 'https://mobiliariurba.cat/productes/aparells-biosaludables' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quina normativa regula els aparells biosaludables?',
+        acceptedAnswer: { '@type': 'Answer', text: "La norma europea EN16630:2015 estableix els requisits de seguretat per a equips de fitness instal·lats en espais públics a l'aire lliure. Tots els aparells han de tenir marcatge CE conforme a EN16630." },
+      },
+      {
+        '@type': 'Question',
+        name: 'Els aparells biosaludables són adequats per a persones grans?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Sí. Els circuits biosaludables estan dissenyats específicament per a persones majors de 55-65 anys. Treballen la mobilitat articular, equilibri i resistència cardiovascular amb baix impacte i risc mínim de lesions.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quant costa un circuit biosaludable per a un municipi?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Un circuit bàsic de 6-8 aparells oscil·la entre 12.000 i 25.000 euros instal·lats. Les Diputacions i el PUOSC cobreixen fins al 85% del cost per a municipis petits.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quanta superfície necessita un circuit biosaludable?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Un circuit de 8 aparells necessita entre 200 i 400 m² incloent zones de seguretat. Els aparells s\'instal·len amb un mínim d\'1,5 m de distància entre ells.' },
+      },
+    ],
+  },
+]);
+---
+
+<Layout
+  title="Aparells Biosaludables i Circuits per a Gent Gran"
+  description="Equipament biosaludable per a espais públics: aparells per a gent gran, circuits de passeig i zones de fitness intergeneracional. Normativa EN16630 i finançament per a municipis."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Aparells Biosaludables</span>
+      </nav>
+      <h1>Aparells Biosaludables i Circuits per a Gent Gran</h1>
+      <p>Zones de fitness a l'aire lliure dissenyades per a persones grans i adults actius. Millora la mobilitat, l'equilibri i la qualitat de vida en parcs i jardins municipals. Normativa EN16630.</p>
+    </div>
+  </div>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="subcats-grid">
+        {[
+          { href: '/productes/aparells-biosaludables/aparells-gent-gran', title: 'Aparells per a Gent Gran', desc: "Elíptica, bicicleta, remar, balancí dorsal, rotació lumbar i altres aparells de baix impacte per a persones majors de 60 anys.", badge: 'Gent gran' },
+          { href: '/productes/aparells-biosaludables/circuits-passeig', title: 'Circuits de Passeig', desc: "Circuits integrats en recorreguts de passeig amb aparells d'estirament, equilibri i força suau. Aptes per a totes les edats.", badge: 'Intergeneracional' },
+        ].map(cat => (
+          <a href={cat.href} class="subcat-card">
+            <div class="subcat-header">
+              <span class="badge badge-green">{cat.badge}</span>
+            </div>
+            <h3>{cat.title}</h3>
+            <p>{cat.desc}</p>
+            <span class="subcat-link">Veure detalls →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Per què instal·lar un circuit biosaludable?</h2>
+        <p>Els circuits biosaludables responen a una necessitat real dels municipis catalans: l'envelliment demogràfic progressiu i la demanda creixent d'equipaments públics per a persones grans actives. A diferència del gimnàs convencional, l'espai públic permet practicar activitat física de forma gratuïta, social i integrada en la vida quotidiana.</p>
+        <p>Els estudis de l'OMS indiquen que la pràctica regular d'activitat física moderada en persones majors de 65 anys redueix el risc de caigudes en un 21%, millora la salut cardiovascular i té efectes preventius sobre la demència lleu.</p>
+        <p>Per als ajuntaments, un circuit biosaludable ben dissenyat és una inversió amb retorn social mesurable: augmenta l'ús del parc, fomenta la socialització entre veïns grans i pot justificar subvencions del PUOSC i les Diputacions.</p>
+        <p>Consulteu la nostra <a href="/guia/espais-gent-gran">guia tècnica sobre espais per a gent gran</a> per aprofundir en el disseny, la normativa i el finançament.</p>
+      </div>
+      <aside class="info-box">
+        <h3>Normativa aplicable</h3>
+        <ul>
+          <li><strong>EN16630:2015</strong> — Equips de fitness a l'aire lliure. Requisits de seguretat i mètodes d'assaig.</li>
+          <li><strong>EN1177:2018</strong> — Superfícies amortidores de caigudes en zones de joc.</li>
+          <li><strong>RD 314/2006</strong> — CTE DB-SUA. Accessibilitat i ús segur de l'espai públic.</li>
+          <li><strong>Decret 135/1995</strong> (Catalunya) — Codi d'accessibilitat. Itineraris accessibles fins als aparells.</li>
+        </ul>
+        <a href="/guia/espais-gent-gran" class="btn btn-outline" style="margin-top:1rem; display:inline-block;">Guia tècnica completa</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Aparells biosaludables més habituals</h2>
+      <p class="section-subtitle">Els aparells biosaludables treballen grups musculars grans amb moviments de baix impacte. Aquests són els més sol·licitats pels municipis:</p>
+      <div class="aparells-grid">
+        {[
+          { nom: 'Elíptica exterior', beneficis: 'Cardiovascular, membres inferiors', nivell: 'Baix impacte', usos: 'Totes les edats' },
+          { nom: 'Bicicleta estàtica', beneficis: 'Quadríceps, glutis, resistència', nivell: 'Baix impacte', usos: 'Gent gran' },
+          { nom: 'Remar (rower)', beneficis: 'Esquena, braços, coordinació', nivell: 'Mig impacte', usos: 'Adults i gent gran' },
+          { nom: 'Balancí dorsal', beneficis: 'Columna lumbar, relaxació', nivell: 'Molt baix', usos: 'Gent gran' },
+          { nom: 'Rotació lumbar', beneficis: 'Mobilitat espinal, core', nivell: 'Molt baix', usos: 'Gent gran' },
+          { nom: 'Premsa de cames', beneficis: 'Tren inferior, equilibri', nivell: 'Baix impacte', usos: 'Adults i gent gran' },
+          { nom: "Barres d'equilibri", beneficis: 'Propriocepció, equilibri dinàmic', nivell: 'Variable', usos: 'Totes les edats' },
+          { nom: "Estirador de braços", beneficis: 'Flexibilitat, mobilitat espatlles', nivell: 'Molt baix', usos: 'Gent gran' },
+          { nom: 'Caminador (skipper)', beneficis: 'Coordinació, cardiovascular', nivell: 'Baix impacte', usos: 'Adults' },
+          { nom: 'Surfer / balancí lateral', beneficis: 'Equilibri lateral, core', nivell: 'Baix impacte', usos: 'Totes les edats' },
+        ].map(a => (
+          <div class="aparell-item">
+            <strong>{a.nom}</strong>
+            <p>{a.beneficis}</p>
+            <div class="aparell-tags">
+              <span class="tag">{a.nivell}</span>
+              <span class="tag tag-blue">{a.usos}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Dimensionament i pressupost orientatiu</h2>
+      <p>Els circuits biosaludables es dimensionen en funció de la superfície disponible, el nombre d'usuaris potencials i el pressupost municipal. Intervals orientatius per a Catalunya (IVA inclòs, transport i instal·lació):</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Circuit</th><th>Aparells</th><th>Superfície mínima</th><th>Pressupost orientatiu</th><th>Adequat per a</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bàsic</td><td>4–6</td><td>80–150 m²</td><td>8.000–15.000 €</td><td>Barris petits, jardins</td></tr>
+            <tr><td>Estàndard</td><td>6–10</td><td>150–300 m²</td><td>15.000–30.000 €</td><td>Parcs de barri</td></tr>
+            <tr><td>Complet</td><td>10–15</td><td>300–600 m²</td><td>30.000–60.000 €</td><td>Parcs municipals grans</td></tr>
+            <tr><td>Intergeneracional</td><td>15–25</td><td>600–1.200 m²</td><td>60.000–120.000 €</td><td>Parc central municipal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note"><em>* Pressupostos orientatius sense paviment amortidor ni obra civil. Consulteu per a pressupost específic.</em></p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Preguntes freqüents</h2>
+      <div class="faq-list">
+        {[
+          { q: 'Quina normativa regula els aparells biosaludables?', r: "La norma europea EN16630:2015 estableix els requisits de seguretat per a equips de fitness a l'aire lliure en espais públics. Tots els aparells han de tenir marcatge CE conforme a EN16630 i el fabricant ha de subministrar la Declaració de Conformitat." },
+          { q: 'Es poden barrejar aparells biosaludables i jocs infantils?', r: "No és recomanable instal·lar-los en la mateixa zona de joc infantil, però sí en zones adjacents ben delimitades. La separació visual facilita l'ús per part de la gent gran i evita interferències amb els infants." },
+          { q: 'Quant costa el manteniment anual?', r: 'Un circuit de 8–10 aparells requereix una revisió semestral i una inspecció anual conforme EN16630. El cost de manteniment anual s\'estima entre 500 i 1.500 euros en funció del nombre d\'elements.' },
+          { q: 'Les Diputacions financen circuits biosaludables?', r: 'Sí. La Diputació de Barcelona (Xarxa de Governs Locals) i les Diputacions de Girona, Lleida i Tarragona inclouen els circuits biosaludables com a actuació elegible en espai públic. El PUOSC de la Generalitat també en permet el finançament.' },
+        ].map(item => (
+          <details class="faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.r}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Necessiteu un pressupost per al vostre circuit biosaludable?</h2>
+      <p>Us connectem amb fabricants especialitzats en equipament biosaludable homologat EN16630 i us orientem sobre les subvencions disponibles al vostre municipi.</p>
+      <a href="/contacte" class="btn btn-primary btn-lg">Sol·licitar assessorament</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.4rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.875rem; line-height: 1.5; }
+  .info-box li:last-child { border-bottom: none; }
+  .subcats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .subcat-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; transition: box-shadow 0.2s, border-color 0.2s; }
+  .subcat-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
+  .subcat-header { display: flex; justify-content: flex-end; }
+  .subcat-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--color-heading); }
+  .subcat-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; flex: 1; }
+  .subcat-link { font-size: 0.875rem; color: var(--color-primary); font-weight: 600; margin-top: auto; }
+  .section-subtitle { color: var(--color-muted); margin-bottom: 2rem; max-width: 640px; }
+  .aparells-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .aparell-item { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem; }
+  .aparell-item strong { display: block; font-size: 0.9rem; margin-bottom: 0.25rem; color: var(--color-heading); }
+  .aparell-item p { font-size: 0.8rem; color: var(--color-muted); margin-bottom: 0.5rem; }
+  .aparell-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tag { font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; background: var(--color-bg); border: 1px solid var(--color-border); color: var(--color-muted); }
+  .tag-blue { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: var(--color-bg-alt); padding: 0.6rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; font-size: 0.85rem; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .table-note { font-size: 0.8rem; color: var(--color-muted); margin-top: 0.5rem; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 780px; }
+  .faq-item { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+  .faq-item summary { padding: 1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 1.25rem 1rem; font-size: 0.9rem; color: var(--color-muted); line-height: 1.6; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); margin-bottom: 1.5rem; }
+  .btn-lg { padding: 0.875rem 2rem; font-size: 1rem; }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .aparells-grid { grid-template-columns: 1fr 1fr; } }
+</style>

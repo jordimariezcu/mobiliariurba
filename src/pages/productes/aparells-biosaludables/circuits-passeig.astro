@@ -1,0 +1,197 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Aparells Biosaludables', item: 'https://mobiliariurba.cat/productes/aparells-biosaludables' },
+    { '@type': 'ListItem', position: 4, name: 'Circuits de Passeig', item: 'https://mobiliariurba.cat/productes/aparells-biosaludables/circuits-passeig' },
+  ],
+});
+---
+
+<Layout
+  title="Circuits de Passeig Biosaludables per a Parcs i Jardins"
+  description="Circuits de fitness integrats en recorreguts de passeig: aparells d'estirament, equilibri i força suau distribuïts al llarg d'itineraris accessibles en parcs municipals."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <a href="/productes/aparells-biosaludables">Aparells Biosaludables</a><span>/</span>
+        <span>Circuits de Passeig</span>
+      </nav>
+      <h1>Circuits de Passeig Biosaludables</h1>
+      <p>Aparells de fitness distribuïts al llarg d'un recorregut de passeig en parc o jardí. El format de circuit incentiva la deambulació activa i combina activitat aeròbica (caminar) amb exercicis de força, estirament i equilibri.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Què és un circuit de passeig?</h2>
+        <p>Un circuit de passeig (també anomenat <em>parcours</em> o circuit de fitness de parc) és un conjunt d'aparells d'exercici distribuïts al llarg d'un recorregut senyalitzat, normalment entre 500 i 2.000 metres de longitud. L'usuari camina d'una estació a la següent, alternant la deambulació amb breus aturades d'exercici.</p>
+        <p>A diferència dels circuits biosaludables concentrats en una zona, el format lineal o circular del circuit de passeig ofereix avantatges específics:</p>
+        <ul class="criteria-list">
+          <li><strong>Activitat aeròbica integrada</strong> — el simple fet de caminar entre estacions ja suposa activitat cardiovascular beneficiosa.</li>
+          <li><strong>Menor sensació d'"anar al gimnàs"</strong> — format menys intimidant per a persones sedentàries que s'inicien en l'exercici.</li>
+          <li><strong>Ús espontani i social</strong> — un passeig habitual es converteix en una activitat física amb objectius concrets.</li>
+          <li><strong>Aprofitament de parcs lineals</strong> — ideal per a ribes de rius, passeigs marítims, parcs periurbans i greenways.</li>
+          <li><strong>Diversitat d'usuaris</strong> — en un recorregut llarg, és natural que cada persona s'aturi als aparells que més li convenen.</li>
+        </ul>
+      </div>
+      <aside class="info-box">
+        <h3>Tipologies de circuit</h3>
+        <ul>
+          <li><strong>Circuit concentrat</strong> — tots els aparells en una zona (200–400 m²). Ideal per a parcs petits.</li>
+          <li><strong>Circuit lineal</strong> — aparells distribuïts al llarg d'un passeig. Longitud: 500–2.000 m.</li>
+          <li><strong>Circuit en anell</strong> — recorregut tancat que pot fer-se en bucle. Longitud: 800–3.000 m.</li>
+          <li><strong>Circuit intergeneracional</strong> — combina zones per a gent gran, adults i infants en un mateix recorregut.</li>
+        </ul>
+        <a href="/guia/espais-gent-gran" class="btn btn-outline" style="margin-top:1rem; display:inline-block;">Guia de disseny</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Aparells habituals en circuits de passeig</h2>
+      <p class="section-subtitle">Els aparells en circuits de passeig solen ser més compactes i versàtils que els d'un circuit concentrat. Es prioritzen elements multiusuari, d'instal·lació senzilla i baix manteniment:</p>
+      <div class="estacions-grid">
+        {[
+          { num: '01', nom: 'Estació de caminar / caminador', desc: "Aparell de pistons o resistència que simula la marxa. Primer aparell del circuit; serveix d'escalfament. Permet dos usuaris simultanis." },
+          { num: '02', nom: 'Paral·leles baixes + estirament', desc: "Barres a 60–90 cm per a estiraments de tren inferior i mobilitzacions de maluc. Senzilles, sense parts mòbils, molt duradores." },
+          { num: '03', nom: 'Bicicleta doble o elíptica', desc: "Estació cardiovascular central del circuit. Dos llocs permeten l'ús simultani i la interacció social. Element de major impacte visual." },
+          { num: '04', nom: "Barres d'equilibri i coordinació", desc: "Conjunt de barres, esglaons i superfícies irregulars per treballar la propriocepció. Aptes per a totes les edats." },
+          { num: '05', nom: 'Rotació lumbar doble', desc: "Dues plataformes de rotació costat a costat. Permet fer l'exercici en parella. Molt apreciat en circuits amb usuaris regulars." },
+          { num: '06', nom: 'Estirador de cames i esquena', desc: "Banc inclinat amb agafadors per a estiraments de isquiotibials, bessons i esquena. Esencial per tancar el circuit amb una fase de relaxació." },
+          { num: '07', nom: 'Press de braços vertical', desc: "Permet realitzar empentes de braços en posició dempeus. Alternativa accessible al flexions de terra per a persones amb problemes de genoll." },
+          { num: '08', nom: 'Rampa de passeig i escales baixes', desc: "Inclosa en circuits amb desnivells, permet pràctica de pujades controlades i treball de STEP de baix impacte." },
+        ].map(e => (
+          <div class="estacio-card">
+            <span class="estacio-num">{e.num}</span>
+            <div>
+              <strong>{e.nom}</strong>
+              <p>{e.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Senyalística i identitat visual del circuit</h2>
+      <p>Un circuit de passeig ben senyalitzat incrementa l'ús i la percepció de valor per part dels veïns. Els elements de comunicació recomanats:</p>
+      <div class="senyalistica-grid">
+        <div class="seny-item">
+          <h3>Cartell d'entrada al circuit</h3>
+          <p>Mapa del recorregut amb localització de cada estació, distàncies i temps estimats. Inclou codi QR optatiu amb instruccions d'exercici en format de vídeo.</p>
+        </div>
+        <div class="seny-item">
+          <h3>Cartell per a cada estació</h3>
+          <p>Número d'estació, nom de l'exercici, pictograma d'execució correcta, grups musculars treballats i precaucions. Màxim 3 exercicis per cartell.</p>
+        </div>
+        <div class="seny-item">
+          <h3>Fites de quilometratge</h3>
+          <p>Marques en el paviment cada 100 metres. Incentiven la consciència de la distància recorreguda i faciliten el monitoratge autònom.</p>
+        </div>
+        <div class="seny-item">
+          <h3>Identificació municipal</h3>
+          <p>Nom del circuit, escut municipal i any d'instal·lació. Alguns ajuntaments afegeixen el logo del programa de salut comunitària o de la Diputació finançadora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Exemples de circuits per tipologia d'espai</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tipologia d'espai</th><th>Format recomanat</th><th>Estacions</th><th>Longitud</th><th>Pressupost orientatiu</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Jardí de barri (< 5.000 m²)</td><td>Concentrat</td><td>4–6</td><td>—</td><td>8.000–15.000 €</td></tr>
+            <tr><td>Parc municipal central</td><td>Anell o lineal</td><td>8–12</td><td>600–1.000 m</td><td>20.000–40.000 €</td></tr>
+            <tr><td>Passeig fluvial o marítim</td><td>Lineal</td><td>10–16</td><td>1.000–2.000 m</td><td>30.000–60.000 €</td></tr>
+            <tr><td>Parc periurbà o bosc urbà</td><td>Lineal o bucle</td><td>12–20</td><td>1.500–3.000 m</td><td>40.000–80.000 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note"><em>* Pressupostos orientatius inclou aparells, instal·lació i senyalística. Exclou obra civil (paviment, moviment de terres, il·luminació).</em></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Manteniment i gestió</h2>
+      <div class="mant-grid">
+        <div>
+          <h3>Inspecció periòdica EN16630</h3>
+          <p>Els aparells d'un circuit de passeig estan subjectes a la mateixa normativa de manteniment que els circuits concentrats: inspecció visual setmanal, revisió operativa mensual i inspecció anual per tècnic qualificat.</p>
+          <p>Un circuit de 10–15 aparells distribuïts en 1 km de recorregut requereix aproximadament 2–3 hores de revisió mensual i una inspecció anual d'1 dia complert.</p>
+        </div>
+        <div>
+          <h3>Vida útil i recanvis</h3>
+          <p>Els components de major desgast en circuits de passeig són les parts mòbils (rodaments, pistons) i els elements de plàstic (panells instructius, seients). La majoria de fabricants garanteixen disponibilitat de recanvis durant 10 anys des de la data de fabricació.</p>
+          <p>Les estructures d'acer galvanitzat en calent o d'acer inoxidable AISI 316 tenen una vida útil de 20–30 anys amb manteniment adequat de la pintura anticorrosiva.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-box">
+      <h2>Dissenyeu el circuit de passeig del vostre municipi</h2>
+      <p>Us ajudem a definir el recorregut, les estacions i el format adequat per al vostre parc o passeig, i us connectem amb fabricants especialitzats.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a href="/contacte" class="btn btn-primary">Contactar</a>
+        <a href="/productes/aparells-biosaludables" class="btn btn-outline">← Tornar a Biosaludables</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .two-col { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .info-box { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .info-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .info-box ul { list-style: none; padding: 0; }
+  .info-box li { padding: 0.4rem 0; font-size: 0.875rem; border-bottom: 1px solid var(--color-border); line-height: 1.5; }
+  .info-box li:last-child { border-bottom: none; }
+  .criteria-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+  .criteria-list li { padding-left: 1rem; border-left: 3px solid var(--color-primary); font-size: 0.9rem; line-height: 1.55; }
+  .section-subtitle { color: var(--color-muted); margin-bottom: 2rem; max-width: 640px; }
+  .estacions-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+  .estacio-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; gap: 1.25rem; align-items: flex-start; }
+  .estacio-num { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); opacity: 0.4; min-width: 2.5rem; line-height: 1; }
+  .estacio-card strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--color-heading); }
+  .estacio-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; margin: 0; }
+  .senyalistica-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .seny-item { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.25rem; }
+  .seny-item h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .seny-item p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.55; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: var(--color-bg-alt); padding: 0.6rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; font-size: 0.85rem; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .table-note { font-size: 0.8rem; color: var(--color-muted); margin-top: 0.5rem; }
+  .mant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .mant-grid h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary-dark); }
+  .mant-grid p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+  .cta-section { background: var(--color-primary-light); }
+  .cta-box { text-align: center; max-width: 600px; margin: 0 auto; }
+  .cta-box h2 { margin-bottom: 0.75rem; }
+  .cta-box p { color: var(--color-muted); }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } .mant-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,213 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Guies', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
+      { '@type': 'ListItem', position: 3, name: 'Espais per a Gent Gran', item: 'https://mobiliariurba.cat/guia/espais-gent-gran' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Guia tècnica: Espais d\'Activitat Física per a Gent Gran en l\'Espai Públic',
+    description: 'Com planificar, dissenyar i equipar una zona biosaludable o circuit de passeig per a persones grans en un parc o jardí municipal. Normativa EN16630, accessibilitat i finançament.',
+    url: 'https://mobiliariurba.cat/guia/espais-gent-gran',
+    inLanguage: 'ca-ES',
+    author: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+    publisher: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+  },
+]);
+---
+
+<Layout
+  title="Guia Tècnica: Espais d'Activitat Física per a Gent Gran"
+  description="Com planificar i equipar zones biosaludables i circuits de passeig per a persones grans en espais públics municipals. Normativa EN16630, accessibilitat, pressupostos i subvencions."
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/guia/parcs-infantils">Guies</a><span>/</span>
+        <span>Espais per a Gent Gran</span>
+      </nav>
+      <span class="badge badge-green" style="margin-bottom:0.75rem;">Guia tècnica</span>
+      <h1>Espais d'Activitat Física per a Gent Gran en l'Espai Públic</h1>
+      <p>Tot el que necessita saber un tècnic municipal per planificar, dissenyar i equipar una zona biosaludable o circuit de passeig adaptat per a persones grans. Normativa, accessibilitat i finançament.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container guide-layout">
+      <article class="guide-content">
+
+        <h2>1. Per què ara? Context demogràfic i oportunitat municipal</h2>
+        <p>Catalunya tindrà el 2030 gairebé un 23% de la seva població amb més de 65 anys, segons les projeccions de l'Idescat. Aquesta realitat demogràfica planteja als ajuntaments la necessitat de repensar els espais públics per garantir que siguin útils i atractius per a una franja creixent de la ciutadania.</p>
+        <p>Els espais d'activitat física per a gent gran no són un caprici: l'evidència científica mostra que la pràctica regular d'exercici físic moderat en persones majors de 65 anys redueix les hospitalitzacions, millora la salut mental i retarda la dependència. Per als ajuntaments, invertir en zones biosaludables té un retorn mesurable en termes de reducció de la pressió sobre els serveis socials i sanitaris.</p>
+        <p>A més, des del punt de vista urbanístic, les zones biosaludables incrementen l'ús dels parcs en franges horàries de matí i migdia, habitualment poc concorregudes, i fomenten la socialització entre veïns grans que viuen en soledat.</p>
+
+        <h2>2. Tipologies d'espai: quin s'adapta al vostre municipi?</h2>
+
+        <h3>2.1 Zona biosaludable concentrada</h3>
+        <p>Conjunt de 6–15 aparells agrupats en una zona delimitada del parc, normalment de 200 a 600 m². És la tipologia més habitual en barris residencials i la més senzilla de gestionar. Permet la supervisió visual d'un grup d'usuaris i facilita la realització de circuits d'exercici en grup (activitats de gimnàstica municipal).</p>
+        <p><strong>Adequada per a:</strong> parcs de barri de 2.000–15.000 m², municipis de qualsevol mida, espais amb pressupost i superfície limitades.</p>
+
+        <h3>2.2 Circuit de passeig (parcours)</h3>
+        <p>Aparells distribuïts al llarg d'un itinerari de 500–3.000 metres, normalment en un parc lineal, riba fluvial o passeig periurbà. L'usuari camina entre estacions, combinant activitat aeròbica (la marxa) amb exercicis específics a cada punt. Requereix més inversió inicial però ofereix un recorregut amb major estímul i varietat.</p>
+        <p><strong>Adequada per a:</strong> parcs grans, passejos fluvials o marítims, vies verdes, itineraris periurbans. Municipis amb voluntat de crear un equipament de referència comarcal.</p>
+
+        <h3>2.3 Zona intergeneracional</h3>
+        <p>Combina en un mateix recorregut zones per a gent gran, adults actius i infants, amb elements adequats per a cadascun. La integració intergeneracional té beneficis documentats en la salut mental de la gent gran (contacte intergeneracional) i en la transmissió de models d'activitat als infants. Requereix un disseny curós de la senyalització i la separació de zones de risc diferent.</p>
+        <p><strong>Adequada per a:</strong> parcs centrals municipals, espais de nova creació, municipis amb voluntat d'integrar cohesió social en el disseny urbà.</p>
+
+        <h2>3. Normativa: EN16630 i legislació accessibilitat</h2>
+
+        <h3>3.1 EN16630:2015 — Equips de fitness a l'aire lliure</h3>
+        <p>La norma europea EN16630:2015 és la referència obligatòria per a tot equipament de fitness instal·lat en espais públics. Estableix:</p>
+        <ul>
+          <li><strong>Requisits de seguretat estructural:</strong> càrrega estàtica mínima de 1.500 N, proves de fatiga de 250.000 cicles.</li>
+          <li><strong>Zones lliures d'obstacles:</strong> espai mínim de 1,5 m al voltant de cada aparell per evitar col·lisions entre usuaris.</li>
+          <li><strong>Alçada màxima de caiguda lliure:</strong> si un usuari pot caure des de ≥ 0,6 m, es requereix superfície amortidora.</li>
+          <li><strong>Etiquetes d'instruccions:</strong> resistents a UV i vandalisme, llegibles en condicions normals d'ús.</li>
+          <li><strong>Marcatge CE:</strong> obligatori. El fabricant ha de subministrar la Declaració de Conformitat CE.</li>
+        </ul>
+        <p>A diferència de la EN1176 (parcs infantils), la EN16630 no especifica requisits d'inspecció periòdica. La pràctica recomanada pels fabricants és adoptar una freqüència equivalent a la EN1176-7: inspecció visual setmanal, revisió operativa mensual i inspecció principal anual.</p>
+
+        <h3>3.2 Accessibilitat</h3>
+        <p>A Catalunya, el marc normatiu d'accessibilitat en espai públic és el <strong>Decret 135/1995</strong> (Codi d'accessibilitat de Catalunya), complementat per les disposicions del <strong>Reial Decret 314/2006</strong> (CTE DB-SUA). Els requisits principals per a zones biosaludables:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Element</th><th>Requisit mínim</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Itinerari d'accés a la zona</td><td>Amplada ≥ 1,20 m, sense graons, pendent longitudinal ≤ 8%</td></tr>
+              <tr><td>Paviment de la zona</td><td>Dur, antilliscant, sense discontinuïtats > 2 cm</td></tr>
+              <tr><td>Zona de transferència (cadira rodes)</td><td>120 × 120 cm davant aparells adaptats</td></tr>
+              <tr><td>Agafadors</td><td>Diàmetre 30–40 mm, a alçada 85–105 cm</td></tr>
+              <tr><td>Senyalística</td><td>Contrast ≥ 0,7 (escala Michelson), lletra mínima 14 pt</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Disseny: criteris pràctics</h2>
+
+        <h3>4.1 Orientació i emplaçament</h3>
+        <p>Eviteu la insolació directa en els aparells durant les hores centrals del dia (12–17h a l'estiu). Les superfícies de plàstic i acer poden assolir temperatures de 60–70°C, cosa que genera risc de cremades. Les opcions recomanades: orientació nord-est o nord-oest, o cobertura amb pèrgola vegetal o estructura lleugera.</p>
+        <p>La proximitat a bancs i zones d'ombra és fonamental per a la gent gran: necessiten espais per descansar entre aparells i espais per als acompanyants que no fan exercici.</p>
+
+        <h3>4.2 Paviment</h3>
+        <p>Per a zones on els usuaris estiguen dempeus i en moviment (elíptica, bicicleta, rotació), el paviment dur accessible és suficient si no hi ha risc de caiguda des d'alçada. Per a elements d'equilibri o barres on l'alçada de caiguda supera 0,6 m, es requereix paviment amortidor:</p>
+        <ul>
+          <li><strong>Cautxú en lloses (50×50 cm):</strong> opció més duradora, fàcil de reparar. Mínim 3 cm per a alçada ≤ 0,6 m.</li>
+          <li><strong>Cautxú continu (SBR + PU):</strong> millor aspecte, sense juntes, però reparació més costosa. Recomanat per a zones d'alta visibilitat.</li>
+          <li><strong>Sorra rentada o graveta:</strong> econòmic, natural, però requereix reposició cada 2–3 anys i pot ser problemàtic per a persones amb bastó o caminador.</li>
+        </ul>
+
+        <h3>4.3 Il·luminació</h3>
+        <p>Si la zona es vol usar a primera hora del matí o al vespre (habitual en gent gran jubilada), cal preveure il·luminació mínima de 20 lux en els punts d'exercici. La il·luminació LED solar és una opció viable en zones allunyades de la xarxa elèctrica.</p>
+
+        <h3>4.4 Mobiliari complementari</h3>
+        <p>Una zona biosaludable per a gent gran funciona millor quan inclou mobiliari complementari adequat:</p>
+        <ul>
+          <li><strong>Bancs amb respatller i braços</strong> (faciliten l'aixecament) cada 50–80 m en circuits de passeig</li>
+          <li><strong>Taula de pícnic accessible</strong> per fomentar l'estada i la socialització post-exercici</li>
+          <li><strong>Fonts d'aigua potable</strong> a menys de 100 m de la zona d'exercici</li>
+          <li><strong>Papereres</strong> per mantenir la zona neta i dissuadir l'abandó de residus</li>
+        </ul>
+
+        <h2>5. Finançament i subvencions</h2>
+        <p>Els espais biosaludables per a gent gran s'inscriuen en diverses línies de finançament públic disponibles per als municipis catalans:</p>
+
+        <h3>5.1 PUOSC — Pla Únic d'Obres i Serveis de Catalunya</h3>
+        <p>Gestió de la Generalitat (DGAL). Cobreix fins al 85% del cost per a municipis de menys de 50.000 habitants. Les actuacions que incorporen accessibilitat universal i activitat física per a gent gran solen puntuar favorablement en els barems de selecció.</p>
+
+        <h3>5.2 Diputació de Barcelona — Xarxa de Governs Locals</h3>
+        <p>Finançament per a actuacions en espai públic. Les sol·licituds es presenten anualment (octubre–novembre). Import màxim orientatiu per actuació: 30.000–80.000 €. Les Diputacions de Girona, Lleida i Tarragona tenen convocatòries anuals similars.</p>
+
+        <h3>5.3 Fons Next Generation EU</h3>
+        <p>Actuacions que es justifiquin dins de projectes de "naturalització d'espai públic", "accessibilitat i inclusió" o "millora de la salut comunitària" poden encaixar en les prioritats del PRTR. La canalització habitual és a través de la Generalitat o la Diputació.</p>
+
+        <h3>5.4 Consell Esportiu i Diputació (esport i salut)</h3>
+        <p>Alguns Consells Esportius de comarca (vinculats a Diputació) disposen de línies específiques per a equipaments esportius de proximitat. Val la pena consultar directament el Consell Esportiu de la comarca.</p>
+
+        <h2>6. Gestió i animació de la zona</h2>
+        <p>Un circuit biosaludable sense programa d'activitats té un ús molt inferior al del seu potencial. Les mesures de gestió que milloren l'ús:</p>
+        <ul>
+          <li><strong>Sessions guiades setmanals</strong> amb monitor (municipal o contractat). 1–2 sessions/setmana d'1 hora és suficient per consolidar un grup regular.</li>
+          <li><strong>Cartell d'horaris i activitats</strong> a l'entrada de la zona, actualitzat mensualment.</li>
+          <li><strong>Coordinació amb el CAP o servei de salut</strong> per a programes de prescripció d'exercici físic supervisat.</li>
+          <li><strong>Enquesta anual d'ús</strong> per detectar necessitats i justificar ampliacions o millores davant la Diputació.</li>
+        </ul>
+
+        <hr />
+
+        <p><em>Necessiteu assessorament per planificar la zona biosaludable del vostre municipi? <a href="/contacte">Contacteu-nos</a> i us posem en contacte amb fabricants especialitzats i tècnics d'espai públic.</em></p>
+
+      </article>
+
+      <aside class="guide-sidebar">
+        <div class="sidebar-card cta-card">
+          <h3>Necessiteu assessorament?</h3>
+          <p>Connecteu amb especialistes en zones biosaludables i circuits per a gent gran a Catalunya.</p>
+          <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Contactar</a>
+        </div>
+        <div class="sidebar-card">
+          <h3>Pàgines relacionades</h3>
+          <ul class="related-list">
+            <li><a href="/productes/aparells-biosaludables">Aparells Biosaludables</a></li>
+            <li><a href="/productes/aparells-biosaludables/aparells-gent-gran">Aparells per a Gent Gran</a></li>
+            <li><a href="/productes/aparells-biosaludables/circuits-passeig">Circuits de Passeig</a></li>
+            <li><a href="/productes/circuit-esportiu">Circuit Esportiu Adults</a></li>
+            <li><a href="/guia/parcs-infantils">Guia Parcs Infantils</a></li>
+            <li><a href="/blog/subvencions-parc-infantil-catalunya">Guia de Subvencions</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3>Normativa clau</h3>
+          <ul class="related-list">
+            <li><a href="/guia/normativa-en1176">Normativa EN1176</a></li>
+            <li>EN16630:2015 (fitness exterior)</li>
+            <li>Decret 135/1995 (accessibilitat)</li>
+            <li>CTE DB-SUA (espai públic)</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .guide-layout { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .guide-content { min-width: 0; }
+  .guide-content h2 { font-size: 1.35rem; font-weight: 800; margin: 2rem 0 0.75rem; color: var(--color-heading); padding-top: 1.5rem; border-top: 2px solid var(--color-border); }
+  .guide-content h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .guide-content h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--color-primary-dark); }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1rem; }
+  .guide-content ul, .guide-content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .guide-content li { font-size: 0.9rem; line-height: 1.7; color: var(--color-text); }
+  .guide-content hr { border: none; border-top: 1px solid var(--color-border); margin: 2rem 0; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th { background: var(--color-bg-alt); padding: 0.55rem 0.75rem; text-align: left; border: 1px solid var(--color-border); font-weight: 600; }
+  td { padding: 0.55rem 0.75rem; border: 1px solid var(--color-border); }
+  tr:nth-child(even) td { background: var(--color-bg-alt); }
+  .guide-sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { padding: 0.3rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.85rem; color: var(--color-muted); }
+  .related-list li:last-child { border-bottom: none; }
+  .related-list a { color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .guide-layout { grid-template-columns: 1fr; } .guide-sidebar { position: static; } }
+</style>
