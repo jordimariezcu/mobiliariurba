@@ -4,19 +4,40 @@ import Layout from '../../layouts/Layout.astro';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
 
-let posts: any[] = [];
+interface BlogEntry {
+  slug: string;
+  titol: string;
+  descripcio: string | null;
+  categoria: string;
+  data: string | null;
+  imatge: string | null;
+  destacat: boolean;
+}
+
+function getTitle(titol: any): string {
+  if (!titol) return '';
+  if (typeof titol === 'object' && 'value' in titol) return titol.value;
+  return String(titol);
+}
+
+let posts: BlogEntry[] = [];
 try {
   const reader = createReader(process.cwd(), keystaticConfig);
   const allPosts = await reader.collections.blog.all();
   posts = allPosts
-    .filter((p: any) => p.entry.data)
-    .sort((a: any, b: any) => {
-      const da = a.entry.data?.date ?? '';
-      const db = b.entry.data?.date ?? '';
-      return db.localeCompare(da);
-    });
+    .map((p: any) => ({
+      slug: p.slug,
+      titol: getTitle(p.entry.titol),
+      descripcio: p.entry.descripcio ?? null,
+      categoria: p.entry.categoria ?? '',
+      data: p.entry.data ?? null,
+      imatge: p.entry.imatge ?? null,
+      destacat: p.entry.destacat ?? false,
+    }))
+    .filter(p => p.titol)
+    .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''));
 } catch {
-  // No posts yet — render empty state
+  // No posts yet
 }
 ---
 
@@ -40,32 +61,28 @@ try {
       {posts.length === 0 ? (
         <div class="empty-state">
           <h2>Aviat, nous articles</h2>
-          <p>Estem preparant guies tècniques sobre normativa EN1176, materials per a parcs i subvencions disponibles. Torneu aviat.</p>
+          <p>Estem preparant guies tècniques sobre normativa EN1176, materials per a parcs i subvencions disponibles.</p>
           <a href="/guia/parcs-infantils" class="btn btn-primary">Llegiu la guia de parcs infantils</a>
         </div>
       ) : (
         <div class="blog-grid">
-          {posts.map((post: any) => (
+          {posts.map(post => (
             <article class="blog-card">
-              {post.entry.data?.imatge && (
+              {post.imatge && (
                 <a href={`/blog/${post.slug}`} class="blog-card-img">
-                  <img src={post.entry.data.imatge} alt={post.entry.data.titol} loading="lazy" />
+                  <img src={post.imatge} alt={post.titol} loading="lazy" />
                 </a>
               )}
               <div class="blog-card-body">
-                {post.entry.data?.categoria && (
-                  <span class="badge badge-blue">{post.entry.data.categoria}</span>
-                )}
+                {post.categoria && <span class="badge badge-blue">{post.categoria}</span>}
                 <h2 class="blog-card-title">
-                  <a href={`/blog/${post.slug}`}>{post.entry.data?.titol ?? post.slug}</a>
+                  <a href={`/blog/${post.slug}`}>{post.titol}</a>
                 </h2>
-                {post.entry.data?.descripcio && (
-                  <p class="blog-card-desc">{post.entry.data.descripcio}</p>
-                )}
+                {post.descripcio && <p class="blog-card-desc">{post.descripcio}</p>}
                 <div class="blog-card-meta">
-                  {post.entry.data?.data && (
-                    <time datetime={post.entry.data.data}>
-                      {new Date(post.entry.data.data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  {post.data && (
+                    <time datetime={post.data}>
+                      {new Date(post.data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
                     </time>
                   )}
                   <a href={`/blog/${post.slug}`} class="read-more">Llegir article →</a>
@@ -90,11 +107,9 @@ try {
   .blog-card-desc { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; flex: 1; }
   .blog-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; font-size: 0.8rem; color: var(--color-muted); }
   .read-more { color: var(--color-primary); font-weight: 600; }
-
   .empty-state { text-align: center; padding: 4rem 2rem; max-width: 480px; margin: 0 auto; }
   .empty-state h2 { margin-bottom: 0.75rem; }
   .empty-state p { color: var(--color-muted); margin-bottom: 1.5rem; }
-
   @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 </style>

@@ -4,6 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../../keystatic.config';
 
+function getTitle(titol: any): string {
+  if (!titol) return '';
+  if (typeof titol === 'object' && 'value' in titol) return titol.value;
+  return String(titol);
+}
+
 export async function getStaticPaths() {
   try {
     const reader = createReader(process.cwd(), keystaticConfig);
@@ -16,52 +22,80 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-let post: any = null;
+let titol = '';
+let descripcio = '';
+let categoria = '';
+let data: string | null = null;
+let imatge: string | null = null;
 let Content: any = null;
 
 try {
   const reader = createReader(process.cwd(), keystaticConfig);
-  post = await reader.collections.blog.read(slug!);
-  if (post) {
-    Content = await post.contingut();
-  }
-} catch {
-  // post not found
-}
+  const post = await reader.collections.blog.read(slug!);
+  if (!post) return Astro.redirect('/blog');
 
-if (!post) {
+  titol = getTitle(post.titol);
+  descripcio = post.descripcio ?? '';
+  categoria = post.categoria ?? '';
+  data = post.data ?? null;
+  imatge = post.imatge ?? null;
+  Content = await post.contingut();
+} catch {
   return Astro.redirect('/blog');
 }
 
-const data = post;
-const formattedDate = data.data
-  ? new Date(data.data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+const formattedDate = data
+  ? new Date(data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })
   : null;
+
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://mobiliariurba.cat/blog' },
+      { '@type': 'ListItem', position: 3, name: titol, item: `https://mobiliariurba.cat/blog/${slug}` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: titol,
+    description: descripcio,
+    url: `https://mobiliariurba.cat/blog/${slug}`,
+    inLanguage: 'ca-ES',
+    ...(data ? { datePublished: data } : {}),
+    ...(imatge ? { image: `https://mobiliariurba.cat${imatge}` } : {}),
+    author: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+    publisher: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
+  },
+]);
 ---
 
 <Layout
-  title={data.titol ?? slug}
-  description={data.descripcio ?? ''}
+  title={titol || slug!}
+  description={descripcio}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <div class="page-header">
     <div class="container">
       <nav class="breadcrumb">
         <a href="/">Inici</a><span>/</span>
         <a href="/blog">Blog</a><span>/</span>
-        <span>{data.titol}</span>
+        <span>{titol}</span>
       </nav>
-      {data.categoria && <span class="badge badge-blue" style="margin-bottom:0.75rem;">{data.categoria}</span>}
-      <h1>{data.titol}</h1>
-      {formattedDate && <p class="post-date">{formattedDate}</p>}
+      {categoria && <span class="badge badge-blue" style="margin-bottom:0.75rem;">{categoria}</span>}
+      <h1>{titol}</h1>
+      {formattedDate && <p class="post-date"><time datetime={data!}>{formattedDate}</time></p>}
     </div>
   </div>
 
   <section class="section">
     <div class="container post-layout">
       <article class="prose post-content">
-        {data.imatge && (
-          <img src={data.imatge} alt={data.titol} class="post-hero-img" loading="eager" />
-        )}
+        {imatge && <img src={imatge} alt={titol} class="post-hero-img" loading="eager" />}
         {Content && <Content />}
       </article>
 
