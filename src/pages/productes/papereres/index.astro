@@ -1,0 +1,106 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Papereres', item: 'https://mobiliariurba.cat/productes/papereres' },
+  ],
+});
+---
+
+<Layout
+  title="Papereres Urbanes per a Municipis i Espais Públics"
+  description="Papereres per a parcs, places i carrers: capacitats, materials anti-vandalisme i criteris per a plecs municipals. Acer galvanitzat, formigó i PRFV. Guia per a tècnics de Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Papereres</span>
+      </nav>
+      <h1>Papereres Urbanes per a Espais Públics</h1>
+      <p>Contenidors de residus per a zones peatonals, parcs i passeigs. La selecció correcta redueix el vandalisme i simplifica la recollida.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <article class="prose">
+
+          <h2>Tipus de papereres per a ús exterior</h2>
+          <table>
+            <thead><tr><th>Tipus</th><th>Capacitat</th><th>Material</th><th>Ús recomanat</th></tr></thead>
+            <tbody>
+              <tr><td>Paperera de pal (basculant)</td><td>30–50 L</td><td>Acer galvanitzat</td><td>Carrers, passeigs, places</td></tr>
+              <tr><td>Paperera de peu fix</td><td>40–80 L</td><td>Acer / PRFV</td><td>Centres urbans, zones peatonals</td></tr>
+              <tr><td>Paperera soterrada (semi)</td><td>600–3.000 L</td><td>Formigó + tapa acer</td><td>Zones residencials, estalvi espai</td></tr>
+              <tr><td>Paperera selectiva (3 fraccions)</td><td>3×40 L</td><td>Acer / PRFV</td><td>Parcs, zones d'alta afluència</td></tr>
+              <tr><td>Paperera de cendres / colilles</td><td>15–30 L</td><td>Acer inox</td><td>Zones fumadors, portes edificis</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Materials i resistència al vandalisme</h2>
+          <p>El vandalisme és el principal factor de deteriorament de les papereres en zones urbanes. Els elements clau per minimitzar-lo:</p>
+          <ul>
+            <li><strong>Acer galvanitzat en calent + pintura en pols</strong>: la combinació estàndard per a la majoria d'entorns. La galvanització en calent (85+ μm) protegeix estructuralment; la pintura en pols evita el grafiti superficial.</li>
+            <li><strong>Cargols de seguretat</strong> (torx o cap especial): imprescindibles per a evitar el desmuntatge dels cubells interns.</li>
+            <li><strong>Ancoratge al paviment</strong>: la majoria de papereres de carrer haurien d'anar fixades; en zones de baix risc, el peu amb pes (≥ 30 kg) és suficient.</li>
+            <li><strong>Tractament anti-grafiti</strong> semi-permanent: cost afegit baix, estalvi elevat en neteja. Recomanable en zones de centre urbà.</li>
+          </ul>
+
+          <h2>Criteris per al plec de condicions</h2>
+          <ul>
+            <li>Capacitat mínima del cubbell intern: 30 L per a papereres de carrer, 50 L per a zones de gran afluència</li>
+            <li>Obertura superior ≥ 200 mm de diàmetre o 200 × 150 mm rectangular</li>
+            <li>Pes mínim de l'estructura sense ancoratge: 15 kg (estabilitat al vent)</li>
+            <li>Disponibilitat de cubells de recanvi: certificar estoc per ≥ 10 anys</li>
+            <li>Acabat: RAL a especificar, resistència a la corrosió equivalent a C3 (EN ISO 12944)</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>Tendència:</strong> Molts municipis catalans estan substituint les papereres individuals de carrer per sistemes de contenidors soterrats de petita capacitat (500–800 L) en zones residencials. Redueix la freqüència de recollida i millora l'estètica del carrer.</p>
+          </div>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card cta-card">
+            <h3>Distribuïu papereres?</h3>
+            <p>Sigueu la referència en papereres urbanes per a municipis de Catalunya.</p>
+            <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Ser partner exclusiu</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Productes relacionats</h3>
+            <ul class="related-list">
+              <li><a href="/productes/bancs">Bancs Urbans</a></li>
+              <li><a href="/productes/pilones-i-bolards">Pilones i Bolards</a></li>
+              <li><a href="/productes/fonts-i-bebedors">Fonts i Bebedors</a></li>
+              <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+</style>

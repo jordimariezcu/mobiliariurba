@@ -1,0 +1,105 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Pilones i Bolards', item: 'https://mobiliariurba.cat/productes/pilones-i-bolards' },
+  ],
+});
+---
+
+<Layout
+  title="Pilones i Bolards per al Control d'Accés Urbà"
+  description="Pilones i bolards per a control d'accés en zones peatonals, places i vies de vianants. Fixes, abatibles i motoritzats. Acer i fosa. Guia per a tècnics municipals de Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Pilones i Bolards</span>
+      </nav>
+      <h1>Pilones i Bolards per al Control d'Accés Urbà</h1>
+      <p>Elements de regulació del trànsit per a zones peatonals, places i corredors de vianants. Impedeixen l'accés de vehicles no autoritzats preservant la permeabilitat de les persones.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <article class="prose">
+
+          <h2>Tipus de pilones per funcionalitat</h2>
+          <table>
+            <thead><tr><th>Tipus</th><th>Descripció</th><th>Ús habitual</th></tr></thead>
+            <tbody>
+              <tr><td>Pilona fixa</td><td>Cimentada o ancorada permanentment. Sense sistema d'abatiment.</td><td>Zones exclusivament peatonals sense accés de vehicles</td></tr>
+              <tr><td>Pilona abatible manual</td><td>Es pot abaixar amb clau per permetre accés puntual. Tancament per ressort.</td><td>Zones de càrrega/descàrrega, accés d'emergència</td></tr>
+              <tr><td>Pilona abatible motoritzada</td><td>Accionament elèctric per telèmand, targeta o sistema centralitzat.</td><td>Zones regulades amb accessos controlats (APR, centre històric)</td></tr>
+              <tr><td>Pilona retràctil</td><td>Es recull completament sota el nivell del paviment. Major cost i manteniment.</td><td>Accessos de seguretat, zones d'esdeveniments</td></tr>
+              <tr><td>Bolard decoratiu</td><td>Funció principal estètica i de delimitació suau (no anti-intrusió).</td><td>Places, façanes d'edificis, delimitació de zones</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Materials i acabats</h2>
+          <ul>
+            <li><strong>Acer galvanitzat en calent + pintura en pols</strong>: estàndard per a la majoria d'instal·lacions. RAL a definir per a integració cromàtica. Durabilitat > 25 anys.</li>
+            <li><strong>Acer inoxidable AISI 304/316</strong>: acabat satí o brillant. Per a centres urbans de representació. Cost superior però manteniment mínim.</li>
+            <li><strong>Fosa de ferro</strong>: per a zones històriques i entorns patrimonials. Acabat amb pintura bituminosa negra o RAL. Pes elevat (> 40 kg).</li>
+            <li><strong>Formigó prefabricat</strong>: bolard de baix cost per a delimitació en zones d'obra o perifèria.</li>
+          </ul>
+
+          <h2>Requisits tècnics d'instal·lació</h2>
+          <p>Una pilona ha de resistir un impacte de vehicle sense cedir de forma perillosa. Segons l'ús:</p>
+          <ul>
+            <li><strong>Ús estàndard</strong> (zones peatonals): ancoratge amb cimentació HA-20, profunditat mínima 50 cm, diàmetre exterior del forat ≥ 25 cm</li>
+            <li><strong>Alta seguretat</strong> (palaus, museus, zones de seguretat): certificació anti-intrusió PAS 68 o IWA 14 (impacte 7,5 t a 48 km/h)</li>
+            <li>Alçada visible: entre <strong>70 i 100 cm</strong> sobre el paviment (recomanació ONCE per a visibilitat de persones amb baixa visió)</li>
+            <li>Senyalització visual: banda reflectant o color contrastant (groc o blanc) per a persones amb discapacitat visual</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>Regulació APR a Catalunya:</strong> Les Àrees de Prioritat Residencial (APR) estan regulades per ordenances municipals específiques. El sistema de pilones motoritzades és la solució tècnica habitual. Cal contemplar la integració amb el sistema de gestió de trànsit municipal i la normativa d'accessibilitat per a serveis d'emergència.</p>
+          </div>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card cta-card">
+            <h3>Distribuïu pilones?</h3>
+            <p>Sigueu la referència en control d'accés urbà per a municipis de Catalunya.</p>
+            <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Ser partner exclusiu</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Productes relacionats</h3>
+            <ul class="related-list">
+              <li><a href="/productes/bancs">Bancs Urbans</a></li>
+              <li><a href="/productes/papereres">Papereres</a></li>
+              <li><a href="/productes/alcorques">Alcorques</a></li>
+              <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+</style>

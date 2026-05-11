@@ -1,0 +1,110 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Meses de Pícnic', item: 'https://mobiliariurba.cat/productes/meses-de-picnic' },
+  ],
+});
+---
+
+<Layout
+  title="Meses de Pícnic per a Parcs i Àrees de Lleure"
+  description="Meses de pícnic per a parcs, àrees forestals i zones de lleure: materials, accessibilitat per a cadires de rodes i ancoratge. Fusta, acer i formigó. Guia per a municipis de Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Meses de Pícnic</span>
+      </nav>
+      <h1>Meses de Pícnic per a Parcs i Àrees de Lleure</h1>
+      <p>Conjunts de taula i bancs integrats per a zones de repòs i àpat a l'aire lliure. La seva selecció ha de contemplar la resistència a la intempèrie, l'accessibilitat i la integració en l'entorn.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <article class="prose">
+
+          <h2>Formats i configuracions habituals</h2>
+          <table>
+            <thead><tr><th>Format</th><th>Capacitat</th><th>Accessibilitat</th></tr></thead>
+            <tbody>
+              <tr><td>Mesa rectangular estàndard</td><td>4–6 persones</td><td>No accessible (bancs units)</td></tr>
+              <tr><td>Mesa hexagonal</td><td>6 persones</td><td>No accessible</td></tr>
+              <tr><td>Mesa accessible (extrem obert)</td><td>4 + 1 cadira de rodes</td><td>✅ Accessible</td></tr>
+              <tr><td>Mesa accessible (central)</td><td>2 + 2 cadires de rodes</td><td>✅ Totalment accessible</td></tr>
+              <tr><td>Mesa de formigó (fixa)</td><td>4–6 persones</td><td>Varia segons model</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Materials per a entorns exteriors</h2>
+          <h3>Fusta tractada en autoclau (classe IV)</h3>
+          <p>La solució estàndard per a àrees forestals i entorns naturals. La impregnació en autoclau garanteix la protecció contra fongs i insectes. Cal verificar que el tractament és lliure de crom i arsènic (norma europea de biocides). Vida útil de 15–20 anys amb revisió anual de cargols i juntures.</p>
+
+          <h3>Fusta de robínia</h3>
+          <p>Per a instal·lacions de qualitat premium en entorns naturals. No necessita tractament químic i la seva durabilitat natural supera els 25 anys. Recomanable per a municipis amb compromís de sostenibilitat ambiental.</p>
+
+          <h3>Acer galvanitzat (estructura) + fusta o PRFV (tauler)</h3>
+          <p>Estructura metàl·lica d'alta durabilitat amb superfície de contacte en fusta o plàstic reciclat. El tauler es pot substituir sense canviar l'estructura, reduint el cost de reposició.</p>
+
+          <h3>Formigó armat</h3>
+          <p>Solució de màxima durabilitat i resistència al vandalisme. Pes elevat (200–400 kg) que fa innecessari l'ancoratge en molts casos. Ideal per a zones d'alta afluència. L'inconvenient és la dificultat de reubicació.</p>
+
+          <h2>Accessibilitat: requisits mínims</h2>
+          <p>En zones de pícnic de nova creació o rehabilitació, almenys el <strong>10% de les taules</strong> han de ser accessibles per a cadires de rodes. Una taula accessible ha de complir:</p>
+          <ul>
+            <li>Alçada de la taula: entre <strong>75 i 80 cm</strong></li>
+            <li>Espai lliure sota la taula: ≥ 70 cm d'alçada i ≥ 60 cm de fondària (per als genolls)</li>
+            <li>Amplada d'aproximació lateral: ≥ 80 cm lliures a un dels extrems o costats</li>
+            <li>Superfície adjacent: paviment ferm i anivellat</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>Consell per a zones forestals:</strong> Trieu models amb peus rodons o sense arestes tallants al nivell del terra per a reduir el risc de relliscades. En zones on la humitat del sòl és alta, opteu per peus d'acer galvanitzat amb ancoratge en formigó en comptes de peus de fusta en contacte directe amb el sòl.</p>
+          </div>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card cta-card">
+            <h3>Fabricants de meses?</h3>
+            <p>Posicioneu-vos com a referència en meses de pícnic per a parcs municipals de Catalunya.</p>
+            <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Ser partner exclusiu</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Productes relacionats</h3>
+            <ul class="related-list">
+              <li><a href="/productes/bancs">Bancs Urbans</a></li>
+              <li><a href="/productes/fonts-i-bebedors">Fonts i Bebedors</a></li>
+              <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
+              <li><a href="/guia/parcs-infantils">Guia Planificació Parcs</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+</style>

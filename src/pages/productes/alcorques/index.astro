@@ -1,0 +1,114 @@
+---
+export const prerender = true;
+import Layout from '../../../layouts/Layout.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
+    { '@type': 'ListItem', position: 2, name: 'Productes', item: 'https://mobiliariurba.cat/productes' },
+    { '@type': 'ListItem', position: 3, name: 'Alcorques', item: 'https://mobiliariurba.cat/productes/alcorques' },
+  ],
+});
+---
+
+<Layout
+  title="Alcorques i Protectors d'Arbres per a Municipis"
+  description="Alcorques per a arbres en zones urbanes: materials, ventilació, drenatge i accessibilitat. Fosa, acer i formigó. Tapes anti-lliscament i sistemes de creixement radicular. Catalunya."
+  jsonLd={jsonLd}
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inici</a><span>/</span>
+        <a href="/productes">Productes</a><span>/</span>
+        <span>Alcorques</span>
+      </nav>
+      <h1>Alcorques i Protectors d'Arbres</h1>
+      <p>Elements de protecció i delimitació de la zona d'arrel per a arbres en zones urbanes pavimentades. Un alcorque ben dissenyat millora la supervivència de l'arbre, la infiltració d'aigüa i la seguretat de vianants.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <article class="prose">
+
+          <h2>Tipus d'alcorques</h2>
+          <table>
+            <thead><tr><th>Tipus</th><th>Material</th><th>Ventilació/Drenatge</th><th>Ús recomanat</th></tr></thead>
+            <tbody>
+              <tr><td>Alcorque de reixa plana</td><td>Fosa de ferro</td><td>Alta</td><td>Voreres estretes, zones comercials</td></tr>
+              <tr><td>Alcorque de reixa elevada</td><td>Fosa / acer</td><td>Molt alta</td><td>Arbres madurs, gran producció de fulles</td></tr>
+              <tr><td>Alcorque de formigó prefabricat</td><td>Formigó + àrid vist</td><td>Baixa (sense reixa)</td><td>Zones de disseny, espais representatius</td></tr>
+              <tr><td>Alcorque flexible (caucho reciclat)</td><td>Cautxú</td><td>Mitjana</td><td>Zones de joc, àrees escolars</td></tr>
+              <tr><td>Sistema de substrat estructural</td><td>Mòduls plàstic + àrid</td><td>Alta (subsuperficial)</td><td>Nous plantaments, trànsit vehicle</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Dimensions recomanades</h2>
+          <p>Les dimensions de l'alcorque han de tenir en compte el creixement futur de l'arbre. Les recomanacions de l'Associació Internacional d'Arboricultura:</p>
+          <ul>
+            <li>Mida mínima per a arbres de voreres estretes: <strong>100 × 100 cm</strong></li>
+            <li>Mida recomanada per a arbres de places i passeigs: <strong>150 × 150 cm o 200 × 100 cm</strong></li>
+            <li>Profunditat mínima de sòl disponible: <strong>60 cm</strong> (idealment 90–120 cm)</li>
+            <li>Volum mínim de sòl per a arbre de mida gran: ≥ 12 m³</li>
+          </ul>
+
+          <h2>Materials i acabats</h2>
+          <h3>Fosa de ferro</h3>
+          <p>La solució de major durabilitat (> 50 anys). Les reixes de fosa s'entreguen sense pintar (fosa grisa) o amb imprimació anti-oxidació. S'han d'ancorar al marc perimetral per evitar el robatori (habitual per al seu reciclatge com a ferralla).</p>
+
+          <h3>Acer galvanitzat</h3>
+          <p>Alternativa de pes més reduït i acabat més net. La galvanització en calent (> 85 μm) garanteix una durabilitat de 20–25 anys. Es pot pintar en RAL per a integració cromàtica amb el mobiliari urbà existent.</p>
+
+          <h3>Formigó prefabricat</h3>
+          <p>Solució estètica per a espais representatius. Permet acabats decoratius (àrid vist, color). L'inconvenient és el poc drenatge: cal preveure forats de ventilació o un sistema de drenatge perimetral.</p>
+
+          <h2>Accessibilitat i seguretat</h2>
+          <ul>
+            <li>La tapa no pot sobresortir del paviment en més de <strong>20 mm</strong> (risc de caiguda)</li>
+            <li>Tapes anti-lliscament: coeficient de fregament mínim 0,6 en superfície humida (EN 1342)</li>
+            <li>Les reixes no han de tenir obertures que puguin atrapar talons o bastons (obertura màxima: 18 mm en el sentit de la marxa)</li>
+          </ul>
+
+          <div class="info-box">
+            <p><strong>Sistemes de creixement radicular:</strong> En nous plantaments sota paviment, els sistemes de mòduls estructurats (Silva Cell, Stratacell o similars) permeten crear un volum de sòl gran sota la vorera, millorant la supervivència de l'arbre i reduint els costos de manteniment del paviment per aixecaments de l'arrel a llarg termini.</p>
+          </div>
+
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-card cta-card">
+            <h3>Fabricants d'alcorques?</h3>
+            <p>Posicioneu-vos com a referència en protecció arbòria urbana per a municipis de Catalunya.</p>
+            <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Ser partner exclusiu</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Productes relacionats</h3>
+            <ul class="related-list">
+              <li><a href="/productes/bancs">Bancs Urbans</a></li>
+              <li><a href="/productes/pilones-i-bolards">Pilones i Bolards</a></li>
+              <li><a href="/productes/papereres">Papereres</a></li>
+              <li><a href="/productes/jocs-infantils">Jocs Infantils</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-grid { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 88px; }
+  .sidebar-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; }
+  .sidebar-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-primary-dark); }
+  .cta-card { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .cta-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.5; }
+  .related-list li { margin-bottom: 0.4rem; }
+  .related-list a { font-size: 0.85rem; color: var(--color-primary); }
+  .related-list a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } }
+</style>
