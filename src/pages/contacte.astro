@@ -33,29 +33,48 @@ import Layout from '../layouts/Layout.astro';
           </ul>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <div data-fs-success class="form-success" style="display:none">
+          <span class="success-icon">✓</span>
+          <strong>Missatge enviat correctament!</strong>
+          <p>Us respondrem en menys de 24 hores laborables.</p>
+        </div>
+        <div data-fs-error class="form-error-global" style="display:none">
+          <span>Hi ha hagut un error en enviar el formulari. Torneu-ho a intentar o escriviu-nos a <a href="mailto:info@mobiliariurba.cat">info@mobiliariurba.cat</a>.</span>
+        </div>
+
+        <form id="contact-form" class="contact-form">
           <div class="form-group">
             <label for="nom">Nom i cognoms *</label>
-            <input type="text" id="nom" name="nom" required />
+            <input type="text" id="nom" name="nom" data-fs-field required />
+            <span data-fs-error="nom" class="field-error"></span>
           </div>
           <div class="form-group">
             <label for="email">Correu electrònic *</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" data-fs-field required />
+            <span data-fs-error="email" class="field-error"></span>
           </div>
           <div class="form-group">
             <label for="telefon">Telèfon</label>
-            <input type="tel" id="telefon" name="telefon" />
+            <input type="tel" id="telefon" name="telefon" data-fs-field />
+            <span data-fs-error="telefon" class="field-error"></span>
           </div>
           <div class="form-group">
             <label for="organitzacio">Organització / Municipi</label>
-            <input type="text" id="organitzacio" name="organitzacio" />
+            <input type="text" id="organitzacio" name="organitzacio" data-fs-field />
           </div>
           <div class="form-group">
             <label for="missatge">Missatge *</label>
-            <textarea id="missatge" name="missatge" rows="5" required></textarea>
+            <textarea id="missatge" name="missatge" rows="5" data-fs-field required></textarea>
+            <span data-fs-error="missatge" class="field-error"></span>
           </div>
-          <button type="submit" class="btn-submit">Enviar missatge</button>
+          <button type="submit" class="btn-submit" data-fs-submit-btn>Enviar missatge</button>
         </form>
+
+        <script>
+          window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+          formspree('initForm', { formElement: '#contact-form', formId: 'mwvygbye' });
+        </script>
+        <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
       </div>
     </div>
   </section>
@@ -88,5 +107,20 @@ import Layout from '../layouts/Layout.astro';
     cursor: pointer; transition: background 0.2s;
   }
   .btn-submit:hover { background: var(--color-primary-dark); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .field-error { display: block; font-size: 0.8rem; color: #dc2626; margin-top: 0.25rem; min-height: 1rem; }
+  input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #dc2626; }
+  .form-success {
+    background: #f0fdf4; border: 1px solid #86efac; border-radius: var(--radius-lg);
+    padding: 1.5rem; text-align: center; color: #166534;
+  }
+  .success-icon { display: block; font-size: 2rem; margin-bottom: 0.5rem; }
+  .form-success strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+  .form-success p { font-size: 0.9rem; margin: 0; color: #166534; }
+  .form-error-global {
+    background: #fef2f2; border: 1px solid #fca5a5; border-radius: var(--radius);
+    padding: 1rem; font-size: 0.9rem; color: #991b1b; margin-bottom: 1rem;
+  }
+  .form-error-global a { color: #991b1b; text-decoration: underline; }
   @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
 </style>
