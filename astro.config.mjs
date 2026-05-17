@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [react(), keystatic()],
   adapter: vercel(),
   output: 'server',
+  trailingSlash: 'never',
   site: 'https://mobiliariurba.cat',
   redirects: {
     '/productes/meses-de-picnic': { status: 301, destination: '/productes/taules-de-picnic' },

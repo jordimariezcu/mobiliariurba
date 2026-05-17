@@ -9,7 +9,7 @@ const projectes = await reader.collections.projectes.all();
 const sorted = [...projectes].sort((a, b) => (b.entry.any || 0) - (a.entry.any || 0));
 ---
 
-<Layout title="Projectes" description="Projectes realitzats de mobiliari urbà per a municipis i empreses de Catalunya.">
+<Layout title="Projectes" description="Projectes realitzats de mobiliari urbà per a municipis i empreses de Catalunya." noIndex={sorted.length === 0}>
   <div class="page-header">
     <div class="container">
       <h1>Projectes</h1>
