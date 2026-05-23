@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="info-list">
             <li>
               <span class="icon">✉</span>
-              <a href="mailto:info@mobiliariurba.cat">info@mobiliariurba.cat</a>
+              <a href="mailto:info@mobiliariurba.cat" data-umami-event="email-click">info@mobiliariurba.cat</a>
             </li>
             <li>
               <span class="icon">🌐</span>
@@ -71,13 +71,27 @@ import Layout from '../layouts/Layout.astro';
         </form>
 
         <script>
-          window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-          formspree('initForm', { formElement: '#contact-form', formId: 'mwvygbye' });
+          (window as any).formspree = (window as any).formspree || function () { ((window as any).formspree.q = (window as any).formspree.q || []).push(arguments); };
+          (window as any).formspree('initForm', { formElement: '#contact-form', formId: 'mwvygbye' });
         </script>
         <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
       </div>
     </div>
   </section>
+
+<script>
+  const successEl = document.querySelector('[data-fs-success]');
+  if (successEl) {
+    new MutationObserver(() => {
+      if ((successEl as HTMLElement).style.display !== 'none') {
+        if (typeof (window as any).umami !== 'undefined') {
+          (window as any).umami.track('form-enviat');
+        }
+      }
+    }).observe(successEl, { attributes: true, attributeFilter: ['style'] });
+  }
+</script>
+
 </Layout>
 
 <style>
