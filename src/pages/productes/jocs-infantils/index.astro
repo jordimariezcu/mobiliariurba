@@ -244,6 +244,54 @@ const subcategories = [
     </div>
   </section>
 
+  <!-- Com triar equipaments -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Com triar els equipaments per al vostre parc</h2>
+      <p class="section-subtitle">Cinc criteris que tot tècnic municipal ha de considerar abans de signar una comanda.</p>
+      <div class="criteris-grid">
+        {[
+          {
+            num: '01',
+            title: 'Grup d\'edat dels usuaris',
+            desc: 'Definiu les franges d\'edat del barri o zona. Un parc de zona residencial amb moltes famílies joves necessita elements de bressol (0–3 anys) i estructures de 3–7 anys. Un parc proper a un institut necessita cal·listènia i elements de repte per a adolescents.',
+          },
+          {
+            num: '02',
+            title: 'Superfície disponible i zones de seguretat',
+            desc: 'Cada element té una zona de caiguda obligatòria (EN1176). Un gronxador de 2 m d\'alçada de suspensió necessita 4 m per davant, 4 m per darrere i 2 m als costats. Calculeu les zones de seguretat ABANS de triar els elements, no després.',
+          },
+          {
+            num: '03',
+            title: 'Durabilitat i cost de manteniment',
+            desc: 'La fusta de robínia dura > 25 anys sense tractament però té cost inicial alt. L\'acer galvanitzat és més econòmic i modular. El PEHD (plàstic reciclat) és ideal per a entorns costaners o zones molt humides. Demaneu sempre el cost estimat de la inspecció anual EN1176-7.',
+          },
+          {
+            num: '04',
+            title: 'Accessibilitat universal',
+            desc: 'El Codi d\'Accessibilitat de Catalunya (Decret 135/1995) obliga a disposar d\'almenys un element accessible per cadira de rodes per parc, amb itinerari accessible. Els elements inclusius moderns integren experiències sensorials i motrius per a tots els nens.',
+          },
+          {
+            num: '05',
+            title: 'Documentació CE completa',
+            desc: 'Exigiu al proveïdor: Declaració de Conformitat CE, informe d\'assaig d\'un laboratori acreditat ENAC (TÜV, AENOR, Bureau Veritas), manual d\'instal·lació, manual d\'inspecció i plànol de zones de seguretat. Sense aquests 5 documents, no accepteu l\'equipament.',
+          },
+        ].map(c => (
+          <div class="criteri-card">
+            <span class="criteri-num">{c.num}</span>
+            <div>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="section-cta">
+        <a href="/blog/equipaments-parcs-infantils-municipis" class="btn btn-outline">Llegir la guia completa de selecció d'equipaments →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Partner -->
   <section class="section cta-partner">
     <div class="container">
@@ -283,6 +331,12 @@ const subcategories = [
   .faq-item summary::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); flex-shrink: 0; margin-left: 1rem; }
   .faq-item[open] summary::after { content: '−'; }
   .faq-item p { margin-top: 0.75rem; font-size: 0.9rem; color: var(--color-muted); line-height: 1.7; }
+
+  .criteris-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .criteri-card { display: flex; gap: 1.25rem; align-items: flex-start; background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; }
+  .criteri-num { background: var(--color-primary); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .criteri-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--color-primary-dark); }
+  .criteri-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.6; margin: 0; }
 
   .cta-partner { background: var(--color-primary); color: white; }
   .cta-box { text-align: center; max-width: 640px; margin: 0 auto; }

@@ -27,12 +27,43 @@ const jsonLd = JSON.stringify([
       { '@type': 'Thing', name: 'Seguretat parcs infantils' },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'La normativa EN1176 és obligatòria a Catalunya?',
+        acceptedAnswer: { '@type': 'Answer', text: 'La EN1176 no és una llei directament aplicable, però és d\'aplicació presumptiva: si un producte compleix la EN1176, es presumeix que compleix el Reial Decret 1801/2003. Tot equipament de joc infantil instal·lat en espais públics ha de tenir marcatge CE, que implica complir la EN1176. Sense marcatge CE, l\'equipament no pot instal·lar-se legalment.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quina diferència hi ha entre EN1176 i EN1177?',
+        acceptedAnswer: { '@type': 'Answer', text: 'La EN1176 regula la seguretat dels elements de joc (gronxadors, tobogans, estructures). La EN1177 regula les superfícies amortidores que han de col·locar-se sota els elements per absorbir l\'impacte en cas de caiguda. Ambdues normes s\'apliquen conjuntament: no n\'hi ha prou amb tenir un element EN1176 si la superfície sota seu no compleix la EN1177.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Cada quan s\'ha d\'inspeccionar un parc infantil?',
+        acceptedAnswer: { '@type': 'Answer', text: 'La EN1176-7 estableix tres nivells: inspecció visual rutinària (setmanal o cada 1-3 mesos depenent de l\'ús), inspecció operativa (cada 1-3 mesos), i inspecció principal anual realitzada per un tècnic extern qualificat. L\'ajuntament ha de mantenir un registre escrit de totes les inspeccions.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Qui és responsable si un nen es fa mal en un parc municipal?',
+        acceptedAnswer: { '@type': 'Answer', text: 'La responsabilitat recau sobre el titular de la instal·lació, és a dir, l\'ajuntament. La EN1176-7 exigeix un programa de manteniment i inspecció documentat. Si l\'ajuntament pot demostrar que ha mantingut el programa d\'inspeccions, la responsabilitat es redueix significativament. Sense registres d\'inspecció, la presumpció de negligència és molt difícil de rebatre davant d\'un jutge.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quins documents cal exigir al proveïdor d\'un joc infantil?',
+        acceptedAnswer: { '@type': 'Answer', text: '5 documents obligatoris: (1) Declaració de Conformitat CE, (2) Informe d\'assaig d\'un laboratori acreditat ENAC (TÜV, AENOR, Bureau Veritas), (3) Manual d\'instal·lació, (4) Manual d\'inspecció i manteniment, (5) Plànol de zones de seguretat. Sense aquests documents, l\'ajuntament no hauria d\'acceptar l\'equipament.' },
+      },
+    ],
+  },
 ]);
 ---
 
 <Layout
   title="Normativa EN1176 per a Tècnics Municipals"
-  description="La normativa EN1176 explicada pas a pas: les 8 parts, requisits de seguretat, els 5 documents obligatoris al proveïdor i la responsabilitat legal de l'ajuntament en cas d'accident."
+  description="Normativa EN1176 explicada per a tècnics municipals: les 8 parts, requisits de seguretat, documents obligatoris al proveïdor, responsabilitat legal de l'ajuntament i programa de manteniment preventiu."
   ogType="article"
   jsonLd={jsonLd}
 >
@@ -144,6 +175,34 @@ const jsonLd = JSON.stringify([
           <li>Empreses de manteniment d'espais públics amb tècnics certificats EN1176-7</li>
         </ul>
 
+        <h2 id="manteniment">Programa de manteniment preventiu recomanat</h2>
+        <p>La EN1176-7 estableix tres nivells d'inspecció. Aquí teniu un model de programa per a municipis petits i mitjans:</p>
+        <table>
+          <thead><tr><th>Freqüència</th><th>Tipus</th><th>Qui ho fa</th><th>Registre</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Setmanal</strong></td><td>Visual rutinària (vandalisme, fragments, elements mòbils)</td><td>Tècnic municipal o brigada</td><td>Fitxa simple</td></tr>
+            <tr><td><strong>Trimestral</strong></td><td>Operativa (cargols, peces desgastades, ancoratges)</td><td>Tècnic municipal o empresa</td><td>Informe breu</td></tr>
+            <tr><td><strong>Anual</strong></td><td>Principal (inspecció completa EN1176-7)</td><td>Tècnic extern acreditat</td><td>Informe formal</td></tr>
+          </tbody>
+        </table>
+        <div class="info-box">
+          <p><strong>Consell pràctic:</strong> Creeu una carpeta física o digital per parc amb tots els documents: Declaració CE, manual de l'instal·lador, registres d'inspecció i fotografies. Si en 10 anys arriba una reclamació judicial, tindreu la prova que heu complert amb les vostres obligacions.</p>
+        </div>
+
+        <h2 id="faq">Preguntes freqüents</h2>
+
+        <h3>La normativa EN1176 és obligatòria a Catalunya?</h3>
+        <p>La EN1176 no és una llei directament aplicable, però és d'<strong>aplicació presumptiva</strong>: tot equipament de joc infantil instal·lat en espais públics ha de tenir marcatge CE, el qual implica complir la EN1176. Sense marcatge CE, l'equipament no pot instal·lar-se legalment a la Unió Europea.</p>
+
+        <h3>Quina diferència hi ha entre EN1176 i EN1177?</h3>
+        <p>La EN1176 regula els <strong>elements de joc</strong> (gronxadors, tobogans, estructures). La EN1177 regula les <strong>superfícies amortidores</strong> que han de col·locar-se sota els elements per absorbir l'impacte en cas de caiguda. Les dues normes s'apliquen conjuntament: no n'hi ha prou amb tenir un element EN1176 si la superfície sota seu no compleix la EN1177.</p>
+
+        <h3>Pot un ajuntament instal·lar equipament de segona mà?</h3>
+        <p>Sí, però amb condicions. L'equipament de segona mà ha de superar una inspecció completa per un tècnic acreditat que certifiqui que compleix la EN1176 vigent. L'ajuntament ha d'obtenir la Declaració de Conformitat original. Si no es pot acreditar el compliment, instal·lar-lo és un risc legal inacceptable.</p>
+
+        <h3>Quant costa una inspecció principal EN1176-7?</h3>
+        <p>Per a un parc de barri estàndard (4–8 elements), la inspecció principal anual sol costar entre <strong>300 i 700 euros</strong> a Catalunya. El cost és proporcional al nombre d'elements i la complexitat de la instal·lació. Inclou informe formal i, en molts casos, fotografies documentals.</p>
+
       </article>
 
       <aside class="guia-sidebar">
@@ -156,6 +215,8 @@ const jsonLd = JSON.stringify([
             <li><a href="#documents">Documents obligatoris</a></li>
             <li><a href="#responsabilitat">Responsabilitat municipal</a></li>
             <li><a href="#inspectors">Inspectors acreditats</a></li>
+            <li><a href="#manteniment">Manteniment preventiu</a></li>
+            <li><a href="#faq">Preguntes freqüents</a></li>
           </ol>
         </div>
         <div class="sidebar-card cta-card">
