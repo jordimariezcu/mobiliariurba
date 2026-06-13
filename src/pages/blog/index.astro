@@ -7,7 +7,7 @@ const allEntries = await getCollection('blog');
 const posts = allEntries
   .map(entry => {
     const fm = entry.data as any;
-    const slug = (entry as any).slug ?? entry.id.replace(/\.mdx$/, '');
+    const slug = (entry as any).slug ?? entry.id.replace(/\.(md|mdx)$/, '');
     const titol = typeof fm.titol === 'object' ? fm.titol.value : String(fm.titol ?? '');
     return {
       slug,

@@ -6,7 +6,7 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
   return entries.map(entry => ({
-    params: { slug: (entry as any).slug ?? entry.id.replace(/\.mdx$/, '') },
+    params: { slug: (entry as any).slug ?? entry.id.replace(/\.(md|mdx)$/, '') },
     props: { entry },
   }));
 }
@@ -25,12 +25,12 @@ const { Content } = await render(entry);
 
 const allEntries = await getCollection('blog');
 const altresPosts = allEntries
-  .filter(e => ((e as any).slug ?? e.id.replace('.mdx', '')) !== slug)
+  .filter(e => ((e as any).slug ?? e.id.replace(/\.(md|mdx)$/, '')) !== slug)
   .slice(0, 4)
   .map(e => {
     const d = e.data as any;
     return {
-      slug: (e as any).slug ?? e.id.replace('.mdx', ''),
+      slug: (e as any).slug ?? e.id.replace(/\.(md|mdx)$/, ''),
       titol: typeof d.titol === 'object' ? d.titol.value : String(d.titol ?? ''),
       categoria: d.categoria ?? '',
     };
