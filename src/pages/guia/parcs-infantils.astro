@@ -9,30 +9,76 @@ const jsonLd = JSON.stringify([
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Inici', item: 'https://mobiliariurba.cat' },
       { '@type': 'ListItem', position: 2, name: 'Guies', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
-      { '@type': 'ListItem', position: 3, name: 'Planificar un Parc Infantil', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
+      { '@type': 'ListItem', position: 3, name: 'Equipaments per a Parcs Infantils', item: 'https://mobiliariurba.cat/guia/parcs-infantils' },
     ],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: 'Guia Completa per Planificar un Parc Infantil a Catalunya',
-    description: 'Guia tècnica completa per a tècnics municipals i arquitectes sobre com planificar, equipar i mantenir un parc infantil a Catalunya: normativa EN1176, materials, superfícies amortidores, manteniment, pressupost i subvencions.',
+    headline: 'Equipaments per a Parcs Infantils: Guia Tècnica per a Municipis Catalans',
+    description: 'Guia tècnica completa sobre equipaments per a parcs infantils: tipologies, normativa EN1176, materials, superfícies amortidores (EN1177), pressupost orientatiu i subvencions per a municipis de Catalunya.',
     url: 'https://mobiliariurba.cat/guia/parcs-infantils',
     inLanguage: 'ca-ES',
     author: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
     publisher: { '@type': 'Organization', name: 'MobiliariUrbà.cat', url: 'https://mobiliariurba.cat' },
     about: [
-      { '@type': 'Thing', name: 'Jocs infantils' },
+      { '@type': 'Thing', name: 'Equipaments per a parcs infantils' },
+      { '@type': 'Thing', name: 'Jocs infantils municipals' },
       { '@type': 'Thing', name: 'Normativa EN1176' },
-      { '@type': 'Thing', name: 'Parcs infantils Catalunya' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quins equipaments necessita un parc infantil a Catalunya?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Un parc infantil complet inclou estructures de joc (torres multijoc, tobogans), gronxadors, balancins, elements inclusius accessibles i zones diferenciades per grup d\'edat (0–3 anys i 3–12 anys). Tots els equipaments han de tenir marcatge CE i complir la normativa EN1176.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quant costa equipar un parc infantil municipal a Catalunya?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'El cost orientatiu d\'un parc de barri bàsic oscil·la entre 20.000 i 55.000 € (sense IVA ni obra civil). Un parc complet de 200–400 m² pot costar entre 55.000 i 120.000 €. Cal sumar el paviment amortidor (cautxú: 80–140 €/m²) i la instal·lació (15–25% del material).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quina normativa s\'aplica als equipaments de parcs infantils?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'La normativa principal és la EN1176 (parts 1–7), que regula la seguretat de tots els equipaments de joc. La EN1177 estableix els requisits de les superfícies amortidores. A Catalunya, el Decret 135/1995 obliga a incloure elements accessibles en els nous espais de joc.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quin material és millor per als equipaments de parcs infantils?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'La fusta de robínia és la millor opció natural (25+ anys de durabilitat sense tractaments químics). L\'acer galvanitzat en calent és ideal per a zones d\'alta afluència. El PEHD (polietilè) s\'utilitza per a panells i tobogans. La majoria de parcs combinen fusta i acer per obtenir el millor resultat.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Hi ha subvencions per a equipaments de parcs infantils a Catalunya?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí. Els municipis catalans poden accedir al PUOSC de la Diputació corresponent, als fons Next Generation EU (espais verds i accessibles) i als fons FEDER per a zones d\'objectiu. Cal consultar les convocatòries vigents de l\'Àrea de Cooperació Local de la Diputació.',
+        },
+      },
     ],
   },
 ]);
 ---
 
 <Layout
-  title="Planificar un Parc Infantil: Guia Tècnica Completa"
-  description="Guia tècnica per a tècnics municipals: normativa EN1176, materials, superfícies amortidores (EN1177), manteniment, pressupost orientatiu i subvencions per a parcs infantils a Catalunya."
+  title="Equipaments per a Parcs Infantils: Guia per a Municipis Catalans"
+  description="Guia tècnica sobre equipaments per a parcs infantils: tipologies, normativa EN1176, materials, superfícies amortidores (EN1177), pressupost i subvencions per a municipis de Catalunya."
   ogType="article"
   jsonLd={jsonLd}
 >
@@ -40,13 +86,14 @@ const jsonLd = JSON.stringify([
     <div class="container">
       <nav class="breadcrumb">
         <a href="/">Inici</a><span>/</span>
-        <span>Guia Parcs Infantils</span>
+        <span>Guia Equipaments Parcs Infantils</span>
       </nav>
       <span class="badge badge-blue" style="margin-bottom:0.75rem;">Guia Tècnica</span>
-      <h1>Guia Completa per Planificar un Parc Infantil</h1>
-      <p>Tot el que necessita saber un tècnic municipal, arquitecte o gestor d'espais públics per dissenyar, equipar, legalitzar i mantenir un parc infantil a Catalunya.</p>
+      <h1>Equipaments per a Parcs Infantils: Guia per a Municipis</h1>
+      <p>Tot el que necessita saber un tècnic municipal, arquitecte o gestor d'espais públics per seleccionar, instal·lar i mantenir equipaments per a parcs infantils a Catalunya.</p>
       <div class="toc-inline">
         <span>En aquesta guia:</span>
+        <a href="#tipologies">Tipologies</a>
         <a href="#que-necessites">Necessitats</a>
         <a href="#normativa">Normativa</a>
         <a href="#materials">Materials</a>
@@ -54,6 +101,7 @@ const jsonLd = JSON.stringify([
         <a href="#manteniment">Manteniment</a>
         <a href="#pressupost">Pressupost</a>
         <a href="#subvencions">Subvencions</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </div>
@@ -64,7 +112,32 @@ const jsonLd = JSON.stringify([
       <!-- Contingut principal -->
       <article class="prose guia-content">
 
-        <h2 id="que-necessites">1. Anàlisi de necessitats prèvia</h2>
+        <h2 id="tipologies">1. Tipologies d'equipaments per a parcs infantils</h2>
+        <p>Els equipaments per a parcs infantils es classifiquen per tipologia funcional. Un parc ben planificat combina elements de diverses categories per atendre tots els grups d'edat i capacitats:</p>
+
+        <h3>Estructures de joc i torres multijoc</h3>
+        <p>El component central de qualsevol parc. Integren tobogans, ponts, escales de corda, panells didàctics i passarel·les en una sola estructura modular. Estan dissenyades per a nens de 3 a 12 anys i requereixen una zona de seguretat amortidora al voltant (EN1177). La mida s'adapta a l'espai disponible: de 30 m² per a urbanitzacions fins a més de 80 m² per a parcs municipals de referència.</p>
+
+        <h3>Gronxadors i balancins</h3>
+        <p>L'element de joc amb major demanda de totes les edats. Existeixen quatre variants principals:</p>
+        <ul>
+          <li><strong>Cadires de bressol</strong> (6 mesos–3 anys): seient tancat amb suport dorsal</li>
+          <li><strong>Gronxadors estàndard</strong> (3–14 anys): seient pla o de goma amb cadenes d'acer inoxidable</li>
+          <li><strong>Gronxadors adaptats</strong>: dissenyats per a nens amb cadira de rodes o mobilitat reduïda</li>
+          <li><strong>Gronxadors en niu</strong>: plataforma circular per a 2–4 nens, fomenten la socialització</li>
+        </ul>
+        <p>La zona de seguretat d'un gronxador és la més gran de tots els elements: mínim el doble de l'alçada de suspensió cap endavant i cap enrere.</p>
+
+        <h3>Tobogans independents</h3>
+        <p>Quan l'espai és limitat o es vol afegir varietat, els tobogans independents (no integrats en torre) ofereixen flexibilitat. S'agrupen per alçada: fins a 1,2 m per a nens menors de 3 anys; 1,2–2 m per a parcs de barri; i més de 2 m per a parcs grans. El material de la rampa (PEHD, acer inoxidable o galvanitzat) afecta la velocitat i la temperatura superficial en dies de sol.</p>
+
+        <h3>Equipaments inclusius</h3>
+        <p>El Codi d'Accessibilitat de Catalunya (Decret 135/1995) obliga que els nous espais de joc disposin d'almenys un element accessible per a cadira de rodes. Els equipaments inclusius moderns integren en una sola estructura panells de joc tàctil, sons, elements de balanceig de baix impacte i itineraris accessibles. Han d'estar integrats al centre del parc, no apartats. <a href="/productes/jocs-infantils/jocs-inclusius">Vegeu el catàleg de jocs inclusius →</a></p>
+
+        <h3>Elements complementaris</h3>
+        <p>Completen la proposta de valor del parc: sorrals, fonts d'aigua per a joc sensorial, túnels de gateteig, panells musicals o d'activitat, i elements de reptació i equilibri. Per a adolescents (grup sovint oblidat), les barres de cal·listènia i les taules de ping-pong exterior completen l'oferta. <a href="/blog/equipaments-parcs-infantils-municipis">Llegiu la guia completa de selecció d'equipaments →</a></p>
+
+        <h2 id="que-necessites">2. Anàlisi de necessitats prèvia</h2>
         <p>Abans de contactar cap proveïdor, el tècnic municipal ha de respondre quatre preguntes fonamentals que condicionaran tot el projecte:</p>
         <ul>
           <li><strong>A qui va destinat?</strong> El rang d'edat principal determina les alçades, els elements i les zones de seguretat. Un parc de 0–3 anys és radicalment diferent d'un de 6–12 anys.</li>
@@ -76,7 +149,7 @@ const jsonLd = JSON.stringify([
           <p><strong>Consell:</strong> Contacteu amb les AMPA de les escoles del barri i amb els serveis socials municipals abans de redactar el plec. Sovint hi ha necessitats no detectades (nens en cadira de rodes, nens amb TEA) que afectaran el disseny.</p>
         </div>
 
-        <h2 id="normativa">2. Marc normatiu a Catalunya</h2>
+        <h2 id="normativa">3. Marc normatiu a Catalunya</h2>
         <p>Els parcs infantils a Catalunya estan regulats per diverses normes que el tècnic municipal ha de conèixer:</p>
         <table>
           <thead><tr><th>Norma</th><th>Àmbit</th><th>Obligatorietat</th></tr></thead>
@@ -90,7 +163,7 @@ const jsonLd = JSON.stringify([
         </table>
         <p>La norma EN1176 és la més important. Estableix tots els requisits tècnics: dimensions mínimes d'obertures (per evitar atrapaments de cap), alçades màximes de caiguda, resistència estructural, ancoratges i procediments d'inspecció. <a href="/guia/normativa-en1176">Llegiu la nostra guia detallada sobre EN1176 →</a></p>
 
-        <h2 id="materials">3. Elecció de materials</h2>
+        <h2 id="materials">4. Elecció de materials</h2>
         <p>El material de l'estructura determina la durabilitat, el manteniment i el cost total del cicle de vida. Aquí teniu una comparativa dels quatre materials principals:</p>
 
         <h3>Fusta de Robínia — La millor opció natural</h3>
@@ -105,7 +178,7 @@ const jsonLd = JSON.stringify([
         <h3>PEHD (Polietilè d'Alta Densitat)</h3>
         <p>Plàstic tècnic utilitzat per a plataformes, panells, tobogans i elements de colors. Resistent als raigs UV, al vandalisme i a la humitat. Ecofriendly si és de material reciclat post-consum. Vida útil de 15–20 anys. <strong>Limitació:</strong> no estructural; s'utilitza sempre combinat amb acer o fusta per als elements portants.</p>
 
-        <h2 id="superficies">4. Superfícies de seguretat (EN1177)</h2>
+        <h2 id="superficies">5. Superfícies de seguretat (EN1177)</h2>
         <p>La superfície amortidora és tan important com l'equipament de joc. La norma EN1177 estableix l'alçada crítica de caiguda de cada element i la superfície mínima necessària per absorbir l'impacte.</p>
         <table>
           <thead><tr><th>Material</th><th>Alçada crítica màx.</th><th>Manteniment</th><th>Accessibilitat</th></tr></thead>
@@ -118,7 +191,7 @@ const jsonLd = JSON.stringify([
           </tbody>
         </table>
 
-        <h2 id="manteniment">5. Programa de manteniment obligatori</h2>
+        <h2 id="manteniment">6. Programa de manteniment obligatori</h2>
         <p>La norma EN1176-7 estableix tres nivells d'inspecció que l'ajuntament ha de documentar obligatòriament:</p>
 
         <h3>Inspecció visual rutinària (setmanal)</h3>
@@ -133,7 +206,7 @@ const jsonLd = JSON.stringify([
           <p><strong>Responsabilitat civil:</strong> En cas d'accident en un parc infantil municipal, l'ajuntament és responsable si no pot demostrar que seguia un programa d'inspecció documentat. L'informe anual d'un tècnic acreditat és la millor protecció legal.</p>
         </div>
 
-        <h2 id="pressupost">6. Orientació de pressupost</h2>
+        <h2 id="pressupost">7. Orientació de pressupost</h2>
         <p>Els preus varien molt en funció del material, la mida i la complexitat. Aquestes xifres són orientatives (IVA no inclòs, instal·lació no inclosa):</p>
         <table>
           <thead><tr><th>Element</th><th>Preu orientatiu</th></tr></thead>
@@ -149,7 +222,7 @@ const jsonLd = JSON.stringify([
           </tbody>
         </table>
 
-        <h2 id="subvencions">7. Subvencions i ajuts disponibles</h2>
+        <h2 id="subvencions">8. Subvencions i ajuts disponibles</h2>
         <p>Els ajuntaments catalans poden accedir a diverses línies de finançament per a la renovació o creació de parcs infantils:</p>
         <ul>
           <li><strong>Diputació de Barcelona (PUOSC):</strong> El Pla Únic d'Obres i Serveis de Catalunya finança inversions en espai públic per a municipis de menys de 50.000 habitants.</li>
@@ -159,6 +232,23 @@ const jsonLd = JSON.stringify([
         </ul>
         <p>Us recomanem contactar amb l'Àrea de Cooperació Local de la Diputació corresponent per identificar les convocatòries vigents abans de redactar el pressupost del projecte.</p>
 
+        <h2 id="faq">Preguntes freqüents sobre equipaments per a parcs infantils</h2>
+
+        <h3>Quins equipaments necessita un parc infantil a Catalunya?</h3>
+        <p>Un parc infantil complet necessita estructures de joc (torres multijoc amb tobogans), gronxadors (almenys un de cadira de bressol per als 0–3 anys), balancins, i un element inclusiu accessible per a nens amb mobilitat reduïda. Tots han de tenir marcatge CE i complir EN1176. La mida i el nombre d'elements depèn del públic objectiu i de la superfície disponible.</p>
+
+        <h3>Quant costa equipar un parc infantil municipal?</h3>
+        <p>El cost orientatiu d'un parc de barri bàsic és de 20.000–55.000 € (material, sense IVA ni obra civil). Un parc complet de 200–400 m² pot costar 55.000–120.000 €. Cal sumar el paviment amortidor (cautxú colat: 80–140 €/m²) i la instal·lació (15–25% del material). Consulteu la secció de <a href="#pressupost">pressupost orientatiu</a> per a detall per element.</p>
+
+        <h3>Quin material és millor per als equipaments de parcs infantils?</h3>
+        <p>La fusta de robínia és la millor opció natural (durabilitat 25+ anys sense tractaments tòxics, classe I EN350). L'acer galvanitzat en calent és ideal per a zones d'alta afluència i risc de vandalisme (20–30 anys de vida útil). La majoria de parcs de qualitat combinen ambdós materials. Eviteu fusta tractada amb compostos d'arsènic o crom.</p>
+
+        <h3>Quin és el procediment legal per instal·lar un parc infantil?</h3>
+        <p>Cal obtenir el certificat de conformitat CE de cada element del proveïdor, verificar que el disseny compleix EN1176, executar la instal·lació per personal qualificat, realitzar una inspecció de posada en servei (EN1176-7) i conservar tota la documentació. La responsabilitat civil recau sobre l'ajuntament si no es pot demostrar la conformitat normativa en cas d'accident.</p>
+
+        <h3>Hi ha subvencions per a equipaments de parcs infantils a Catalunya?</h3>
+        <p>Sí. Les principals fonts de finançament per als municipis catalans són: PUOSC (Diputació de Barcelona i altres), fons Next Generation EU (espais verds i accessibles) i fons FEDER per a zones d'objectiu. Les convocatòries canvien anualment. Consulteu l'Àrea de Cooperació Local de la vostra Diputació i llegiu la nostra <a href="/blog/subvencions-parc-infantil-catalunya">guia de subvencions per a parcs infantils</a>.</p>
+
       </article>
 
       <!-- Sidebar -->
@@ -166,6 +256,7 @@ const jsonLd = JSON.stringify([
         <div class="sidebar-card toc-card">
           <h3>Índex de continguts</h3>
           <ol class="toc-list">
+            <li><a href="#tipologies">Tipologies d'equipaments</a></li>
             <li><a href="#que-necessites">Anàlisi de necessitats</a></li>
             <li><a href="#normativa">Marc normatiu</a></li>
             <li><a href="#materials">Elecció de materials</a></li>
@@ -173,6 +264,7 @@ const jsonLd = JSON.stringify([
             <li><a href="#manteniment">Programa de manteniment</a></li>
             <li><a href="#pressupost">Orientació de pressupost</a></li>
             <li><a href="#subvencions">Subvencions disponibles</a></li>
+            <li><a href="#faq">Preguntes freqüents</a></li>
           </ol>
         </div>
         <div class="sidebar-card cta-card">
@@ -181,12 +273,13 @@ const jsonLd = JSON.stringify([
           <a href="/contacte" class="btn btn-primary" style="width:100%; text-align:center; margin-top:1rem;">Sol·licitar informació</a>
         </div>
         <div class="sidebar-card">
-          <h3>Guies relacionades</h3>
+          <h3>Guies i articles relacionats</h3>
           <ul class="related-list">
             <li><a href="/guia/normativa-en1176">Normativa EN1176 detallada</a></li>
+            <li><a href="/blog/equipaments-parcs-infantils-municipis">Guia de selecció d'equipaments</a></li>
+            <li><a href="/blog/subvencions-parc-infantil-catalunya">Subvencions per a parcs infantils</a></li>
             <li><a href="/productes/jocs-infantils">Catàleg jocs infantils</a></li>
             <li><a href="/productes/jocs-infantils/jocs-inclusius">Jocs inclusius</a></li>
-            <li><a href="/productes/jocs-infantils/gronxadors-i-balancins">Gronxadors</a></li>
           </ul>
         </div>
       </aside>
