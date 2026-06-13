@@ -1,55 +1,41 @@
 ---
 export const prerender = true;
 import Layout from '../../layouts/Layout.astro';
-import { createReader } from '@keystatic/core/reader';
-import keystaticConfig from '../../../keystatic.config';
 
-function getTitle(titol: any): string {
-  if (!titol) return '';
-  if (typeof titol === 'object' && 'value' in titol) return titol.value;
-  return String(titol);
-}
+const allMods = import.meta.glob('../../content/blog/*.mdx');
 
 export async function getStaticPaths() {
-  try {
-    const reader = createReader(process.cwd(), keystaticConfig);
-    const posts = await reader.collections.blog.all();
-    return posts.map((post: any) => ({ params: { slug: post.slug } }));
-  } catch {
-    return [];
-  }
+  const mods = import.meta.glob('../../content/blog/*.mdx');
+  return Object.keys(mods).map(path => ({
+    params: { slug: path.split('/').pop()!.replace('.mdx', '') },
+  }));
 }
 
 const { slug } = Astro.params;
+const modPath = `../../content/blog/${slug}.mdx`;
 
-let titol = '';
-let descripcio = '';
-let categoria = '';
-let data: string | null = null;
-let imatge: string | null = null;
-let Content: any = null;
-let altresPosts: { slug: string; titol: string; categoria: string }[] = [];
+if (!allMods[modPath]) return Astro.redirect('/blog');
 
-try {
-  const reader = createReader(process.cwd(), keystaticConfig);
-  const post = await reader.collections.blog.read(slug!);
-  if (!post) return Astro.redirect('/blog');
+const mod = await allMods[modPath]() as any;
+const fm = mod.frontmatter;
+const Content = mod.default;
 
-  titol = getTitle(post.titol);
-  descripcio = post.descripcio ?? '';
-  categoria = post.categoria ?? '';
-  data = post.data ?? null;
-  imatge = post.imatge ?? null;
-  Content = await post.contingut();
+const titol = typeof fm.titol === 'object' ? fm.titol.value : String(fm.titol ?? '');
+const descripcio = fm.descripcio ?? '';
+const categoria = fm.categoria ?? '';
+const data: string | null = fm.data ?? null;
+const imatge: string | null = fm.imatge ?? null;
 
-  const tots = await reader.collections.blog.all();
-  altresPosts = tots
-    .filter((p: any) => p.slug !== slug)
-    .map((p: any) => ({ slug: p.slug, titol: getTitle(p.entry.titol), categoria: p.entry.categoria ?? '' }))
-    .slice(0, 4);
-} catch {
-  return Astro.redirect('/blog');
-}
+const altresPosts = (await Promise.all(
+  Object.entries(allMods)
+    .filter(([p]) => p !== modPath)
+    .map(async ([p, load]) => {
+      const s = p.split('/').pop()!.replace('.mdx', '');
+      const m = await load() as any;
+      const t = typeof m.frontmatter.titol === 'object' ? m.frontmatter.titol.value : String(m.frontmatter.titol ?? '');
+      return { slug: s, titol: t, categoria: m.frontmatter.categoria ?? '' };
+    })
+)).slice(0, 4);
 
 const formattedDate = data
   ? new Date(data).toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' })
